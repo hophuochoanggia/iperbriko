@@ -1,0 +1,51 @@
+<div class="tw-bg-white tw-rounded-2xl tw-flex ">
+  <div class="m-8 py-14 text-neutral">
+    <div class="">
+      {% case icon %}
+        {% when 'icon-service-1' %}
+          {% render 'icon-service-1' %}
+        {% when 'icon-service-2' %}
+          {% render 'icon-service-2' %}
+        {% when 'icon-service-3' %}
+          {% render 'icon-service-3' %}
+        {% when 'icon-service-4' %}
+          {% render 'icon-service-4' %}
+        {% when 'icon-service-5' %}
+          {% render 'icon-service-5' %}
+        {% when 'icon-service-6' %}
+          {% render 'icon-service-6' %}
+        {% when 'icon-service-7' %}
+          {% render 'icon-service-7' %}
+        {%- else -%}
+          {% render 'icon-service-1' %}
+      {% endcase %}
+    </div>
+    <h2 class="text-blue">{{ title }}</h2>
+    <p class=" font-bold ">{{ description }}</p>
+    <div class="">{{ content }}</div>
+    <div class="font-bold">{{ extra_content }}</div>
+  </div>
+</div>
+
+<style>
+  .m-8 {
+    margin: 32px;
+  }
+
+  .py-14 {
+    margin-top: 40px;
+    margin-bottom: 56px;
+  }
+
+  .text-blue {
+    color: #2b5899;
+  }
+
+  .text-neutral {
+    color: #4a4a4a;
+  }
+
+  .font-bold {
+    font-weight: 700;
+  }
+</style>

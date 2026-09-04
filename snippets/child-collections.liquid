@@ -1,0 +1,55 @@
+{{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+<div class="page-width tw-mt-8 lg:tw-mt-16 color-{{ section.settings.color_scheme }} gradient">
+  <div class="collection-list-wrapper isolate">
+    <h2
+      id="SectionHeading-{{ section.id }}"
+      class="child-collection-list-title inline-richtext {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    >
+      {{- 'sections.child_collections.heading' | t -}}
+    </h2>
+
+    <slider-component class="tw-relative slider-mobile-gutter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <ul
+        class="with-scrollbar tw-pb-8 collection-list contains-card contains-card--collection{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid-scroll grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down slider slider--desktop slider--tablet grid--peek collection-list--{{ section.blocks.size }}-items"
+        id="Slider-{{ section.id }}"
+        role="list"
+      >
+        {%- for item in child_collections -%}
+          <li
+            id="Slide-{{ section.id }}-{{ forloop.index }}"
+            class="collection-list__item slider__slide {% if block.settings.collection.featured_image == nil %} collection-list__item--no-media{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: {{ forloop.index }};"
+            {% endif %}
+          >
+            {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
+            {%- assign placeholder_image = 'collection-apparel-' | append: placeholder_image_index -%}
+            {% render 'card-collection', card_collection: item, placeholder_image: placeholder_image %}
+          </li>
+        {%- endfor -%}
+      </ul>
+      <div class="slider-buttons no-js-hidden">
+        <button
+          type="button"
+          class="tw-absolute tw-left-0 tw-top-1/2 -tw-translate-y-1/2 slider-button slider-button--prev"
+          name="previous"
+          aria-label="{{ 'general.slider.previous_slide' | t }}"
+        >
+          {% render 'icon-slider-prev' %}
+        </button>
+        <button
+          type="button"
+          class="tw-absolute tw-right-0 tw-top-1/2 -tw-translate-y-1/2 slider-button slider-button--next"
+          name="next"
+          aria-label="{{ 'general.slider.next_slide' | t }}"
+        >
+          {% render 'icon-slider-next' %}
+        </button>
+      </div>
+    </slider-component>
+  </div>
+</div>

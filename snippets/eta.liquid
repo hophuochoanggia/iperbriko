@@ -1,0 +1,37 @@
+<div id="delivery-container" style="display: none;">
+  <p class="estimated-delivery">Spedizione prevista il: <strong id="delivery-date"></strong>.</p>
+
+  <script>
+        const eta = {{ product.metafields.custom.eta | default: undefined }};
+        if (eta) {
+        document.addEventListener('DOMContentLoaded', function () {
+          const deliveryDateDisplay = document.getElementById('delivery-date');
+          const deliveryContainer = document.getElementById('delivery-container');
+
+          if (eta > 0) {
+            function calculateEstimatedDelivery(eta) {
+              const today = new Date();
+              let deliveryDate = new Date(today);
+              let daysToAdd = eta + 1; // Add 1 to include the next day
+
+              while (daysToAdd > 0) {
+                deliveryDate.setDate(deliveryDate.getDate() + 1);
+
+                // Check if the next day is a weekend
+                if (deliveryDate.getDay() !== 0 && deliveryDate.getDay() !== 6) {
+                  daysToAdd--;
+                }
+              }
+
+              return deliveryDate.toLocaleDateString();
+            }
+
+            const estimatedDate = calculateEstimatedDelivery(eta);
+            deliveryDateDisplay.innerText = estimatedDate;
+
+            deliveryContainer.style.display = 'block';
+          }
+        });
+    }
+  </script>
+</div>

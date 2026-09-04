@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "main": {
+      "type": "sleep-assessment-quiz-form",
+      "settings": {
+        "heading": "Sleep assessment quiz",
+        "heading_size": "h1",
+        "description": "Explore the quality of your sleep through our in-depth sleep assessment quiz. Assess your sleep patterns, identify potential sleep-related problems, and gain valuable insights to enhance your overall sleep wellness.",
+        "quiz_description": "Take a sleep assessment quiz to see if you have sleep apnea and qualify for a sleep study.",
+        "download_description": "You can download this form and bring it to your doctor for consultation and sign-off.",
+        "button_quiz_label": "Start the Quiz",
+        "button_download_label": "Download referral",
+        "image_quiz": "shopify://shop_images/start-quiz.png",
+        "image_download": "shopify://shop_images/download-referral-form.png",
+        "padding_top": 80,
+        "padding_bottom": 120
+      }
+    }
+  },
+  "order": ["main"]
+}

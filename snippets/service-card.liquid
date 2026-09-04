@@ -1,0 +1,101 @@
+{% comment %}
+  Renders an article card for a given blog with settings to either show the image or not.
+
+  Accepts:
+  - blog: {Object} Blog object
+  - article: {Object} Article object
+  - media_aspect_ratio: {String} The setting changes the aspect ratio of the article image, if shown
+  - media_height: {String} The setting changes the height of the article image. Overrides media_aspect_ratio.
+  - show_image: {String} The setting either show the article image or not. If it's not included it will show the image by default
+  - show_date: {String} The setting either show the article date or not. If it's not included it will not show the image by default
+  - show_author: {String} The setting either show the article author or not. If it's not included it will not show the author by default
+  - show_badge: {String} The setting either show the blog badge or not.
+  - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+
+  Usage:
+  {% render 'article-card' blog: blog, article: article, show_image: section.settings.show_image %}
+{% endcomment %}
+
+{%- style -%}
+  #Banner-{{ section.id }}::after {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, {{image_overlay_opacity | divided_by: 100.0 }}) 50%,
+      rgba(0, 0, 0, 0)
+    );
+  }
+{%- endstyle -%}
+
+{%- if block and block != empty -%}
+  {%- liquid
+    assign ratio = 1
+    if media_aspect_ratio != null
+      assign ratio = media_aspect_ratio
+    endif
+  -%}
+
+  <div class="article-card-wrapper card-wrapper underline-links-hover">
+    <div
+      id="Banner-{{ block.id }}"
+      class="
+        banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}
+        {% if section.settings.stack_images_on_mobile and section.settings.image != blank %} banner--stacked{% endif %}
+        {% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}
+        {% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}
+        {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}  tw-h-[500px] tw-flex
+      "
+    >
+      {%- if block.settings.image != blank -%}
+        <div
+          class="
+            banner__media media
+            {% if block.settings.image == blank %} placeholder{% endif %}
+            {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}
+            tw-relative tw-rounded-2xl
+          "
+        >
+          <div
+            class="tw-bg-gradient-to-t tw-from-black tw-opacity-50 tw-absolute tw-left-0 tw-bottom-0 tw-rounded-2xl tw-z-[1]"
+          ></div>
+          {%- liquid
+            assign image_height = block.settings.image.width | divided_by: media_aspect_ratio
+            assign sizes = full_width
+          -%}
+          {{
+            block.settings.image
+            | image_url: width: 3840
+            | image_tag:
+              width: block.settings.image.width,
+              height: image_height,
+              sizes: sizes,
+              widths: widths,
+              fetchpriority: fetch_priority
+          }}
+        </div>
+      {%- endif -%}
+      <div
+        class=" banner__content--{{ block.settings.alignment }} scroll-trigger animate--slide-in tw-z-[2] "
+      >
+        <div class="tw-w-full tw-px-[35px] md:tw-p-10 tw-h-full tw-flex tw-flex-col tw-justify-end tw-pb-10">
+          <h3 class="tw-font-medium tw-text-lg tw-text-white">
+            {{ block.settings.heading | truncate: 70 | escape }}
+          </h3>
+          <div class="tw-flex tw-flex-col h5 tw-text-white">
+            <span>
+              {{ block.settings.description }}
+            </span>
+            <div class="tw-pt-3 h5 tw-text-white">
+              <a
+                href="{{ block.settings.url }}"
+                class="tw-flex tw-flex-row tw-gap-x-2"
+              >
+                {{ block.settings.cta_text }}
+                {% render 'icon-arrow' %}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}

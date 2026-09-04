@@ -1,0 +1,83 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {}
+    },
+    "8b387064-b941-4f69-ad36-66b6377d87ab": {
+      "type": "collection-list",
+      "blocks": {
+        "template--17009534468322__8b387064-b941-4f69-ad36-66b6377d87ab-featured_collection-3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "resmed-cpap-machine-mask-bundle-promotion"
+          }
+        },
+        "template--17009534468322__8b387064-b941-4f69-ad36-66b6377d87ab-featured_collection-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "cpap-machine-mask-bundle"
+          }
+        },
+        "template--17009534468322__8b387064-b941-4f69-ad36-66b6377d87ab-featured_collection-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "cpap-mask-cushion-bundle"
+          }
+        }
+      },
+      "block_order": [
+        "template--17009534468322__8b387064-b941-4f69-ad36-66b6377d87ab-featured_collection-3",
+        "template--17009534468322__8b387064-b941-4f69-ad36-66b6377d87ab-featured_collection-1",
+        "template--17009534468322__8b387064-b941-4f69-ad36-66b6377d87ab-featured_collection-2"
+      ],
+      "custom_css": [
+        "h2 {font-size: 18px;}"
+      ],
+      "settings": {
+        "title": "BLACK FRIDAY SEPCIAL OFFERS",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 3,
+        "image_ratio": "square",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "8b387064-b941-4f69-ad36-66b6377d87ab",
+    "product-grid"
+  ]
+}

@@ -1,0 +1,93 @@
+{% comment %}
+  Renders a megamenu for the header.
+
+  Usage:
+  {% render 'header-mega-menu' %}
+{% endcomment %}
+
+<nav id="header-mega-menu" class="header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- for block in section.blocks -%}
+      <li>
+        <header-menu>
+          <details
+            id="Details-HeaderMenu-{{ forloop.index }}"
+            class="mega-menu"
+          >
+            <summary
+              id="HeaderMenu-{{ block.settings.menu }}"
+              data-menu="{{ block.settings.menu }}"
+              class="header__menu-item list-menu__item link focus-inset"
+            >
+              {{ block.settings.icon }}
+              <span>
+                {{ block.settings.text | escape }}
+              </span>
+            </summary>
+            <div
+              id="MegaMenu-Content-{{ forloop.index }}"
+              class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup !tw-h-[650px] !tw-z-50"
+              tabindex="-1"
+            >
+              <div class="tw-w-full tw-max-w-[282px] tw-bg-neutral-2 tw-py-8">
+                <ul>
+                  {%- for link in block.settings.menu.links -%}
+                    <li
+                      class="mega-menu__item {% if forloop.first %}mega-menu__item-first{% endif %} {% if forloop.last %}mega-menu__item-last{% endif %} tw-pl-8 tw-pr-3 tw-py-3 tw-font-semibold tw-text-sm tw-leading-6 tw-text-neutral-5"
+                    >
+                      <a
+                        id="HeaderMenu-{{ link.handle }}"
+                        href="{{ link.url }}"
+                        {% if link.current %}
+                          aria-current="page"
+                        {% endif %}
+                      >
+                        {{ link.title }}
+                      </a>
+                      <div class="mega-menu__list-item tw-flex tw-flex-wrap tw-flex-col tw-h-full tw-gap-x-8 tw-gap-y-4 tw-p-8 tw-bg-neutral-1 tw-absolute tw-top-0 tw-left-[282px] tw-w-[calc(100%-282px)]">
+                        {% for childlink in link.links %}
+                          <div class="tw-inline-block tw-h-fit">
+                            <a
+                              id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                              href="{{ childlink.url }}"
+                              class="mega-menu__child-item mega-menu__link link {% if childlink.current %}mega-menu__link--active{% endif %} tw-inline-block tw-py-1 tw-font-semibold tw-text-sm tw-leading-6 tw-text-neutral-5"
+                              {% if childlink.current %}
+                                aria-current="page"
+                              {% endif %}
+                            >
+                              {{ childlink.title }}
+                            </a>
+                            {% if childlink.links.size > 0 %}
+                              <ul>
+                                {% for grandchildlink in childlink.links %}
+                                  <li
+                                    class="mega-menu__grandchild-item tw-py-1 tw-text-sm tw-leading-6 tw-text-neutral-4 tw-font-normal"
+                                  >
+                                    <a
+                                      id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                      href="{{ grandchildlink.url }}"
+                                      class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                      {% if grandchildlink.current %}
+                                        aria-current="page"
+                                      {% endif %}
+                                    >
+                                      {{- grandchildlink.title -}}
+                                    </a>
+                                  </li>
+                                {% endfor %}
+                              </ul>
+                            {% endif %}
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </div>
+          </details>
+        </header-menu>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

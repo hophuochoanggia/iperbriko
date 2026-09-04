@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "blogs",
+      "settings": {
+        "heading": "Benvenuto nel nostro blog!",
+        "description": "Scopri le ultime novità, gli approfondimenti e le guide di Iperbriko. Il tuo centro di casa, offline per i cittadini del Sannio, online per tutto il resto d'Europa.",
+        "columns_desktop": 3,
+        "blog": "news",
+        "padding_top": 100,
+        "padding_bottom": 200
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

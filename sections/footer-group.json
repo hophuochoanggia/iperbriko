@@ -1,0 +1,94 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "image_mBdRyY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/iperbriko_footer_logo.svg",
+            "image_width": 280,
+            "alignment": ""
+          }
+        },
+        "link_list_cCmV6r": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Azienda",
+            "menu": "footer-column-company-menu"
+          }
+        },
+        "link_list_fQcNqA": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Legale",
+            "menu": "footer-column-legal-menu"
+          }
+        },
+        "text_eDDqa9": {
+          "type": "text",
+          "settings": {
+            "heading": "Indirizzo",
+            "subtext": "<p>Contrada Varco - San Salvatore Telesino (BN)<\/p>"
+          }
+        },
+        "contact_MNerD6": {
+          "type": "contact",
+          "settings": {
+            "heading": "Contatti",
+            "phoneNumber": "+39 0824 974011",
+            "email": "info@iperbriko.it"
+          }
+        },
+        "opening_time_dTJLrn": {
+          "type": "openingTime",
+          "settings": {
+            "heading": "Orari di apertura:",
+            "weekdaysTitle": "<p>Lun-Sab:<\/p>",
+            "weekdaysMorningHours": "<p>9.00-13.00<\/p>",
+            "weekdaysAfternoonHours": "<p>15.30-20.00<\/p>",
+            "weekendTitle": "<p>Domenica<\/p>",
+            "weekendMorningHours": "<p>9.30-13.00<\/p>",
+            "weekendAfternoonHours": "<p>15.30-20.00<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "image_mBdRyY",
+        "link_list_cCmV6r",
+        "link_list_fQcNqA",
+        "text_eDDqa9",
+        "contact_MNerD6",
+        "opening_time_dTJLrn"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "newsletter_enable": false,
+        "newsletter_heading": "Iscriviti alla nostra newsletter",
+        "enable_follow_on_shop": false,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": false,
+        "show_policy": false,
+        "margin_top": 0,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

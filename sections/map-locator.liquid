@@ -1,0 +1,102 @@
+{{ 'map-locator.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-page.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'map-locator.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="page-width section-{{ section.id }}-padding">
+  <h2 class="tw-text-center tw-text-4xl tw-font-semibold h2{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    {{ page.title | escape }}
+  </h2>
+  <div class="tw-mx-auto tw-max-w-6xl tw-mt-6 tw-text-center tw-text-sm {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    {{ page.content }}
+  </div>
+  <map-locator class="tw-block tw-mt-10" data-url="{{ 'locations.json' | asset_url }}">
+    <div class="map-locator__content">
+      <div id="store-slot">
+        <div class="tw-flex tw-flex-col tw-gap-4">
+          <input
+            class="tw-outline-offset-0 tw-border tw-border-[#D4D4D8] tw-rounded-[4px] tw-p-3 tw-pr-16"
+            placeholder="Enter location"
+            name="search-location"
+          >
+          {% comment %}
+            <div class="tw-flex tw-gap-4">
+              <select
+                class="tw-flex-1 tw-outline-offset-0 tw-border tw-border-[#D4D4D8] tw-rounded-[4px] tw-pl-3 tw-py-3"
+                name="state"
+              >
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="opel">Opel</option>
+                <option value="audi">Audi</option>
+              </select>
+              <select
+                class="tw-flex-1 tw-outline-offset-0 tw-border tw-border-[#D4D4D8] tw-rounded-[4px] tw-pl-3 tw-py-3"
+                name="city"
+              >
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="opel">Opel</option>
+                <option value="audi">Audi</option>
+              </select>
+            </div>
+          {% endcomment %}
+        </div>
+        <div id="store-list"></div>
+      </div>
+      <div class="tw-rounded-2xl tw-overflow-hidden" id="map-slot"></div>
+    </div>
+    <div class="tw-flex tw-flex-col tw-gap-6 lg:tw-gap-10 lg:tw-px-60">
+      <h3 class="tw-font-semibold tw-text-4xl tw-text-center">{{ 'general.store_page.contact_form.heading' | t }}</h3>
+      {% render 'form-contact' %}
+    </div>
+  </map-locator>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-page.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

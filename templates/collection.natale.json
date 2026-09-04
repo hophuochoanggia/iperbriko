@@ -1,0 +1,689 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_EPkmVA": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_nUkDdL": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Natale.jpg",
+            "link": "",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_nUkDdL"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "counter",
+        "hide_navigation": false,
+        "auto_rotate": false,
+        "change_slides_speed": 3,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "color_scheme": "accent-1"
+      }
+    },
+    "collection_product_list_pNVmEe": {
+      "type": "collection-product-list",
+      "blocks": {
+        "featured_collection_trNUYm": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "addobbi-natalizi"
+          }
+        },
+        "featured_collection_PUxT9q": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "illuminazione-natalizia"
+          }
+        },
+        "featured_collection_FWVR8T": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "palline-di-natale"
+          }
+        },
+        "featured_collection_KXTHXt": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "alberi-di-natale"
+          }
+        },
+        "featured_collection_T9eGep": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "villaggi-di-natale"
+          }
+        },
+        "featured_collection_tzfmgp": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "accessori-natalizi-per-la-tavola"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_trNUYm",
+        "featured_collection_PUxT9q",
+        "featured_collection_FWVR8T",
+        "featured_collection_KXTHXt",
+        "featured_collection_T9eGep",
+        "featured_collection_tzfmgp"
+      ],
+      "settings": {
+        "title": "Collections",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 48,
+        "padding_bottom": 36
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_9yL37Y": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RriBd7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Le Tradizioni del Natale in Italia",
+            "heading_size": "h1"
+          }
+        },
+        "text_mVWBFw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>In Italia, il periodo natalizio dura 29 giorni, dal 8 dicembre al 6 gennaio, con tradizioni e festività caratteristiche.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RriBd7",
+        "text_mVWBFw"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 20
+      }
+    },
+    "multirow_EKcctB": {
+      "type": "multirow",
+      "blocks": {
+        "row_KBH4PJ": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/natale-2.jpg",
+            "caption": "",
+            "heading": "Inizia l'8 dicembre",
+            "text": "<p>Inizia l'8 dicembre con la Festa dell'Immacolata Concezione, che segna l'inizio della stagione natalizia. È un momento adatto per le famiglie per iniziare a decorare le loro case e l'albero di Natale.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_w9LkPq": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/natale-3.jpg",
+            "caption": "",
+            "heading": "La vigilia di Natale",
+            "text": "<p>La vigilia di Natale (24 dicembre), le famiglie si riuniscono per gustare una cena speciale, conosciuta anche come Cenone di Natale. Questa cena di solito include molti piatti a base di pesce e piatti tradizionali.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_H9Jk6W": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/natale-4.jpg",
+            "caption": "",
+            "heading": "Il giorno di Natale",
+            "text": "<p>Il giorno di Natale (25 dicembre) è il momento in cui le famiglie si riuniscono, godendo di un grande pranzo con piatti tipici come arrosti, panettone e pandoro.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_rXaAwP": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/natale-5.jpg",
+            "caption": "",
+            "heading": "Capodanno",
+            "text": "<p>Dopo Natale, gli italiani continuano a festeggiare la vigilia di Capodanno (31 dicembre) e il giorno di Capodanno (1 gennaio), spesso con grandi festeggiamenti e piatti tipici per il nuovo anno.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_HMr4BR": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/natale-6.jpg",
+            "caption": "",
+            "heading": "l'ultimo giorno del periodo natalizio",
+            "text": "<p>Il 6 gennaio, noto anche come giorno dell'Epifania segna l'ultimo giorno della stagione natalizia, e molte famiglie organizzano pranzi e attività legate a questa giornata. La tradizione di scambiarsi regali in questo giorno è anche molto popolare.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_KBH4PJ",
+        "row_w9LkPq",
+        "row_H9Jk6W",
+        "row_rXaAwP",
+        "row_HMr4BR"
+      ],
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "small",
+        "heading_tag": "h3",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_JUDBBB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_JcPg89": {
+          "type": "heading",
+          "settings": {
+            "heading": "Decorazioni natalizie",
+            "heading_size": "h1"
+          }
+        },
+        "text_9Jkdnh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Il Natale è un periodo speciale dell'anno, caratterizzato da un’atmosfera di gioia e celebrazione. Le <a href=\"https://www.iperbriko.it/collections/addobbi-natalizi\"><span style=\"text-decoration:underline\"><strong>Addobbi Natalizi</strong></span></a> sono fondamentali per creare un ambiente festoso e accogliente in ogni casa. Esplora le diverse opzioni per decorare la tua casa, dalla scelta dell'albero di Natale agli addobbi per la tavola e all'esterno.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JcPg89",
+        "text_9Jkdnh"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "image_with_text_eKWyrg": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_pA8FrV": {
+          "type": "heading",
+          "settings": {
+            "heading": "Decorazioni per interni",
+            "heading_size": "h2"
+          }
+        },
+        "text_dnq6rp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Le decorazioni per interni sono essenziali per trasmettere lo spirito natalizio in casa.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pA8FrV",
+        "text_dnq6rp"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/natale-7.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "multicolumn_EEQLiJ": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_CbVhpw": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "<a href=\"https://www.iperbriko.it/collections/alberi-di-natale\" title=\"https://www.iperbriko.it/collections/alberi-di-natale\"><strong>Albero di Natale</strong></a>",
+            "text": "<p>L'albero di Natale è il fulcro delle decorazioni. Puoi scegliere tra alberi naturali o artificiali di varie dimensioni e stili</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_a6b9nj": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "<strong>Decorazioni per l'albero di Natale</strong>",
+            "text": "<p>Per abbellire il tuo albero, puoi utilizzare vari addobbi come:</p><p>- Palline di Natale</p><p>- Luci LED multicolore</p><p>- Ghirlande dorate</p><p>- Puntali a forma di stella</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_PjrJkN": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "<strong>Presepe di Natale</strong>",
+            "text": "<p>Non dimenticare di decorare il soggiorno, la camera da letto e la cucina. Puoi decorare con ghirlande appese alle porte, candele profumate sui tavolini o Decorazioni natalizie sui camini</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_LLyahR": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "<strong>Decorazioni delle stanze</strong>",
+            "text": "<p>Non dimenticare di decorare anche le altre stanze! Alcuni suggerimenti includono:</p><p>- Ghirlande appese alle porte</p><p>- Candele profumate sui tavolini</p><p>- Decorazioni natalizie sui camini</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_CbVhpw",
+        "column_a6b9nj",
+        "column_PjrJkN",
+        "column_LLyahR"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "image_with_text_RbKXC8": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_4nqMJN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Decorazioni per la tavola delle feste",
+            "heading_size": "h2"
+          }
+        },
+        "text_PizHhL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Una tavola ben decorata rende ogni pasto festivo speciale. Ecco alcune idee:</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4nqMJN",
+        "text_PizHhL"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/natale-9.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "multicolumn_GWhhX9": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_rGyRFW": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "<strong>Centro tavola</strong>",
+            "text": "<p>Il centro tavola è l'elemento focale. Puoi scegliere tra:</p><p>- Centrotavola floreali con piante natalizie</p><p>- Candele profumate in vaso</p><p>- Decorazioni con frutta secca</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_6eyMW4": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "<strong>Tovagliette e stoviglie</strong>",
+            "text": "<p>Le tovagliette e le stoviglie possono aggiungere un tocco di eleganza. Opzioni da considerare:</p><p>- Tovaglia rossa con motivi natalizi</p><p>- Servizio di piatti in ceramica a tema natalizio</p><p>- Portatovaglioli a forma di renna</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_rGyRFW",
+        "column_6eyMW4"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_EMe389": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_QfNx9B": {
+          "type": "heading",
+          "settings": {
+            "heading": "Decorazioni per esterni",
+            "heading_size": "h2"
+          }
+        },
+        "text_KLGHUr": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Le decorazioni esterne creano un'atmosfera festiva per chi visita la tua casa.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_QfNx9B",
+        "text_KLGHUr"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/natale-10.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "multicolumn_VLKaVH": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_T6zDGa": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "<strong>Illuminazioni natalizie</strong>",
+            "text": "<p>Le luci di Natale possono abbellire la tua casa. Alcuni suggerimenti includono:</p><p>- Luci natalizie a cascata</p><p>- Catene di luci per alberi e cespugli</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_dQEnaa": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "<strong>Decorazioni per il giardino</strong>",
+            "text": "<p>Rendi il tuo giardino magico con:</p><p>- Figure gonfiabili di Babbo Natale</p><p>- Renne luminose in metallo</p><p>- Ghirlande natalizie per le porte</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_A8zNAF": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "<strong>Ghirlande e accessori per porte</strong>",
+            "text": "<p>Le decorazioni per la porta possono accogliere gli ospiti. Opzioni da considerare:</p><p>- Ghirlanda di rami di abete</p><p>- Decorazioni con nastri rossi</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_T6zDGa",
+        "column_dQEnaa",
+        "column_A8zNAF"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "rich_text_BnLf4V": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_TqcPQB": {
+          "type": "heading",
+          "settings": {
+            "heading": "Idee Regalo di Natale",
+            "heading_size": "h1"
+          }
+        },
+        "text_C4ABtM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Il Natale è un momento speciale dell'anno in cui dimostriamo il nostro affetto attraverso i regali. Scegliere il regalo giusto può essere una sfida, ma ci sono molte idee che possono ispirarti.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TqcPQB",
+        "text_C4ABtM"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "multicolumn_7X9NTQ": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_8xKQQC": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "image": "shopify://shop_images/natale-8.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_KP4GcL": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>Un set di candele profumate crea un'atmosfera calda e accogliente, mentre un pigiama natalizio morbido è perfetto per le serate in famiglia. Per i bambini, i giocattoli educativi sono sempre un successo. Un libro affascinante o un calendario dell'Avvento pieno di sorprese possono rendere le festività ancora più magiche. Non dimenticare i regali personalizzati, come gioielli con ciondoli significativi, o un set di tè gourmet per chi ama le bevande calde.</p><p>Infine, considera di regalare esperienze indimenticabili, come cene o concerti, che creeranno ricordi preziosi. Con queste idee, troverai sicuramente il regalo perfetto per ogni persona nella tua vita!</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_8xKQQC",
+        "column_KP4GcL"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "newsletter_47NX3w": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_x98QgE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Iscriviti alla nostra newsletter",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_EkHj3C": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Resta aggiornato con le ultime notizie, sconti e approfondimenti da Iperbriko.it!</p>"
+          }
+        },
+        "email_form_YXAQAP": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_x98QgE",
+        "paragraph_EkHj3C",
+        "email_form_YXAQAP"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "slideshow_EPkmVA",
+    "banner",
+    "collection_product_list_pNVmEe",
+    "product-grid",
+    "rich_text_9yL37Y",
+    "multirow_EKcctB",
+    "rich_text_JUDBBB",
+    "image_with_text_eKWyrg",
+    "multicolumn_EEQLiJ",
+    "image_with_text_RbKXC8",
+    "multicolumn_GWhhX9",
+    "image_with_text_EMe389",
+    "multicolumn_VLKaVH",
+    "rich_text_BnLf4V",
+    "multicolumn_7X9NTQ",
+    "newsletter_47NX3w"
+  ]
+}

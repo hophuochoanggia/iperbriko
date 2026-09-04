@@ -1,0 +1,135 @@
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'section-featured-blog.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.25 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign posts_displayed = section.settings.blog.articles_count
+  if section.settings.post_limit <= section.settings.blog.articles_count or section.settings.post_limit <= 4
+    assign posts_exceed_limit = true
+    assign posts_displayed = section.settings.post_limit
+  endif
+-%}
+
+<div class="page-width section-{{ section.id }}-padding scroll-trigger animate--fade-in">
+  <div class="tw-flex tw-flex-col ">
+    <h1 class="main-page-title page-title tw-text-start tw-text-[39px] tw-font-semibold !tw-my-0 !tw-mb-8 ">
+      {{ section.settings.heading | escape }}
+    </h1>
+  </div>
+  <div class="tw-flex tw-gap-x-3 tw-flex-wrap tw-gap-y-6 tw-justify-center">
+    {%- for block in section.blocks -%}
+      <a href="{{ block.settings.link }} " class="tw-w-20 md:tw-w-[160px]">
+        <div
+          class="
+                tw-bg-white tw-rounded 
+            {% if block.settings.image == blank %} placeholder{% endif %}
+            {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}
+            tw-relative
+            hover:tw-shadow-2xl
+            tw-cursor-pointer
+            tw-transition-all
+            tw-duration-500
+          "
+        >
+          {%- liquid
+            assign image_height = block.settings.image.width | divided_by: media_aspect_ratio
+            assign sizes = full_width
+          -%}
+          {{ block.settings.image | image_url: width: 160 | image_tag: fetchpriority: fetch_priority }}
+        </div>
+        <p class="tw-text-xs    md:tw-text-sm tw-font-medium tw-text-center tw-mt-2">{{ block.settings.heading }}</p>
+      </a>
+      {% comment %} </li> {% endcomment %}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Our Brands",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Welcome to our articles",
+      "label": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "description",
+      "default": "We share valuable insights, tips, and information to help you on your journey to improved sleep and overall well-being.",
+      "label": "Description"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Columns on desktop",
+      "default": 3
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service-card",
+      "name": "Item Brand",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "heading",
+          "default": "Item Brand"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link brand collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.blogs.presets.name"
+    }
+  ]
+}
+{% endschema %}

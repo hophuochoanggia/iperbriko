@@ -1,0 +1,25 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "about-us",
+      "settings": {
+        "heading": "Chi siamo",
+        "content": "<p>Iperbriko, azienda totalmente italiana, nasce nel 2005.<br\/>Il centro Iperbriko vanta una superficie di vendita ed esposizione di 3000 metri quadrati e propone più di 30000 articoli delle migliori marche, soddisfacendo tutte le esigenze dei segmenti del bricolage: hobby, piccola edilizia, manutenzione e decorazione della casa e del giardino.<br\/><br\/>Iperbriko offre prodotti e servizi ponendo sempre al centro il cliente e prestando grande attenzione al mantenimento del migliore rapporto prezzo\/qualità.I nostri addetti qualificati e costantemente formati saranno sempre in grado di accompagnare il cliente in ogni scelta ed offrire servizi di consulenza post-vendita in tutti i settori.Il nostro obiettivo è quello di essere all'altezza della nostra clientela in ogni istante, facendo del nostro meglio per soddisfare ogni esigenza e consentire a ciascuno di trovare, in un’unica struttura, quanto di meglio il mercato del fai da te sa offrire.<\/p>",
+        "image": "shopify:\/\/shop_images\/2022-12-11.jpg",
+        "custom_liquid": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3001.1942528115574!2d14.495838076530696!3d41.21753710651278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133a4494df01a7d9%3A0xe9ffc0a221cba7b5!2sIperbriko!5e0!3m2!1sen!2s!4v1708941409331!5m2!1sen!2s\" width=\"100%\" height=\"450\" style=\"border:0; border-radius: 8px\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

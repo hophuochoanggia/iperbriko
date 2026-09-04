@@ -1,0 +1,438 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_9RkwqT": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_UHJGCp": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Alberi_di_Natale.jpg",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_UHJGCp"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "counter",
+        "hide_navigation": false,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "color_scheme": "accent-1"
+      }
+    },
+    "collection_product_list_pNVmEe": {
+      "type": "collection-product-list",
+      "blocks": {
+        "featured_collection_qQKNck": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "alberi-verdi"
+          }
+        },
+        "featured_collection_ECU9kk": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "alberi-innevati"
+          }
+        },
+        "featured_collection_FWVR8T": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "palline-di-natale"
+          }
+        },
+        "featured_collection_trNUYm": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "addobbi-natalizi"
+          }
+        },
+        "featured_collection_PUxT9q": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "illuminazione-natalizia"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_qQKNck",
+        "featured_collection_ECU9kk",
+        "featured_collection_FWVR8T",
+        "featured_collection_trNUYm",
+        "featured_collection_PUxT9q"
+      ],
+      "settings": {
+        "title": "Collections",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_ceNpQB": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_GLyTYw": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "image": "shopify://shop_images/alberi-di-natale-9.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_VakfDk": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "image": "shopify://shop_images/alberi-di-natale-8.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_TPkDMY": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "image": "shopify://shop_images/alberi-di-natale-7.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_GLyTYw",
+        "column_VakfDk",
+        "column_TPkDMY"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_9yL37Y": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RriBd7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Perché molte famiglie scelgono alberi di Natale artificiali? ",
+            "heading_size": "h2"
+          }
+        },
+        "text_mVWBFw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>L'albero di Natale artificiale offre numerosi vantaggi rispetto a quello vero. È progettato in modo sostenibile e può essere riutilizzato ogni anno. Inoltre, il montaggio e lo smontaggio sono molto facili, risparmiando così tempo prezioso. Con una varietà di forme e dimensioni, puoi trovare l'albero di Natale adatto a ogni spazio, mantenendo l'atmosfera festiva e riducendo l'impatto ambientale. Non solo, l'albero di Natale porta anche un alto valore estetico grazie ai suoi modelli belli, moderni e creativi.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RriBd7",
+        "text_mVWBFw"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 20
+      }
+    },
+    "multirow_EKcctB": {
+      "type": "multirow",
+      "blocks": {
+        "row_KBH4PJ": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Alberi-di-Natale-1.webp",
+            "caption": "",
+            "heading": "Alberi Verdi",
+            "text": "<p>Gli Alberi di Natale Verdi rappresentano una scelta intramontabile per le decorazioni natalizie. Con le loro rigogliose fronde, aggiungono un tocco di calore e tradizione all'atmosfera domestica delle feste. Arricchiti da luci scintillanti, palline dai colori vivaci e una varietà di ornamenti, contribuiscono a creare un ambiente festoso. Sia che vengano posizionati in soggiorno come elemento centrale o scelti in versioni più piccole per altre stanze, gli alberi verdi continuano a simboleggiare la gioia e la speranza, elementi chiave delle celebrazioni natalizie.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_w9LkPq": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/alberi-di-natale-6.jpg",
+            "caption": "",
+            "heading": "Alberi Innevati",
+            "text": "<p>Gli alberi innevati sono una scelta affascinante per le decorazioni natalizie, evocando l'immagine di un paesaggio invernale incantato. Questi alberi, adornati con un aspetto bianco e morbido, creano un'atmosfera magica e festosa nelle case durante le festività. Possono essere decorati con luci scintillanti e ornamenti colorati, rendendo ogni albero unico e speciale. Gli alberi innevati sono perfetti sia per ambienti tradizionali che moderni, portando un tocco di eleganza e meraviglia nel periodo natalizio.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_KBH4PJ",
+        "row_w9LkPq"
+      ],
+      "settings": {
+        "image_height": "small",
+        "desktop_image_width": "small",
+        "heading_tag": "h3",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "image_layout": "align-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "rich_text_JUDBBB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_JcPg89": {
+          "type": "heading",
+          "settings": {
+            "heading": "Come scegliere la dimensione giusta dell'albero di Natale per la casa",
+            "heading_size": "h2"
+          }
+        },
+        "text_9Jkdnh": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Altezza dell'albero di Natale</strong></p>"
+          }
+        },
+        "text_d8LKdp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>L'altezza dell'albero di Natale dovrebbe essere superiore all'altezza di una persona in piedi, ma non toccare il soffitto. La distanza ideale tra la cima dell'albero e il soffitto è di 30-60 cm. Soffitto basso (2,4 - 2,5 m) dovresti scegliere una pianta alta circa 1,5 - 1,8 m. Soffitti alti (3m o più) possono scegliere alberi da 2,1 a 2,4 m o più a seconda della superficie. Tuttavia, la scelta dell'altezza dell'albero di Natale deve anche basarsi sull'uso previsto dal proprietario. L'altezza sopra è adatta per lo spazio del soggiorno. Per creare un punto focale distintivo, rendere il centro dello spazio. Adatto per decorare con molti grandi ornamenti e luci brillanti.</p>"
+          }
+        },
+        "text_fVd93z": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Se vuoi solo mettere l'albero di Natale in camera da letto o in un angolo piccolo, puoi scegliere un albero di Natale con un'altezza di circa 0,6 m - 2,1 m. noltre, se desideri scegliere un modello di albero di Natale per decorare uno spazio esterno, un albero di Natale con un'altezza di 1,8m - 3m è una scelta adatta. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JcPg89",
+        "text_9Jkdnh",
+        "text_d8LKdp",
+        "text_fVd93z"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_K6KEWj": {
+      "type": "rich-text",
+      "blocks": {
+        "text_BEbfEA": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>La larghezza dell'albero di Natale</strong></p>"
+          }
+        },
+        "text_gw4Fkm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Di solito, l'albero di Natale ha un rapporto di diametro di circa 1/2 o 1/3 dell'altezza. Ad esempio, un albero alto 1,8 m ha solitamente un diametro che varia da 0,9 m a 1,2 m, a seconda della forma (slanciata o a chioma larga). Pertanto, quando scegli, dovresti prestare attenzione a questo fattore per scegliere il modello di albero di Natale appropriato. Se hai uno spazio decorativo ampio, vuoi creare un centro per lo spazio e decorare in stile tradizionale, dovresti scegliere un albero di Natale con una chioma ampia. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_BEbfEA",
+        "text_gw4Fkm"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_fGr4eL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_f8ih8F": {
+          "type": "heading",
+          "settings": {
+            "heading": "Consulta subito i modelli di alberi di Natale disponibili presso Iperbriko",
+            "heading_size": "h2"
+          }
+        },
+        "text_DAM7qM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Iperbriko si specializza nella vendita di mobili per interni ed esterni, compresi elettrodomestici, decorazioni e articoli di grandi dimensioni come televisori e frigoriferi. In particolare, offre una vasta gamma di addobbi natalizi con molte promozioni speciali. Non esitare: scegli i modelli di palline di Natale ideali per creare un albero di Natale davvero straordinario. Rendi il tuo Natale 2024 speciale e indimenticabile con Iperbriko!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_f8ih8F",
+        "text_DAM7qM"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "rich_text_XpYXk4": {
+      "type": "rich-text",
+      "blocks": {
+        "text_EkK3La": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em><strong>Informazioni sul Negozio di Arredamento Iperbriko:</strong></em></p><p><strong>Indirizzo</strong>: Contrada Varco - San Salvatore Telesino (BN), Italia (check) </p><p><strong>Telefono</strong>: +39 0824 974011</p><p><strong>Facebook: </strong><a href=\"https://www.facebook.com/iperbriko/\"><span style=\"text-decoration:underline\">https://www.facebook.com/iperbriko/</span></a></p><p><strong>Website:</strong><a href=\"https://www.iperbriko.it/\"><span style=\"text-decoration:underline\">https://www.iperbriko.it/</span></a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_EkK3La"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "newsletter_47NX3w": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_x98QgE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Iscriviti alla nostra newsletter",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_EkHj3C": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Resta aggiornato con le ultime notizie, sconti e approfondimenti da Iperbriko.it!</p>"
+          }
+        },
+        "email_form_YXAQAP": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_x98QgE",
+        "paragraph_EkHj3C",
+        "email_form_YXAQAP"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "slideshow_9RkwqT",
+    "banner",
+    "collection_product_list_pNVmEe",
+    "product-grid",
+    "multicolumn_ceNpQB",
+    "rich_text_9yL37Y",
+    "multirow_EKcctB",
+    "rich_text_JUDBBB",
+    "rich_text_K6KEWj",
+    "rich_text_fGr4eL",
+    "rich_text_XpYXk4",
+    "newsletter_47NX3w"
+  ]
+}

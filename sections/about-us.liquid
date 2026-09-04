@@ -1,0 +1,71 @@
+<div class="page-width">
+  <div class="tw-flex tw-flex-col md:tw-grid md:tw-grid-cols-2 page-width tw-py-4 md:tw-py-10 md:tw-gap-x-6 lg:tw-gap-x-12">
+    <div class="lg:tw-col-span-1 tw-flex tw-flex-col tw-gap-y-4">
+      <h1 class="tw-font-bold tw-text-4xl tw-text-neutral-6">{{ section.settings.heading }}</h1>
+      <p class="tw-text-neutral-5 tw-text-base">{{ section.settings.content }}</p>
+    </div>
+    <div class="lg:tw-col-span-1 tw-flex tw-items-center tw-justify-center tw-rounded-lg">
+      {% if section.settings.image != blank %}
+        <img
+          srcset="
+            {%- if section.settings.image.src.width >= 165 -%}{{ section.settings.image.src | image_url: width: 165 }} 165w,{%- endif -%}
+            {%- if section.settings.image.src.width >= 360 -%}{{ section.settings.image.src | image_url: width: 360 }} 360w,{%- endif -%}
+            {%- if section.settings.image.src.width >= 533 -%}{{ section.settings.image.src | image_url: width: 533 }} 533w,{%- endif -%}
+            {%- if section.settings.image.src.width >= 720 -%}{{ section.settings.image.src | image_url: width: 720 }} 720w,{%- endif -%}
+            {%- if section.settings.image.src.width >= 1000 -%}{{ section.settings.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
+            {%- if section.settings.image.src.width >= 1500 -%}{{ section.settings.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {{ section.settings.image.src | image_url }} {{ section.settings.image.src.width }}w
+          "
+          src="{{ section.settings.image.src | image_url: width: 533 }}"
+          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+          alt="{{ section.settings.image.src.alt | escape }}"
+          class="motion-reduce tw-rounded-lg"
+          {% unless lazy_load == false %}
+            loading="lazy"
+          {% endunless %}
+          width="{{ section.settings.image.width }}"
+          height="{{ section.settings.image.height }}"
+        >
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="tw-pb-10  md:tw-py-10 tw-rounded-lg">
+    {{ section.settings.custom_liquid }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.about_us.name",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "About us",
+      "label": "t:sections.about_us.settings.heading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:sections.about_us.settings.content.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.about_us.settings.image.label"
+    },
+    {
+      "type": "liquid",
+      "id": "custom_liquid",
+      "label": "t:sections.about_us.settings.custom_liquid.label"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Custom content",
+      "name": "About us"
+    }
+  ]
+}
+{% endschema %}

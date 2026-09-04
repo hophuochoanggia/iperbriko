@@ -1,0 +1,21 @@
+<div class="tw-hidden lg:tw-block">
+  {%- liquid
+    render 'icon-cart'
+  -%}
+</div>
+<div class="tw-bg-primary tw-rounded-md tw-flex tw-justify-center tw-items-center lg:tw-hidden tw-w-11 tw-h-11">
+  {%- liquid
+    render 'icon-cart'
+  -%}
+</div>
+<span class="tw-hidden lg:tw-inline-block tw-text-xs tw-font-medium tw-text-black">
+  {{- 'templates.cart.cart' | t -}}
+</span>
+{%- if cart != empty -%}
+  <div class="cart-count-bubble">
+    {%- if cart.item_count < 100 -%}
+      <span id="cart-count-bubble" aria-hidden="true">{{ cart.item_count }}</span>
+    {%- endif -%}
+    <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+  </div>
+{%- endif -%}

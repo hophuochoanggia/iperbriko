@@ -1,0 +1,79 @@
+{% style %}
+  <style>
+    .contact-details {
+      padding-top: 36px;
+      padding-bottom: 36px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .icon svg {
+      color: #000000;
+    }
+
+  </style>
+{% endstyle %}
+
+{% assign icons = 'phone,email' | split: ',' %}
+
+<div class="tw-flex tw-flex-col tw-gap-y-10 tw-text-black lg:tw-mr-8">
+  <div class="tw-flex tw-flex-col tw-gap-y-6">
+    <h1
+      class="tw-font-semibold tw-text-[39px]"
+    >
+      {{ heading_text }}
+    </h1>
+    <p class="tw-text-sm">{{ description_text }}</p>
+  </div>
+
+  <div class="tw-flex tw-flex-col tw-gap-y-4">
+    <div>
+      <h2
+        class="tw-font-semibold tw-text-xl"
+      >
+        {{ 'templates.contact-description.contact-info.title' | t }}
+      </h2>
+    </div>
+    {% for icon in icons %}
+      <div class=" tw-gap-x-4">
+        {% assign contact_info = 'templates.contact-description.contact-info.' | append: icon | t %}
+        {% if icon == 'email' %}
+          <a
+            href="mailto:{{ contact_info }}"
+            class="tw-border tw-rounded-lg tw-flex tw-flex-row tw-justify-start tw-items-center"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="tw-m-2 icon ">
+              {% render 'icon-email' %}
+              {{ block.settings.share_label | escape }}
+            </div>
+            <p class="tw-font-medium tw-text-xl">{{ contact_info }}</p>
+          </a>
+        {% elsif icon == 'phone' %}
+          <a
+            href="tel:{{ contact_info }}"
+            class="tw-border tw-rounded-lg tw-flex tw-flex-row tw-justify-start tw-items-center"
+          >
+            <div class="tw-m-2 icon">
+              {% render 'icon-phone' %}
+              {{ block.settings.share_label | escape }}
+            </div>
+            <p class="tw-font-medium tw-text-xl">{{ contact_info }}</p>
+          </a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="tw-flex tw-flex-col tw-gap-y-4">
+    <div>
+      <h2
+        class="tw-font-semibold tw-text-xl"
+      >
+        {{ 'general.social.follow' | t }}
+      </h2>
+    </div>
+    {% render 'social-icons', class: 'my-class' %}
+  </div>
+</div>

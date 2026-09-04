@@ -1,0 +1,37 @@
+{%- style -%}
+  .contact-product a {
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+  }
+{%- endstyle -%}
+
+<div class="contact-product tw-bg-gray-light-2 tw-p-5 tw-rounded-lg tw-gap-4 tw-flex tw-flex-col">
+  <p class="tw-font-semibold tw-flex tw-gap-2 tw-items-center tw-text-sm tw-text-black tw-mb-2">
+    We're here to help you
+  </p>
+  <div class="tw-flex tw-gap-3">
+    {%- render 'phone_enabled' -%}
+    <p class="!tw-text-sm ">
+      {{ phone_number }}
+    </p>
+  </div>
+
+  <div class="tw-flex tw-gap-3">
+    {%- render 'quiz' -%}
+    <p class="!tw-text-sm tw-cursor-pointer">
+      {{ faq }}
+    </p>
+  </div>
+  <div class="tw-flex tw-gap-3 ">
+    {%- render 'shield' -%}
+    <p class="!tw-text-sm ">
+      {{ secure_transition }}
+    </p>
+  </div>
+  <div class="tw-flex tw-gap-3 tw-cursor-pointer">
+    {%- render 'truck' -%}
+    <p class="!tw-text-sm ">
+      {{ shipping_policy }}
+    </p>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "map-locator": {
+      "type": "map-locator",
+      "settings": {
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": ["map-locator"]
+}

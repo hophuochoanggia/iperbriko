@@ -1,0 +1,306 @@
+<style>
+  .breadcrumbs {
+    display: flex;
+    justify-content: start;
+  }
+
+  .breadcrumbs__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumbs__item {
+    display: inline-block;
+  }
+
+  .breadcrumbs__item:not(:last-child):after {
+    content: '>';
+    margin-inline: 4px;
+    color: #6B7280;
+    padding-right: 4px;
+  }
+  {% comment %} .breadcrumbs__item:last-child .breadcrumbs__link {
+    font-weight: 700;
+  } {% endcomment %}
+
+  .breadcrumbs__link {
+    color: #6B7280;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  .breadcrumbs__link:hover {
+    text-decoration: underline;
+  }
+
+  .breadcrumbs__link[aria-current='page'] {
+    color: #6B7280;
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  .breadcrumbs__link[aria-current='page']:hover,
+  .breadcrumbs__link[aria-current='page']:focus {
+    text-decoration: underline;
+  }
+</style>
+
+{% assign template_name = template | split: '.' | first %}
+{% if template_name == 'product' %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ shop.url }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ product.collections[0].title | escape }}",
+          "item": "{{ product.collections[0].url | escape }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{{ product.title | escape }}",
+          "item": "{{ product.url | escape }}"
+        }
+      ]
+    }
+  </script>
+{% elsif template_name == 'collection' %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ shop.url }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ collection.title | escape }}",
+          "item": "{{ collection.url | escape }}"
+        }
+      ]
+    }
+  </script>
+{% elsif template_name == 'page' %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ shop.url }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ page.title | escape }}",
+          "item": "{{ page.url | escape }}"
+        }
+      ]
+    }
+  </script>
+{% elsif template_name == 'index' %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ shop.url }}"
+        }
+      ]
+    }
+  </script>
+{% endif %}
+
+<div class="py-breadcrumb">
+  {%- unless template == 'index' or template == 'cart' or template == 'list-collections' or template == '404' -%}
+    {%- assign t = template | split: '.' | first -%}
+
+    <nav
+      class="breadcrumbs"
+      role="navigation"
+      aria-label="breadcrumbs"
+    >
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item">
+          <a class="breadcrumbs__link" href="/">Home</a>
+        </li>
+        {%- if template == 'collection.collection-brand' -%}
+          <li class="breadcrumbs__item">
+            <a
+              class="breadcrumbs__link"
+              href="{{ pages.our-brands.url }}"
+              aria-current="page"
+            >
+              {{- pages['our-brands'].title -}}
+            </a>
+          </li>
+        {%- endif -%}
+        {%- case t -%}
+          {%- when 'page' -%}
+            <li class="breadcrumbs__item">
+              <a
+                class="breadcrumbs__link"
+                href="{{ page.url }}"
+                aria-current="page"
+              >
+                {%- if page.title == 'Policy' -%}
+                  Terms and Conditions
+                {%- else -%}
+                  {{- page.title -}}
+                {%- endif -%}
+              </a>
+            </li>
+          {%- when 'product' -%}
+            <li class="breadcrumbs__item">
+              <a
+                class="breadcrumbs__link"
+                href="{{ routes.all_products_collection_url }}"
+                aria-current="page"
+                >Products</a
+              >
+            </li>
+            {%- if collection.url -%}
+              <li class="breadcrumbs__item">
+                {{ collection.title | link_to: collection.url }}
+              </li>
+            {%- endif -%}
+            <li class="breadcrumbs__item">
+              <a
+                class="breadcrumbs__link"
+                href="{{ product.url }}"
+                aria-current="page"
+              >
+                {{- product.title -}}
+              </a>
+            </li>
+          {%- when 'collection' and collection.handle -%}
+            {%- if current_tags -%}
+              <li class="breadcrumbs__item">
+                {{ collection.title | link_to: collection.url }}
+              </li>
+              <li class="breadcrumbs__item">
+                {%- capture tag_url -%}{{ collection.url }}/{{ current_tags | join: "+"}}{%- endcapture -%}
+                <a
+                  class="breadcrumbs__link"
+                  href="{{ tag_url }}"
+                  aria-current="page"
+                >
+                  {{- current_tags | join: ' + ' -}}
+                </a>
+              </li>
+            {%- else -%}
+              <li class="breadcrumbs__item">
+                <a
+                  class="breadcrumbs__link"
+                  href="{{ collection.url }}"
+                  aria-current="page"
+                >
+                  {{- collection.title -}}
+                </a>
+              </li>
+            {%- endif -%}
+          {%- when 'blog' -%}
+            {%- if current_tags -%}
+              <li class="breadcrumbs__item">
+                {{ blog.title | link_to: blog.url }}
+              </li>
+              <li class="breadcrumbs__item">
+                {%- capture tag_url -%}{{blog.url}}/tagged/{{ current_tags | join: "+" }}{%- endcapture -%}
+                <a
+                  class="breadcrumbs__link"
+                  href="{{ tag_url }}"
+                  aria-current="page"
+                >
+                  {{- current_tags | join: ' + ' -}}
+                </a>
+              </li>
+            {%- else -%}
+              <li class="breadcrumbs__item">
+                <a
+                  class="breadcrumbs__link"
+                  href="{{ blog.url }}"
+                  aria-current="page"
+                >
+                  {% comment %} {{- blog.title -}} {% endcomment %}
+                  Blogs
+                </a>
+              </li>
+            {%- endif -%}
+          {%- when 'article' -%}
+            <li class="breadcrumbs__item">
+              <a
+                class="breadcrumbs__link"
+                href="{{ blog.url }}"
+                aria-current="page"
+              >
+                {% comment %} {{- blog.title -}} {% endcomment %}
+                Blogs
+              </a>
+            </li>
+            <li class="breadcrumbs__item">
+              <a
+                class="breadcrumbs__link"
+                href="{{ article.url }}"
+                aria-current="page"
+              >
+                {{- article.title | truncate: 50 -}}
+              </a>
+            </li>
+
+          {%- when 'metaobject/lookbook' -%}
+            <li class="breadcrumbs__item">
+              <a
+                class="breadcrumbs__link"
+                href="{{ pages.lookbooks.url }}"
+                aria-current="page"
+              >
+                {{- pages.lookbooks.title -}}
+              </a>
+            </li>
+            <li class="breadcrumbs__item">
+              <a
+                class="breadcrumbs__link"
+                href="{{ metaobject.system.url }}"
+                aria-current="page"
+              >
+                {{- metaobject.name -}}
+              </a>
+            </li>
+          {%- else -%}
+            <li class="breadcrumbs__item">
+              <a
+                class="breadcrumbs__link"
+                href="{{ request.path }}"
+                aria-current="page"
+              >
+                {{- page_title -}}
+              </a>
+            </li>
+        {%- endcase -%}
+      </ol>
+    </nav>
+  {%- endunless -%}
+</div>

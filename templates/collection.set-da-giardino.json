@@ -1,0 +1,56 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "custom_css": [],
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "color_scheme": "accent-1"
+      }
+    },
+    "custom_liquid_BMdjDT": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"collection-buttons-slider\">\n  <div class=\"container\">\n    <div class=\"collections-carousel\">\n    <a href=\"https://www.iperbriko.it/collections/arredo-giardino\" class=\"collection-btn\">Arredo Giardino</a>\n<a href=\"https://www.iperbriko.it/collections/tavoli-da-esterno\" class=\"collection-btn\">Tavoli da Esterno</a>\n   <a href=\"https://www.iperbriko.it/collections/lettini-e-sdraio\" class=\"collection-btn\">Lettini e Sdraio</a>\n   <a href=\"https://www.iperbriko.it/collections/sedie-e-panche\" class=\"collection-btn\">Sedie e Panche</a>\n   <a href=\"https://www.iperbriko.it/collections/dondoli\" class=\"collection-btn\">Dondoli</a>\n   <a href=\"https://www.iperbriko.it/collections/bracieri-1\" class=\"collection-btn\">Bracieri</a>\n    </div>\n  </div>\n</section>\n\n<!-- Thư viện Slick -->\n<link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css\"/>\n<script src=\"https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js\"></script>\n\n<!-- CSS -->\n<style>\n  .collection-buttons-slider {\n    padding: 5px 0;\n  }\n\n  .container {\n    max-width: 1200px;\n    margin: 0 auto;\n    padding: 0 20px;\n  }\n\n  .collections-carousel {\n    display: flex;\n    gap: 10px;\n    justify-content: flex-start;\n    padding-left: 0;\n    max-width: 100%;\n    overflow-x: auto; /* Cho phép vuốt ngang */\n    scroll-snap-type: x mandatory; /* Căn chỉnh khi trượt */\n    -webkit-overflow-scrolling: touch; /* Hỗ trợ cuộn mượt trên iOS */\n  }\n\n  /* Ẩn thanh cuộn */\n  .collections-carousel::-webkit-scrollbar {\n    display: none;\n  }\n\n  .collections-carousel {\n    -ms-overflow-style: none;  /* Ẩn trên IE & Edge */\n    scrollbar-width: none;  /* Ẩn trên Firefox */\n  }\n\n  .collection-btn {\n    display: inline-block;\n    padding: 10px 24px;\n    background-color: #999999;\n    color: #f9fafb;\n    font-size: 16px;\n    font-weight: bold;\n    text-decoration: none;\n    border-radius: 25px;\n    white-space: nowrap;\n    transition: background 0.3s, transform 0.2s;\n    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n    scroll-snap-align: start; /* Căn chỉnh khi trượt */\n  }\n\n  .collection-btn:hover {\n    background-color: #f79b00;\n    transform: scale(1.05);\n  }\n\n  /* Mũi tên tùy chỉnh */\n  .slick-prev, .slick-next {\n    background: none;\n    border: none;\n    font-size: 24px;\n    color: #333;\n    cursor: pointer;\n    position: absolute;\n    top: 50%;\n    transform: translateY(-50%);\n    z-index: 10;\n  }\n\n  .slick-prev { left: -35px; }\n  .slick-next { right: -35px; }\n\n  .slick-prev:hover, .slick-next:hover {\n    color: #EBA540;\n  }\n</style>\n\n<!-- Kích hoạt slider -->\n<script>\n  $(document).ready(function(){\n    $('.collections-carousel').slick({\n      slidesToShow: 4,\n      slidesToScroll: 1,\n      autoplay: false,\n      dots: false,\n      arrows: true,\n      infinite: false,\n      variableWidth: true,\n      swipe: true, /* Bật vuốt trên mobile */\n      touchMove: true, /* Cho phép di chuyển cảm ứng */\n      prevArrow: '<button type=\"button\" class=\"slick-prev\"><</button>',\n      nextArrow: '<button type=\"button\" class=\"slick-next\">></button>',\n      responsive: [\n        { breakpoint: 1024, settings: { slidesToShow: 3, variableWidth: false } },\n        { breakpoint: 768, settings: { slidesToShow: 2, variableWidth: false } },\n        { breakpoint: 480, settings: { slidesToShow: 1, variableWidth: false } }\n      ]\n    });\n  });\n</script>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 40
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "custom_liquid_BMdjDT",
+    "product-grid"
+  ]
+}

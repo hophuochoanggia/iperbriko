@@ -1,0 +1,301 @@
+{%- style -%}
+  .about_this_team ul {
+    list-style: initial;
+  }
+  span : {
+    font-size: 14px !important;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+
+  .assembly_instructions a {
+    border-bottom: 1px solid blue !important;
+    color: blue !important;
+  }
+{%- endstyle -%}
+
+<div class="page-width isolate  section-{{ section.id }}-padding about_this_team tw-mb-10">
+  <div class=" !tw-pl-0 lg:tw-w-[55%]">
+    <h2 class="tw-text-2xl tw-font-bold tw-text-[#111827] !tw-pt-10 !tw-pb-8">
+      {{- 'products.product.about_this_item' | t -}}
+    </h2>
+    {% if product.description != blank %}
+      <div>
+        <div
+          class="accordion-faq !tw-bg-[#F9FAFB]"
+        >
+          <button
+            class="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center tw-text-[#71717A] tw-border-none tw-text-left "
+            data-accordion-faq-action
+          >
+            <div class=" tw-border-b tw-border-gray-300 tw-py-4 tw-flex tw-justify-between tw-w-full">
+              <div class=" tw-w-full tw-text-base tw-font-semibold  tw-text-[#111827] ">
+                {{- 'products.product.description' | t -}}
+              </div>
+              <div
+                class=" tw-transition-transform icon tw-items-center tw-flex tw-rotate-[180deg]"
+                data-accordion-faq-icon
+              >
+                {% render 'icon-plus-dynamic', color: '#71717A', class: 'changeable-icon' %}
+              </div>
+            </div>
+          </button>
+          <div
+            data-accordion-faq-target
+            class="tw-font-normal tw-pl-4"
+          >
+            <div
+              class=" tw-mt-4 !tw-font-normal !tw-text-sm"
+              itemprop="articleBody"
+            >
+              {{ product.description }}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if product.metafields.info_tab.product_detail != blank %}
+      <div
+        class=" "
+      >
+        <div
+          class="accordion-faq  !tw-bg-[#F9FAFB] "
+        >
+          <button
+            class="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center tw-text-[#71717A] tw-border-none tw-text-left "
+            data-accordion-faq-action
+          >
+            <div class=" tw-border-b tw-border-gray-300 tw-py-4 tw-flex tw-justify-between tw-w-full">
+              <div class=" tw-w-full tw-text-base tw-font-semibold  tw-text-[#111827] ">Product Details</div>
+              <div class=" tw-transition-transform icon tw-items-center tw-flex" data-accordion-faq-icon>
+                {% render 'icon-plus-dynamic', color: '#71717A', class: 'changeable-icon' %}
+              </div>
+            </div>
+          </button>
+          <div
+            data-accordion-faq-target
+            class="tw-text-lg tw-font-normal tw-pl-4"
+            style="display: none;"
+          >
+            <div
+              class="tw-mt-4 !tw-font-normal !tw-text-sm  "
+              itemprop="articleBody"
+            >
+              {{ product.metafields.info_tab.product_detail | metafield_text }}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    {% if product.metafields.info_tab.how_to_pay != blank %}
+      <div
+        class=" "
+      >
+        <div
+          class="accordion-faq  !tw-bg-[#F9FAFB] "
+        >
+          <button
+            class="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center tw-text-[#71717A] tw-border-none tw-text-left "
+            data-accordion-faq-action
+          >
+            <div class=" tw-border-b tw-border-gray-300 tw-py-4 tw-flex tw-justify-between tw-w-full">
+              <div class=" tw-w-full tw-text-base tw-font-semibold  tw-text-[#111827] ">How to pay?</div>
+              <div class=" tw-transition-transform icon tw-items-center tw-flex" data-accordion-faq-icon>
+                {% render 'icon-plus-dynamic', color: '#71717A', class: 'changeable-icon' %}
+              </div>
+            </div>
+          </button>
+          <div
+            data-accordion-faq-target
+            class="tw-text-lg tw-font-normal tw-pl-4"
+            style="display: none;"
+          >
+            <p
+              class="tw-mt-4 !tw-font-normal !tw-text-sm"
+              itemprop="articleBody"
+            >
+              Su Iperbriko.it accettiamo i seguenti metodi di pagamento:
+
+              Carta di credito (tramite Paypal) Accettiamo le più comuni carte di credito, anche le prepagate e le
+              ricaricabili, emesse esclusivamente sul territorio italiano. Con il pagamento con carta di credito non
+              sarà addebitato alcun tipo di supplemento. Non è necessario possedere un account Paypal per utilizzare la
+              propria carta di credito/debito.
+
+              https://cdn.shopify.com/s/files/1/0674/1183/7186/files/1.jpg?v=1709548296
+
+              {% comment %} {{ product.metafields.info_tab.how_to_pay |metafield_text  }}  {% endcomment %}
+            </p>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    {% if product.metafields.info_tab.shipping != blank %}
+      <div
+        class=" "
+      >
+        <div
+          class="accordion-faq  !tw-bg-[#F9FAFB] "
+        >
+          <button
+            class="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center tw-text-[#71717A] tw-border-none tw-text-left "
+            data-accordion-faq-action
+          >
+            <div class=" tw-border-b tw-border-gray-300 tw-py-4 tw-flex tw-justify-between tw-w-full">
+              <div class=" tw-w-full tw-text-base tw-font-semibold  tw-text-[#111827] ">Shipping</div>
+              <div class=" tw-transition-transform icon tw-items-center tw-flex" data-accordion-faq-icon>
+                {% render 'icon-plus-dynamic', color: '#71717A', class: 'changeable-icon' %}
+              </div>
+            </div>
+          </button>
+          <div
+            data-accordion-faq-target
+            class="tw-text-lg tw-font-normal tw-pl-4"
+            style="display: none;"
+          >
+            <div
+              class="tw-mt-4 !tw-font-normal !tw-text-sm"
+              itemprop="articleBody"
+            >
+              {{ product.metafields.info_tab.shipping | metafield_text }}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    {% if product.metafields.info_tab.assembly_instructions != blank %}
+      <div
+        class=" assembly_instructions"
+      >
+        <div
+          class="accordion-faq  !tw-bg-[#F9FAFB] "
+        >
+          <button
+            class="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center tw-text-[#71717A] tw-border-none tw-text-left "
+            data-accordion-faq-action
+          >
+            <div class=" tw-border-b tw-border-gray-300 tw-py-4 tw-flex tw-justify-between tw-w-full">
+              <div class=" tw-w-full tw-text-base tw-font-semibold  tw-text-[#111827] ">Assembly Instructions</div>
+              <div class=" tw-transition-transform icon tw-items-center tw-flex" data-accordion-faq-icon>
+                {% render 'icon-plus-dynamic', color: '#71717A', class: 'changeable-icon' %}
+              </div>
+            </div>
+          </button>
+          <div
+            data-accordion-faq-target
+            class="tw-text-lg tw-font-normal tw-pl-4"
+            style="display: none;"
+          >
+            <div
+              class="tw-mt-4 !tw-font-normal !tw-text-sm"
+              itemprop="articleBody"
+            >
+              {{ product.metafields.info_tab.assembly_instructions | metafield_tag }}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About this item ",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "faqs_title",
+      "default": "Frequently Asked Questions",
+      "label": "t:sections.faqs.settings.faqs_title.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "faqs_description",
+      "default": "Below FAQ are some common concerns of our clients before purchasing the theme, if you have other questions, please just send it to ",
+      "label": "t:sections.faqs.settings.faqs_description.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "faqs_link",
+      "default": "cpapdiscount.au",
+      "label": "t:sections.faqs.settings.faqs_link.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category title"
+        }
+      ]
+    },
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question title"
+        },
+        {
+          "type": "richtext",
+          "id": "body",
+          "label": "Question body"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "delivery",
+      "settings": {
+        "padding_top": 48,
+        "padding_bottom": 80,
+        "heading_alignment": "center"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

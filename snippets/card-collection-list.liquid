@@ -1,0 +1,104 @@
+{% comment %}
+  Renders a collection card
+
+  Accepts:
+  - card_collection: {Object} Collection Liquid object
+  - media_aspect_ratio: {String} Size of the product image card. Values are "square" and "portrait". Default is "square" (optional)
+  - columns: {Number}
+  - extend_height: {Boolean} Card height extends to available container space. Default: false (optional)
+  - wrapper_class: {String} Wrapper class for card (optional)
+  - placeholder_image: {String} Placeholder image when collection is empty (optional)
+
+  Usage:
+  {% render 'card-collection' %}
+{% endcomment %}
+
+{%- liquid
+  assign ratio = 0.8
+
+  if ratio == 0 or ratio == null
+    assign ratio = 1
+  endif
+  assign card_color_scheme = settings.card_color_scheme
+  assign card_style = settings.card_style
+  if wrapper_class == null or wrapper_class == 'none'
+    assign card_color_scheme = settings.collection_card_color_scheme
+    assign card_style = settings.collection_card_style
+  endif
+-%}
+{%- style -%}
+
+  .collection-card-product  {
+
+border-radius: 10.67px;
+background-color: white;
+width: 180px;
+height: 120px
+
+
+  }
+  img{
+height: 100%;
+object-fit: contain !important;
+}
+{%- endstyle -%}
+
+<div
+  class="collection-card-product "
+>
+  
+    <img
+      srcset="
+        {%- if card_collection.featured_image.width >= 165 -%}{{ card_collection.featured_image | image_url: width: 165 }} 165w,{%- endif -%}
+        {%- if card_collection.featured_image.width >= 330 -%}{{ card_collection.featured_image | image_url: width: 330 }} 330w,{%- endif -%}
+        {%- if card_collection.featured_image.width >= 535 -%}{{ card_collection.featured_image | image_url: width: 535 }} 535w,{%- endif -%}
+        {%- if card_collection.featured_image.width >= 750 -%}{{ card_collection.featured_image | image_url: width: 750 }} 750w,{%- endif -%}
+        {%- if card_collection.featured_image.width >= 1000 -%}{{ card_collection.featured_image | image_url: width: 1000 }} 1000w,{%- endif -%}
+        {%- if card_collection.featured_image.width >= 1500 -%}{{ card_collection.featured_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+        {%- if card_collection.featured_image.width >= 3000 -%}{{ card_collection.featured_image | image_url: width: 3000 }} 3000w,{%- endif -%}
+        {{ card_collection.featured_image | image_url }} {{ card_collection.featured_image.width }}w
+      "
+      src="{{ card_collection.featured_image | image_url }}"
+      sizes="
+        (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: columns }}px,
+        (min-width: 750px) {% if columns > 1 %}calc((100vw - 10rem) / 2){% else %}calc(100vw - 10rem){% endif %},
+        calc(100vw - 3rem)
+      "
+      alt=""
+      height="{{ card_collection.featured_image.height }}"
+      width="{{ card_collection.featured_image.width }}"
+      loading="lazy"
+      class="motion-reduce"
+    >
+    </div>
+  
+
+
+
+    {%- if card_collection != blank and card_style == 'card' or card_collection.featured_image -%}
+      <div class="">
+        <div class="tw-pt-4 tw-flex tw-flex-col tw-gap-2">
+          <h3 class="card__heading tw-font-semibold tw-text-sm !tw-text-center">
+            <a
+              {% if card_collection == blank %}
+                role="link" aria-disabled="true"
+              {% else %}
+                href="{{ card_collection.url }}"
+              {% endif %}
+              class="tw-w-full full-unstyled-link tw-flex tw-items-center !tw-justify-center"
+            >
+              {%- if card_collection.title != blank -%}
+                {{- card_collection.title | escape | truncate: 20 -}}
+              {%- else -%}
+                {{ 'onboarding.collection_title' | t }}
+              {%- endif -%}
+              
+            </a>
+          </h3>
+        
+        </div>
+      </div>
+    {%- endif -%}
+
+
+

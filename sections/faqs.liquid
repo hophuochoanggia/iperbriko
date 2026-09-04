@@ -1,0 +1,154 @@
+<div class="page-width isolate  section-{{ section.id }}-padding !tw-py-[80px]">
+  <div class="tw-flex tw-flex-col tw-items-center tw-justify-center">
+    <div class="{{ section.settings.heading_size }} tw-font-semibold !tw-mb-4">
+      {{ section.settings.faqs_title }}
+    </div>
+    <p class=" page-width tw-text-center tw-py-4">
+      {{ section.settings.faqs_description -}}
+      {{ ' ' }}
+      <a
+        class="tw-underline hover:tw-text-blue-700 tw-transition-colors tw-duration-200 tw-ease-in-out"
+        href="mailto:{{ section.settings.faqs_link }}"
+      >
+        {{ section.settings.faqs_link }}
+      </a>
+    </p>
+  </div>
+
+  <div class="page-width tw-py-6">
+    {% for block in section.blocks %}
+      <div
+        class="tw-py-3"
+      >
+        {% if block.type == 'category' %}
+          <h2 class="tw-text-2xl tw-font-semibold">{{ block.settings.title }}</h2>
+        {% else %}
+          <div
+            class="accordion-faq tw-p-6 tw-border tw-border-gray-300 tw-rounded-lg"
+          >
+            <button
+              class="tw-w-full tw-flex tw-flex-row tw-justify-between tw-items-center tw-text-[#71717A] tw-border-none"
+              data-accordion-faq-action
+            >
+              <div class="tw-text-xl tw-font-semibold">{{ block.settings.title }}</div>
+              <div class=" tw-transition-transform icon" data-accordion-faq-icon>
+                {% render 'icon-plus-dynamic', color: '#71717A', class: 'changeable-icon' %}
+              </div>
+            </button>
+            <div
+              data-accordion-faq-target
+              class="tw-text-lg tw-font-normal tw-my-5 tw-border-t tw-border-gray-300"
+              style="display: none;"
+            >
+              <div
+                class="tw-pt-5 tw-flex tw-flex-col tw-gap-y-4 article-template__content rte scroll-trigger animate--slide-in"
+                itemprop="articleBody"
+              >
+                {{ block.settings.body }}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "faqs_title",
+      "default": "Frequently Asked Questions",
+      "label": "t:sections.faqs.settings.faqs_title.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "faqs_description",
+      "default": "Below FAQ are some common concerns of our clients before purchasing the theme, if you have other questions, please just send it to ",
+      "label": "t:sections.faqs.settings.faqs_description.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "faqs_link",
+      "default": "cpapdiscount.au",
+      "label": "t:sections.faqs.settings.faqs_link.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category title"
+        }
+      ]
+    },
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question title"
+        },
+        {
+          "type": "richtext",
+          "id": "body",
+          "label": "Question body"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

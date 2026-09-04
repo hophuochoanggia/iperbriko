@@ -1,0 +1,64 @@
+{%- capture section_style -%}
+    style="
+        {%- if section.settings.section_padding_top -%}padding-top:{{ section.settings.section_padding_top }}px;{%- endif -%}
+        {%- if section.settings.section_padding_bottom -%}padding-bottom:{{ section.settings.section_padding_bottom }}px;{%- endif -%}
+    "
+    {%- endcapture -%}
+
+<div class="inner {{ section.settings.additional_class | strip_html }}">
+  <div class="page-width">
+    <div class="py-hero-banner-wrap" {{ section_style | strip_newlines | strip }}>
+      <div class="content-top">
+        <h1 class="heading">{{ collection.title }}</h1>
+        <div class="hero-image">
+          {%- if collection.image -%}
+            {{ collection.image | image_url: width: 1920 | image_tag: loading: 'lazy', widths: '1920' }}
+          {%- else -%}
+            {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+
+        <div class="content">{{ collection.description }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "[E9D] Collection Hero",
+  "tag": "section",
+  "class": "py-hero-banner collection-hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "ADDITIONAL SETTINGS"
+    },
+    {
+      "type": "text",
+      "id": "additional_class",
+      "label": "Class"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding: Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding: Bottom",
+      "default": 80
+    }
+  ]
+}
+{% endschema %}

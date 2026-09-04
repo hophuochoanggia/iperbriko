@@ -1,0 +1,71 @@
+<div class="page-width tw-pb-20">
+  <div class="tw-flex tw-justify-center tw-items-center">
+    <h1 class="tw-font-bold tw-text-4xl">
+      {{ page.title | escape }}
+    </h1>
+  </div>
+
+  <div class="rte tw-text-center scroll-trigger animate--slide-in tw-px-10 lg:tw-px-[102px] tw-text-neutral-6 tw-mx-auto">
+    {{ page.content }}
+  </div>
+
+  <div class="page-width tw-grid tw-grid-cols-1 md:tw-grid-cols-2 scroll-trigger animate--slide-in tw-py-10 tw-gap-6 tw-items-stretch">
+    {% render 'service-info-card',
+      icon: 'icon-service-1',
+      title: 'Reso merce',
+      description: 'Se cambi idea su un acquisto ti restituiamo i soldi che hai speso in buono merce!',
+      content: 'Hai acquistato un prodotto e ti sei accorto dopo che non era quello che volevi? Nessun problema! Riportalo in negozio e ti restituiremo i soldi spesi in buono merce.',
+      extra_content: 'Ricordati di portare anche lo scontrino!'
+    %}
+
+    {% render 'service-info-card',
+      icon: 'icon-service-2',
+      title: 'Taglio legno',
+      description: 'Tagliamo al momento il legno su misura per te!',
+      content: 'Un’ampia gamma di lavorazioni e tagli sono a tua disposizione per soddisfare ogni tipo di richiesta di taglio su misura di tavole, listelli e battiscopa.'
+    %}
+
+    {% render 'service-info-card',
+      icon: 'icon-service-3',
+      title: 'Centro colore',
+      description: 'Scegli la tinta che preferisci, te la prepariamo in 5 minuti!',
+      content: 'Per ottenere in tempo reale il colore desiderato, scegli il colore che preferisci ed il tipo di vernice: idropittura, smalto, smalto per ferro o impregnate.
+        <br>Solo 5 minuti e il tuo colore è pronto!'
+    %}
+
+    {% render 'service-info-card',
+      icon: 'icon-service-4',
+      title: 'Cornici su misura',
+      description: 'Creiamo cornici per decorare i tuoi quadri e i tuoi ricordi.',
+      content: 'Hai un ricordo speciale ma non trovi una cornice? Non c’è problema!
+        <br>
+        I nostri esperti sapranno darti il consiglio giusto per creare una cornice su misura per te!'
+    %}
+
+    {% render 'service-info-card',
+      icon: 'icon-service-5',
+      title: 'Carico merci',
+      description: 'Ti diamo una mano a caricare tutti i tuoi acquisti ingombranti.',
+      content: 'Siamo sempre a tua disposizione per darti una mano. Per caricare in macchina tutti i tuoi acquisti “voluminosi”, chiedi a noi!'
+    %}
+
+    {% render 'service-info-card',
+      icon: 'icon-service-6',
+      title: 'Consegna a domicilio',
+      content: 'In caso di macchina piccola, ai tuoi acquisti ingombranti ci pensiamo noi! 
+        <br>
+        A fronte di una minima spesa, <strong>iperbriko</strong> ti permette di ricevere i tuoi acquisti con comodità a casa, entro pochi giorni dall’acquisto.
+        <br>
+        Chiedi all’interno dei nostri punti vendita come usufruire del servizio ed i suoi costi.'
+    %}
+
+    {% render 'service-info-card',
+      icon: 'icon-service-7',
+      title: 'Service 1',
+      description: 'Comode rate per alleggerire la spesa.',
+      content: 'Per acquisti per un ammontare superiore a 200 euro,<strong> iperbriko</strong> ti permette di dilazionare il pagamento, offrendoti soluzioni personalizzate.
+        <br>
+        I nostri venditori sono a disposizione per ogni tipo di informazione a riguardo.'
+    %}
+  </div>
+</div>

@@ -1,0 +1,230 @@
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-featured-blog.css' | asset_url | stylesheet_tag }}
+{{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 1 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 1 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+{%- liquid
+  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
+  assign show_mobile_slider = false
+  if section.settings.swipe_on_mobile and section.blocks.size > columns_mobile_int
+    assign show_mobile_slider = true
+  endif
+-%}
+<div class="page-width  tw-w-full scroll-trigger animate--fade-in section-{{ section.id }}-padding tw-my-8">
+  <div class="collection-list-wrapper isolate{% if show_mobile_slider %} page-width-desktop{% endif %}{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false or section.blocks.size > collections.size %} no-mobile-link{% endif %} section-{{ section.id }}-padding">
+  <slider-component class="slider-mobile-gutter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <ul
+      class="
+        collection-list contains-card contains-card--collection
+   
+        grid tw-grid-cols-4 grid--{{ section.settings.columns_mobile }}-col-tablet-down
+        slider slider--desktop grid--peek
+     slider slider--tablet 
+        collection-list---items
+      "
+      id="Slider-{{ section.id }}"
+      role="list"
+    >
+      {%- for block in section.blocks -%}
+        <li
+          id="Slide-{{ section.id }}-{{ forloop.index }}"
+          class="
+            tw-w-full tw-cols-span-1
+            tw-cursor-pointer
+            {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+          "
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: {{ forloop.index }};"
+          {% endif %}
+        >
+          {% render 'deal-promotion-card',
+            block: block,
+            media_aspect_ratio: 1.66,
+            with_border_radius: true,
+            image_overlay_opacity: 1
+          %}
+        </li>
+      {%- endfor -%}
+    </ul>
+    <div class="slider-buttons no-js-hidden">
+      <button
+        type="button"
+        class="tw-absolute tw-left-0 !tw-top-1/2 -tw-translate-y-1/2 slider-button slider-button--prev tw-z-50"
+        name="previous"
+        aria-label="{{ 'general.slider.previous_slide' | t }}"
+      >
+        {% render 'icon-slider-prev' %}
+      </button>
+
+      <button
+        type="button"
+        class="tw-absolute tw-right-0 !tw-top-1/2 -tw-translate-y-1/2 slider-button slider-button--next tw-z-50"
+        name="next"
+        aria-label="{{ 'general.slider.next_slide' | t }}"
+      >
+        {% render 'icon-slider-next' %}
+      </button>
+    </div>
+  </slider-component>
+</div>
+</div>
+{% schema %}
+{
+  "name": "Deal & Promotions",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Our Services",
+      "label": "t:sections.our-service.settings.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.our-service.settings.desktop_content_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.our-service.settings.desktop_content_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.our-service.settings.desktop_content_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.our-service.settings.desktop_content_alignment.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.our-service.header.content"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3,
+      "label": "t:sections.our-service.settings.columns_desktop.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 1,
+      "label": "t:sections.our-service.settings.columns_mobile.label"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service-card",
+      "name": "Card",
+      "settings": [
+
+        {
+          "type": "text",
+          "id": "background-color",
+          "label": "background color",
+          "default": "#f1ece2"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "heading",
+          "default": "Card"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Card Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "radio",
+          "id": "alignment",
+          "label": "Alignment",
+          "options": [
+            { "value": "top-left", "label": "top-left" },
+            { "value": "top-center", "label": "top-center" },
+            { "value": "top-right", "label": "top-right" },
+            { "value": "center-left", "label": "center-left" },
+            { "value": "center-center", "label": "center-center" },
+            { "value": "center-right", "label": "center-right" },
+            { "value": "bottom-left", "label": "bottom-left" },
+            { "value": "bottom-center", "label": "bottom-center" },
+            { "value": "bottom-right", "label": "bottom-right" }
+          ],
+          "default": "bottom-left"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text",
+          "default": "Click Here"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "CTA URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.our-service.presets.name",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

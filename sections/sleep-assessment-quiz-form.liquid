@@ -1,0 +1,1393 @@
+{{ 'section-quiz-form.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'quiz-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'download.js' | asset_url }}" defer="defer"></script>
+<script src="https://www.google.com/recaptcha/api.js" defer></script>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .bg {
+    position: absolute;
+    background: url("/assets/gray-layer.png") no-repeat center center;
+    background-size: cover;
+    top: 100;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+
+  @media screen and (min-width: 1920px) {
+    .bg {
+      position: absolute;
+      background: url("/assets/gray-layer.png") no-repeat center center;
+      background-size: cover;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height:180%;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign full_width = '100vw'
+  assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+
+  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
+  assign show_mobile_slider = false
+
+  assign field_class = 'tw-flex tw-flex-col tw-mb-2'
+  assign input_class = 'tw-full tw-bg-gray-100 tw-p-4 tw-border tw-border-gray-300 focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-medium tw-rounded-md tw-mt-2 tw-mb-4 '
+
+  assign label_class = 'tw-text-text-black tw-font-bold tw-flex'
+
+  if section.settings.swipe_on_mobile and section.blocks.size > columns_mobile_int
+    assign show_mobile_slider = true
+  endif
+-%}
+
+<div class="section-{{ section.id }}-padding gradient  tw-pt-24 tw-pb-20  tw-relative  tw-overflow-hidden tw-min-h-screen">
+  <div class="bg">&nbsp;</div>
+
+  <div
+    id="quiz-form"
+    class="quiz-form  tw-relative tw-text-black tw-text-base page-width tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center "
+  >
+    <div class="tw-px-4 md:tw-px-0 tw-flex tw-flex-col tw-justify-center tw-items-center tw-w-full">
+      <div class="tw-flex tw-flex-col tw-justify-between tw-items-center ">
+        <div class="tw-text-5xl tw-font-semibold tw-pb-4 {{ section.settings.heading_size }}">
+          {{ section.settings.heading }}
+        </div>
+        <p class="tw-text-center tw-w-full lg:tw-w-2/3">
+          {{ section.settings.description }}
+        </p>
+
+        <div id="progress" class="tw-flex tw-items-center tw-justify-center hidden tw-my-10 tw-w-full">
+          <div
+            id="progress-border-2"
+            class="tw-w-10 tw-h-10 tw-rounded-full tw-border-2 tw-flex tw-justify-center tw-items-center"
+          >
+            <div id="progress-bg-2" class=" tw-w-4 tw-h-4 tw-rounded-full">&nbsp;</div>
+            <div id="progress-tick-2" class="hidden">
+              {% render 'icon-tick', color: '#000', size: '24px' %}
+            </div>
+          </div>
+          <div id="progress-bar-2" class="tw-w-10 tw-border tw-h-0">&nbsp;</div>
+
+          <div
+            id="progress-border-3"
+            class="tw-w-10 tw-h-10 tw-rounded-full tw-border-2 tw-flex tw-justify-center tw-items-center tw-border-gray-light"
+          >
+            <div id="progress-bg-3" class=" tw-w-4 tw-h-4 tw-rounded-full">&nbsp;</div>
+            <div id="progress-tick-3" class="hidden">
+              {% render 'icon-tick', color: '#000', size: '24px' %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="step-1" class="tw-flex tw-flex-col tw-space-y-4 quiz-form__step ">
+        <div class="tw-flex tw-flex-col lg:tw-flex-row tw-w-full tw-h-full tw-pt-14 ">
+          <div
+            class=" scroll-trigger animate--fade-in tw-relative"
+          >
+            {%- liquid
+              assign sizes = full_width
+              assign fetch_priority = 'high'
+            -%}
+            {{
+              section.settings.image_quiz
+              | image_url: width: 3840
+              | image_tag:
+                width: section.settings.image_quiz.width,
+                sizes: sizes,
+                widths: widths,
+                fetchpriority: fetch_priority,
+                class: 'tw-rounded-2xl tw-h-[400px]'
+            }}
+
+            <div class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-flex tw-flex-col tw-justify-center tw-items-center tw-space-y-4 tw-px-8">
+              <p class="tw-text-base tw-text-white">
+                {{ section.settings.quiz_description }}
+              </p>
+              <span
+                class="button button--primary tw-text-black tw-uppercase"
+                onclick="switchSlider(2)"
+                id="start-quiz-button"
+              >
+                <span class="btn tw-text-base">{{ section.settings.button_quiz_label }}</span>
+              </span>
+            </div>
+          </div>
+          <div class="tw-px-8 tw-py-4 tw-flex tw-items-center tw-justify-center">OR</div>
+          <div
+            class=" scroll-trigger animate--fade-in tw-relative"
+          >
+            {%- liquid
+              assign sizes = full_width
+              assign fetch_priority = 'high'
+            -%}
+            {{
+              section.settings.image_download
+              | image_url: width: 3840
+              | image_tag:
+                width: section.settings.image_download.width,
+                sizes: sizes,
+                widths: widths,
+                fetchpriority: fetch_priority,
+                class: 'tw-rounded-2xl tw-h-[400px]'
+            }}
+
+            <div class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-flex tw-flex-col tw-justify-center tw-items-center tw-space-y-4 tw-px-8">
+              <p class="tw-text-base tw-text-white">
+                {{ section.settings.download_description }}
+              </p>
+
+              <a
+                href="https://cdn.shopify.comttt/s/files/1/0622/9511/3954/files/CPAP-Referral-form-FILLABLE.pdf"
+                target="_blank"
+                class="button button--primary tw-text-black tw-uppercase"
+              >
+                <span class="elementor-button-text btn outline-white">Download referral form</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="step-2" class="tw-flex tw-flex-col quiz-form__step hidden tw-w-full ">
+        <div class="quiz_slider_heading md:tw-px-10 lg:tw-px-44 tw-mb-8 ">
+          <h3 class="tw-text-lg tw-font-semibold">Epworth sleepiness scale (ESS)</h3>
+          <p class="tw-my-2">
+            How likely are you to doze off or fall asleep in the following situations, in contrast to feeling just
+            tired? This refers to your usual way of life in recent times. Even if you have not done some of these things
+            recently, try to work out how they would have affected you.
+          </p>
+        </div>
+
+        <div class="tw-overflow-x-scroll  -tw-mr-4 lg:tw-overflow-hidden lg:-tw-mr-0">
+          <table
+            id="table_step_2"
+            {% comment %} class="table_step_2 table mt-4 tw-w-full tw-rounded-tl-2xl tw-border tw-border-[#C7CCD6] tw-text-base lg:tw-text-lg tw-flex tw-flex-col tw-overflow-x-scroll " {% endcomment %}
+            class="table_step_2 table mt-4 tw-border tw-border-[#C7CCD6] tw-text-base lg:tw-text-lg tw-mr-8"
+          >
+            <thead>
+              <tr class="">
+                <th class="text-left tw-rounded-tl-2xl tw-font-semibold" style="white-space: nowrap;">
+                  How likely are you to doze off in these situation
+                </th>
+                <th class="text-center tw-font-semibold">Never</th>
+                <th class="text-center tw-font-semibold">Slight</th>
+                <th class="text-center tw-font-semibold">Moderate</th>
+                <th class="text-center tw-rounded-tr-2xl tw-font-semibold">High</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr class="tw-border-b tw-border-2 tw-border-black">
+                <td class="tw-text-left">Sitting and reading</td>
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_1_rb"
+                      id="s_1_row_1_rb_0"
+                    >
+                    <label class="form-check-label" for="s_1_row_1_rb_0"> 0 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="1"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_1_rb"
+                      id="s_1_row_1_rb_1"
+                    >
+                    <label class="form-check-label" for="s_1_row_1_rb_1"> 1 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="2"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_1_rb"
+                      id="s_1_row_1_rb_2"
+                    >
+                    <label class="form-check-label" for="s_1_row_1_rb_2"> 2 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="3"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_1_rb"
+                      id="s_1_row_1_rb_3"
+                    >
+                    <label class="form-check-label" for="s_1_row_1_rb_3"> 3 </label>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="tw-text-left">Watching television</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_2_rb"
+                      id="s_1_row_2_rb_0"
+                    >
+                    <label class="form-check-label" for="s_1_row_2_rb_0"> 0 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="1"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_2_rb"
+                      id="s_1_row_2_rb_1"
+                    >
+                    <label class="form-check-label" for="s_1_row_2_rb_1"> 1 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="2"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_2_rb"
+                      id="s_1_row_2_rb_2"
+                    >
+                    <label class="form-check-label" for="s_1_row_2_rb_2"> 2 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="3"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_2_rb"
+                      id="s_1_row_2_rb_3"
+                    >
+                    <label class="form-check-label" for="s_1_row_2_rb_3"> 3 </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="tw-text-left">Sitting inactive in a public place (e.g. a theatre or meeting)</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_3_rb"
+                      id="s_1_row_3_rb_0"
+                    >
+                    <label class="form-check-label" for="s_1_row_3_rb_0"> 0 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="1"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_3_rb"
+                      id="s_1_row_3_rb_1"
+                    >
+                    <label class="form-check-label" for="s_1_row_3_rb_1"> 1 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="2"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_3_rb"
+                      id="s_1_row_3_rb_2"
+                    >
+                    <label class="form-check-label" for="s_1_row_3_rb_2"> 2 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="3"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_3_rb"
+                      id="s_1_row_3_rb_3"
+                    >
+                    <label class="form-check-label" for="s_1_row_3_rb_3"> 3 </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="tw-text-left">As a passenger in a car for an hour without a break</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_4_rb"
+                      id="s_1_row_4_rb_0"
+                    >
+                    <label class="form-check-label" for="s_1_row_4_rb_0"> 0 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="1"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_4_rb"
+                      id="s_1_row_4_rb_1"
+                    >
+                    <label class="form-check-label" for="s_1_row_4_rb_1"> 1 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="2"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_4_rb"
+                      id="s_1_row_4_rb_2"
+                    >
+                    <label class="form-check-label" for="s_1_row_4_rb_2"> 2 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="3"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_4_rb"
+                      id="s_1_row_4_rb_3"
+                    >
+                    <label class="form-check-label" for="s_1_row_4_rb_3"> 3 </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="tw-text-left">Lying down to rest in the afternoon when circumstances permit</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_5_rb"
+                      id="s_1_row_5_rb_0"
+                    >
+                    <label class="form-check-label" for="s_1_row_5_rb_0"> 0 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="1"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_5_rb"
+                      id="s_1_row_5_rb_1"
+                    >
+                    <label class="form-check-label" for="s_1_row_5_rb_1"> 1 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="2"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_5_rb"
+                      id="s_1_row_5_rb_2"
+                    >
+                    <label class="form-check-label" for="s_1_row_5_rb_2"> 2 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="3"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_5_rb"
+                      id="s_1_row_5_rb_3"
+                    >
+                    <label class="form-check-label" for="s_1_row_5_rb_3"> 3 </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="tw-text-left">Sitting and talking to someone</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_6_rb"
+                      id="s_1_row_6_rb_0"
+                    >
+                    <label class="form-check-label" for="s_1_row_6_rb_0"> 0 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="1"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_6_rb"
+                      id="s_1_row_6_rb_1"
+                    >
+                    <label class="form-check-label" for="s_1_row_6_rb_1"> 1 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="2"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_6_rb"
+                      id="s_1_row_6_rb_2"
+                    >
+                    <label class="form-check-label" for="s_1_row_6_rb_2"> 2 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="3"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_6_rb"
+                      id="s_1_row_6_rb_3"
+                    >
+                    <label class="form-check-label" for="s_1_row_6_rb_3"> 3 </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="tw-text-left">Sitting quietly after a lunch without alcohol</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_7_rb"
+                      id="s_1_row_7_rb_0"
+                    >
+                    <label class="form-check-label" for="s_1_row_7_rb_0"> 0 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="1"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_7_rb"
+                      id="s_1_row_7_rb_1"
+                    >
+                    <label class="form-check-label" for="s_1_row_7_rb_1"> 1 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="2"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_7_rb"
+                      id="s_1_row_7_rb_2"
+                    >
+                    <label class="form-check-label" for="s_1_row_7_rb_2"> 2 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="3"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_7_rb"
+                      id="s_1_row_7_rb_3"
+                    >
+                    <label class="form-check-label" for="s_1_row_7_rb_3"> 3 </label>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="tw-text-left">In a car, while stopped for a few minutes in the traffic</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_8_rb"
+                      id="s_1_row_8_rb_0"
+                    >
+                    <label class="form-check-label" for="s_1_row_8_rb_0"> 0 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="1"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_8_rb"
+                      id="s_1_row_8_rb_1"
+                    >
+                    <label class="form-check-label" for="s_1_row_8_rb_1"> 1 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="2"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_8_rb"
+                      id="s_1_row_8_rb_2"
+                    >
+                    <label class="form-check-label" for="s_1_row_8_rb_2"> 2 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="3"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_1_row_8_rb"
+                      id="s_1_row_8_rb_3"
+                    >
+                    <label class="form-check-label" for="s_1_row_8_rb_3"> 3 </label>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tw-text-right tw-text-lg tw-font-semibold tw-py-4">
+          <h5>Total score: <span class="step2_total">0</span></h5>
+        </div>
+
+        <div class="tw-my-4">
+          <span
+            class="step__button disabled button button--primary tw-text-black "
+            data-action="step-2"
+            onclick="switchSlider(3)"
+          >
+            <span class="btn tw-px-8">Next Step</span>
+          </span>
+        </div>
+      </div>
+
+      <div id="step-3" class="quiz-form__step tw-w-full tw-flex-col tw-space-y-6 tw-my-6 hidden">
+        <div class="quiz_slider_heading text-center">
+          <p class="mb-4 mt-2">Please select to complete STOP-BANG Questionnaire or OSA 50 Screening Questionnaire</p>
+        </div>
+
+        <div class="tw-flex tw-flex-col  md:tw-flex-row tw-w-full tw-items-center tw-justify-between tw-gap-4 ">
+          <div class="form-check tw-w-full">
+            <input
+              value="stop_bang"
+              class="form-check-input step3_selector  tw-opacity-0 tw-hidden"
+              type="radio"
+              name="step3_selector"
+              id="step3_selector_1"
+            >
+            <label
+              class="form-check-label tw-w-full tw-flex tw-flex-row tw-items-start tw-p-5 tw-border tw-rounded-lg tw-bg-gray-200 tw-border-gray-300 "
+              for="step3_selector_1"
+            >
+              STOP-BANG Questionnaire
+            </label>
+          </div>
+
+          <div class="tw-px-6">OR</div>
+
+          <div class="form-check tw-w-full">
+            <input
+              value="osa"
+              class="form-check-input step3_selector tw-opacity-0 tw-hidden"
+              type="radio"
+              name="step3_selector"
+              id="step3_selector_2"
+            >
+            <label
+              class="form-check-label tw-w-full tw-flex tw-flex-row tw-items-start tw-p-5 tw-border tw-rounded-lg tw-bg-gray-200 tw-border-gray-300"
+              for="step3_selector_2"
+            >
+              OSA 50 Screening Questionnaire
+            </label>
+          </div>
+        </div>
+
+        <div class="">
+          <table
+            id="stop-bang-table"
+            class="table mt-2 table_step_3 table_step_3_stop_bang hidden tw-w-full tw-rounded-tl-2xl tw-border tw-border-[#C7CCD6] tw-text-base lg:tw-text-lg tw-overflow-hidden"
+          >
+            <thead class="">
+              <tr>
+                <th class="tw-font-semibold text-left">STOP-BANG Questionnaire</th>
+                <th class="tw-font-semibold text-center mw-7">Yes</th>
+                <th class="tw-font-semibold text-center mw-7">No</th>
+              </tr>
+            </thead>
+            <tbody class="tw-border tw-text-left">
+              <tr class="tw-text-left">
+                <td>Do you snore loudly?</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="1"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_2_row_1_rb"
+                      id="s_2_row_1_rb_1"
+                    >
+                    <label class="form-check-label" for="s_2_row_1_rb_1"> 1 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_2_row_1_rb"
+                      id="s_2_row_1_rb_0"
+                    >
+                    <label class="form-check-label" for="s_2_row_1_rb_0"> 0 </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Do you often feel tired, fatigued, or sleepy during the daytime?</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="1"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_2_row_2_rb"
+                      id="s_2_row_2_rb_1"
+                    >
+                    <label class="form-check-label" for="s_2_row_2_rb_1"> 1 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_2_row_2_rb"
+                      id="s_2_row_2_rb_0"
+                    >
+                    <label class="form-check-label" for="s_2_row_2_rb_0"> 0 </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Has anyone observed you stop breathing during your sleep?</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="1"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_2_row_3_rb"
+                      id="s_2_row_3_rb_1"
+                    >
+                    <label class="form-check-label" for="s_2_row_3_rb_1"> 1 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_2_row_3_rb"
+                      id="s_2_row_3_rb_0"
+                    >
+                    <label class="form-check-label" for="s_2_row_3_rb_0"> 0 </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Do you have or are you being treated for high blood pressure?</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="1"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_2_row_4_rb"
+                      id="s_2_row_4_rb_1"
+                    >
+                    <label class="form-check-label" for="s_2_row_4_rb_1"> 1 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_2_row_4_rb"
+                      id="s_2_row_4_rb_0"
+                    >
+                    <label class="form-check-label" for="s_2_row_4_rb_0"> 0 </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Are you obese/very overweight - BMI more than 35 kg/m²?</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="1"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_2_row_5_rb"
+                      id="s_2_row_5_rb_1"
+                    >
+                    <label class="form-check-label" for="s_2_row_5_rb_1"> 1 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_2_row_5_rb"
+                      id="s_2_row_5_rb_0"
+                    >
+                    <label class="form-check-label" for="s_2_row_5_rb_0"> 0 </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Age over 50 years old?</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="1"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_2_row_6_rb"
+                      id="s_2_row_6_rb_1"
+                    >
+                    <label class="form-check-label" for="s_2_row_6_rb_1"> 1 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_2_row_6_rb"
+                      id="s_2_row_6_rb_0"
+                    >
+                    <label class="form-check-label" for="s_2_row_6_rb_0"> 0 </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Neck circumference greater than: 43cm (male) or 41cm (female)</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="1"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_2_row_7_rb"
+                      id="s_2_row_7_rb_1"
+                    >
+                    <label class="form-check-label" for="s_2_row_7_rb_1"> 1 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_2_row_7_rb"
+                      id="s_2_row_7_rb_0"
+                    >
+                    <label class="form-check-label" for="s_2_row_7_rb_0"> 0 </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Are you male?</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="1"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_2_row_8_rb"
+                      id="s_2_row_8_rb_1"
+                    >
+                    <label class="form-check-label" for="s_2_row_8_rb_1"> 1 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_2_row_8_rb"
+                      id="s_2_row_8_rb_0"
+                    >
+                    <label class="form-check-label" for="s_2_row_8_rb_0"> 0 </label>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table
+            id="osa-table"
+            class="table mt-2 table_step_3 table_step_3_osa hidden tw-w-full tw-rounded-tl-2xl tw-border tw-border-[#C7CCD6] tw-text-base lg:tw-text-lg  tw-overflow-hidden"
+          >
+            <thead class="tw-font-semibold">
+              <tr>
+                <th class="tw-font-semibold text-left">OSA 50 Screening Questionnaire</th>
+                <th class="tw-font-semibold text-center mw-7">Yes</th>
+                <th class="tw-font-semibold text-center mw-7">No</th>
+              </tr>
+            </thead>
+            <tbody class="tw-border tw-text-left">
+              <tr>
+                <td>Waist circumference Male &gt; 120cm or Females &gt; 88cm</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="3"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_3_row_1_rb"
+                      id="s_3_row_1_rb_3"
+                    >
+                    <label class="form-check-label" for="s_3_row_1_rb_3"> 3 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_3_row_1_rb"
+                      id="s_3_row_1_rb_0"
+                    >
+                    <label class="form-check-label" for="s_3_row_1_rb_0"> 0 </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Has your snoring ever bothered other people?</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="3"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_3_row_2_rb"
+                      id="s_3_row_2_rb_3"
+                    >
+                    <label class="form-check-label" for="s_3_row_2_rb_3"> 3 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_3_row_2_rb"
+                      id="s_3_row_2_rb_0"
+                    >
+                    <label class="form-check-label" for="s_3_row_2_rb_0"> 0 </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Has anyone noticed you stop breathing during your sleep?</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="2"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_3_row_3_rb"
+                      id="s_3_row_3_rb_2"
+                    >
+                    <label class="form-check-label" for="s_3_row_3_rb_2"> 2 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_3_row_3_rb"
+                      id="s_3_row_3_rb_0"
+                    >
+                    <label class="form-check-label" for="s_3_row_3_rb_0"> 0 </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Are you aged 50 years or over?</td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="2"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_3_row_4_rb"
+                      id="s_3_row_4_rb_2"
+                    >
+                    <label class="form-check-label" for="s_3_row_4_rb_2"> 2 </label>
+                  </div>
+                </td>
+
+                <td class="text-center">
+                  <div class="form-check">
+                    <input
+                      value="0"
+                      class="form-check-input radiobox_item"
+                      type="radio"
+                      name="s_3_row_4_rb"
+                      id="s_3_row_4_rb_0"
+                    >
+                    <label class="form-check-label" for="s_3_row_4_rb_0"> 0 </label>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div id="step3_total_container" class="hidden tw-w-full tw-text-end">
+            <h5 class="tw-font-semibold tw-text-xl">
+              Total score: <span id="step3_total" class="step3_total step-3-total--shop_bang">0</span>
+            </h5>
+          </div>
+        </div>
+
+        <div class="tw-flex tw-flex-row tw-justify-center tw-items-center mt-4 tw-space-x-6">
+          <span
+            class="tw-border tw-px-6 tw-py-[11px] tw-rounded-full  tw-bg-white !tw-border-[#C7CCD6] tw-text-black hover:tw-scale-[103%] tw-transition tw-duration-300 tw-ease-in-out tw-cursor-pointer "
+            onclick="switchSlider(2)"
+          >
+            <span class="tw-pl-2" style="display: inline-block; transform: rotate(180deg); ">
+              {% render 'icon-arrow' %}
+            </span>
+            <span class="btn outline-white tw-font-semibold">Back</span>
+          </span>
+
+          <span
+            class="button button--primary tw-text-black step__button disabled"
+            data-action="step-3"
+            onclick="switchSlider(4)"
+          >
+            <span class="btn">Next Step</span>
+          </span>
+        </div>
+      </div>
+
+      <div id="step-4" class="page-width quiz-form__step hidden">
+        <div class="tw-flex tw-flex-col tw-text-base tw-items-center tw-justify-center ">
+          <div class="tw-rounded-2xl tw-border tw-border-[#C7CCD6] tw-flex tw-flex-col tw-items-center tw-justify-center tw-overflow-hidden tw-space-y-4 tw-pb-8 tw-w-full">
+            <div class="tw-bg-yellow-default tw-w-full">
+              <h3 class="tw-font-semibold  tw-py-4">Assessment result</h3>
+            </div>
+
+            <div class="tw-font-semibold tw-text-base tw-pt-4">You may be eligible for a Sleep Study</div>
+
+            <div class="tw-w-1/2 tw-border-b tw-border-black tw-h-1">&nbsp;</div>
+
+            <p>Epworth Sleepiness Scale (ESS): <span class="result_for_step_2 tw-font-semibold">0 points</span></p>
+            <p>
+              STOP-BANG Questionnaire:
+              <span id="result_for_step3_stop_bang" class="result_for_step3_stop_bang tw-font-semibold">N/A</span>
+            </p>
+            <p>
+              OSA 50 Screening Questionnaire:
+              <span id="result_for_step3_osa" class="result_for_step3_osa tw-font-semibold">N/A</span>
+            </p>
+          </div>
+          <a
+            class="eligible tw-text-sm d tw-mt-4 tw-text-center tw-text-black tw-underline tw-underline-offset-2 hover:tw-font-semibold"
+            href="https://cpapdiscount.au/blogs/news/what-is-a-sleep-study"
+            >How can I get tested for Sleep Apnoea?</a
+          >
+
+          <div class="tw-w-1/2 tw-border-b tw-border-gray-300 tw-h-1 tw-mt-8 tw-mb-10">&nbsp;</div>
+
+          <div class="tw-rounded-2xl tw-border tw-border-[#C7CCD6] tw-flex tw-flex-col tw-items-center tw-justify-center tw-overflow-hidden tw-space-y-4 tw-pb-8 tw-w-full">
+            <div class="tw-bg-yellow-default tw-w-full">
+              <h3 class="tw-font-semibold  tw-py-4">Email me the referral form</h3>
+            </div>
+            <div class="submit-form tw-w-full page-width">
+              <form id="info-form" class=" mt-4" onsubmit="return formSubmit(event)">
+                <input
+                  type="hidden"
+                  id="adminEmail-field"
+                  class="field__input hidden"
+                  name="adminEmail"
+                  value="contact@cpapdiscount.au,team@cpapdiscount.au"
+                >
+                <input
+                  type="hidden"
+                  id="senderEmail-field"
+                  class="field__input hidden"
+                  name="senderEmail"
+                  value="no-reply@e9.digital"
+                >
+                <h2 class="form-status form-status-list form__message hidden">
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    role="presentation"
+                    class="icon icon-success"
+                    viewBox="0 0 13 13"
+                  >
+                      <path d="M6.5 12.35C9.73087 12.35 12.35 9.73086 12.35 6.5C12.35 3.26913 9.73087 0.65 6.5 0.65C3.26913 0.65 0.65 3.26913 0.65 6.5C0.65 9.73086 3.26913 12.35 6.5 12.35Z" fill="#428445" stroke="white" stroke-width="0.7"></path>
+                      <path d="M5.53271 8.66357L9.25213 4.68197" stroke="white"></path>
+                      <path d="M4.10645 6.7688L6.13766 8.62553" stroke="white">
+                    </path>
+                  </svg>
+                  Your request is successfull. The referral form will be sent to your email.
+                </h2>
+                <div class="{{ field_class }}">
+                  <label class="{{ label_class }}" for="firstName-field"> First name </label>
+                  <input
+                    type="text"
+                    id="firstName-field"
+                    class="{{ input_class }}"
+                    name="firstName"
+                    placeholder="First name"
+                    aria-required="true"
+                    pattern=".*\S+.*"
+                    required
+                    title="This field is required"
+                  >
+                </div>
+                <div class="{{ field_class }}">
+                  <label class="{{ label_class }}" for="lastName-field"> Last name </label>
+                  <input
+                    type="text"
+                    id="lastName-field"
+                    class="{{ input_class }}"
+                    name="lastName"
+                    placeholder="Last name"
+                    aria-required="true"
+                    pattern=".*\S+.*"
+                    required
+                    title="This field is required"
+                  >
+                </div>
+                <div class="{{ field_class }}">
+                  <label class="{{ label_class }}" for="email-feild"> Email </label>
+                  <input
+                    type="email"
+                    id="email-feild"
+                    class="{{ input_class }}"
+                    name="email"
+                    placeholder="Email"
+                    aria-required="true"
+                    required
+                  >
+                </div>
+                <div class="{{ field_class }}">
+                  <label class="{{ label_class }}" for="phone-feild"> Phone number </label>
+                  <input
+                    type="text"
+                    id="phone-feild"
+                    class="{{ input_class }}"
+                    name="phone"
+                    placeholder="(+61) 1234 56789"
+                  >
+                </div>
+                <div
+                  class="g-recaptcha text-center"
+                  data-sitekey="6Ld9S8EnAAAAAB0csU21f1TRt-lMljR65Oc7H3YX"
+                  style="margin-top: 20px;"
+                ></div>
+
+                <p class="text-center tw-py-8">
+                  <button
+                    type="submit"
+                    class="step__button button button--secondary tw-cursor-pointer hover:tw-scale-105"
+                  >
+                    <span class="tw-px-12 tw-text-black" style="font-weight: 600;">Submit</span>
+                  </button>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="step-5" class="quiz-form__step hidden">
+        <div class="quiz_slider_heading text-center">
+          <h3 class="text-bold mt-2 h2">Assessment result</h3>
+        </div>
+
+        <div class="card card_result text-center mt-4">
+          <div class="card-body p-0">
+            <div class="card-primary-block">
+              <h3 class="h2">You may be eligible for a Sleep Study</h3>
+
+              <a href="https://clmsleep.e9.digital/services/diagnostic-and-investigative-services/"
+                >How can I get tested for Sleep Apnoea?</a
+              >
+            </div>
+            <div class="card-secondary-block">
+              <p>Epworth Sleepiness Scale (ESS): <span class="result_for_step_2">0 points</span></p>
+              <p>
+                STOP-BANG Questionnaire:
+                <span id="result_for_step3_stop_bang" class="result_for_step3_stop_bang">N/A</span>
+              </p>
+              <p>
+                OSA 50 Screening Questionnaire:
+                <span id="result_for_step3_osa" class="result_for_step3_osa">N/A</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer_card_container footer_card_eligible mt-4">
+          <div class="text-center" style="margin-bottom: 30px">
+            <a
+              href="#"
+              onclick="handleFillablePDF()"
+            >
+              <span class="btn">Download referal form</span>
+            </a>
+          </div>
+          <p class="text-center text-small">
+            You can <b>download the referral form</b> with all the questionnaire prefilled based on your answer. Then,
+            fill in your personal details and bring it to your doctor for consultation and sign-off.
+          </p>
+        </div>
+
+        <div class="footer_card_container footer_card_ineligible mt-4">
+          <p class="text-center">
+            <a href="https://cpapdiscount.au">
+              <span class="btn outline-white">Back to home page</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.sleep-assessment-quiz-form.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Contact form",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "description",
+      "default": "Contact form description",
+      "label": "Description"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "quiz_description",
+      "default": "Take a sleep assessment quiz to see if you have sleep apnea and qualify for a sleep study.",
+      "label": "Button quiz label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "download_description",
+      "default": "You can download this form and bring it to your doctor for consultation and sign-off.",
+      "label": "Button quiz label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "button_quiz_label",
+      "default": "Start the Quiz",
+      "label": "Button quiz label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "button_download_label",
+      "default": "Download referral form",
+      "label": "Button download label"
+    },
+    {
+      "id": "image_quiz",
+      "type": "image_picker",
+      "label": "Image quiz"
+    },
+    {
+      "id": "image_download",
+      "type": "image_picker",
+      "label": "Image download"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.sleep-assessment-quiz-form.presets.name"
+    }
+  ]
+}
+{% endschema %}

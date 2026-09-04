@@ -1,0 +1,269 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "tags": {
+          "type": "tags",
+          "disabled": true,
+          "settings": {}
+        },
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "Iperbriko",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_QhjHft": {
+          "type": "price",
+          "settings": {}
+        },
+        "e0190cbb-48d4-4585-8eb4-3603e1c5ad7b": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
+        },
+        "922074a1-cdab-4d74-a3f1-7fbb8d0d9b62": {
+          "type": "sku",
+          "settings": {
+            "text_style": "body"
+          }
+        },
+        "custom_liquid_Pf3J3f": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<br/>"
+          }
+        },
+        "sibling_picker": {
+          "type": "sibling_picker",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_kJmGQy": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "eta_LiXwHt": {
+          "type": "eta",
+          "settings": {}
+        },
+        "brief_description_TbyibU": {
+          "type": "brief_description",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_KMNkjk": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "tags",
+        "vendor",
+        "title",
+        "price_QhjHft",
+        "e0190cbb-48d4-4585-8eb4-3603e1c5ad7b",
+        "922074a1-cdab-4d74-a3f1-7fbb8d0d9b62",
+        "custom_liquid_Pf3J3f",
+        "sibling_picker",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons_kJmGQy",
+        "eta_LiXwHt",
+        "brief_description_TbyibU",
+        "judge_me_reviews_preview_badge_KMNkjk"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "background-1",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "hover",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "about-the-product": {
+      "type": "accordion-product",
+      "blocks": {
+        "category_Cpna7Q": {
+          "type": "category",
+          "settings": {
+            "title": "About Sleep Apnoea"
+          }
+        }
+      },
+      "block_order": [
+        "category_Cpna7Q"
+      ],
+      "custom_css": [
+        "h2 {font-size: 20px; font-weight: bold; line-height: 2;}",
+        "h3 {font-size: 16px; font-weight: bold; line-height: 1.8;}",
+        "ul {padding-left: 6px; list-style-position: inside;}"
+      ],
+      "settings": {
+        "faqs_title": "<strong>Frequently Asked Questions</strong>",
+        "faqs_description": "Below FAQ are some common concerns of our clients before purchasing the theme, if you have other questions, please just send it to",
+        "faqs_link": "iperbriko.it",
+        "heading_size": "h0",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "complementary": {
+      "type": "complementary",
+      "blocks": {
+        "fd621f89-78d1-4e5d-9d32-4f2a7c27d2eb": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Compatible Masks",
+            "make_collapsible_row": false,
+            "icon": "none",
+            "product_list_limit": 10,
+            "products_per_page": 3,
+            "pagination_style": "numbers",
+            "image_ratio": "square",
+            "enable_quick_add": true,
+            "show_vendor": true,
+            "show_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "fd621f89-78d1-4e5d-9d32-4f2a7c27d2eb"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "background-1",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "hover",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Prodotti correlati",
+        "heading_size": "h2",
+        "products_to_show": 10,
+        "columns_desktop": 5,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "170818502118037b92": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "17210658300422fec5": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_CGhzG6": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_CGhzG6"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "newsletter_RP6Hjc": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_LEBdid": {
+          "type": "heading",
+          "settings": {
+            "heading": "Iscriviti alla nostra newsletter",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_ehtqxh": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Resta aggiornato con le ultime offerte di Iperbriko. Articoli per la casa, arredo casa e giardino, tutto a portata di click!</p>"
+          }
+        },
+        "email_form_rLW9XP": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_LEBdid",
+        "paragraph_ehtqxh",
+        "email_form_rLW9XP"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "about-the-product",
+    "complementary",
+    "related-products",
+    "170818502118037b92",
+    "17210658300422fec5",
+    "newsletter_RP6Hjc"
+  ]
+}

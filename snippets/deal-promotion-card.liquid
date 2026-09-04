@@ -1,0 +1,133 @@
+{% comment %}
+  Renders an article card for a given blog with settings to either show the image or not.
+
+  Accepts:
+  - blog: {Object} Blog object
+  - article: {Object} Article object
+  - media_aspect_ratio: {String} The setting changes the aspect ratio of the article image, if shown
+  - media_height: {String} The setting changes the height of the article image. Overrides media_aspect_ratio.
+  - show_image: {String} The setting either show the article image or not. If it's not included it will show the image by default
+  - show_date: {String} The setting either show the article date or not. If it's not included it will not show the image by default
+  - show_author: {String} The setting either show the article author or not. If it's not included it will not show the author by default
+  - show_badge: {String} The setting either show the blog badge or not.
+  - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+
+  Usage:
+  {% render 'article-card' blog: blog, article: article, show_image: section.settings.show_image %}
+{% endcomment %}
+
+{%- style -%}
+    #Banner-{{ section.id }}::after {
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, {{image_overlay_opacity | divided_by: 100.0 }}) 50%,
+        rgba(0, 0, 0, 0)
+      );
+    }
+    img {
+      object-fit: cover;
+      max-width: none;
+
+    }
+  .heading {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 0px;
+  text-align: left;
+
+  }
+  .sub-heading {
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-align: left;
+
+  }
+  .more {
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.012em;
+  text-align: left;
+
+
+  }
+{%- endstyle -%}
+
+{%- if block and block != empty -%}
+  {%- liquid
+    assign ratio = 1
+    if media_aspect_ratio != null
+      assign ratio = media_aspect_ratio
+    endif
+  -%}
+
+  <div
+    class="article-card-wrapper card-wrapper underline-links-hover tw-rounded-2xl tw-w-[255px] lg:!tw-w-[588px] !tw-h-[351px] lg:!tw-h-[200px] "
+    style="background-color: {{ block.settings.background-color }}; "
+  >
+    <div
+      id="Banner-{{ block.id }}"
+      class="
+        banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}
+        {% if section.settings.stack_images_on_mobile and section.settings.image != blank %} banner--stacked{% endif %}
+        {% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}
+        {% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}
+        {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} !tw-grid !tw-grid-rows-2 lg:!tw-grid-cols-2 tw-h-full
+      "
+    >
+      {%- if block.settings.image != blank -%}
+        <div
+          class=" banner__content--{{ block.settings.alignment }} scroll-trigger animate--slide-in tw-z-[2] "
+        >
+          <div class="tw-w-full tw-px-4 lg:tw-px-6 tw-py-4 lg:tw-py-6 tw-h-full  lg:tw-pb-10 tw-gap-2 lg:tw-gap-4  !tw-pr-0 tw-flex tw-flex-col">
+            <h3 class=" tw-text-[#111827] heading !tw-text-base ">
+              {{ block.settings.heading | truncate: 70 | escape }}
+            </h3>
+            <div class="tw-flex tw-flex-col h5 tw-text-[#6B7280] sub-heading !tw-text-sm">
+              <span class="tw-text-sm ">
+                {{ block.settings.description }}
+              </span>
+              <div class="tw-pt-3 h5 tw-text-[#061C3D] more">
+                <a
+                  href="{{ block.settings.url }}"
+                  class="tw-flex tw-flex-row tw-gap-x-2 lg:tw-mt-6"
+                >
+                  {{ block.settings.cta_text }}
+                  {% render 'icon-arrow' %}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="!tw-h-[175px]  lg:!tw-h-[200px] 
+                  
+            {% if block.settings.image == blank %} placeholder{% endif %}
+            {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}
+            tw-flex tw-items-center tw-ml-auto
+          "
+        >
+          <div class="!tw-h-[175px]  lg:!tw-h-[200px] tw-py-4 tw-pl-4 lg:tw-py-6 lg:tw-pl-6 ">
+            <img 
+       
+              src="{{  block.settings.image| image_url}}" 
+            
+              alt=""
+              height="{{ card_collection.featured_image.height }}"
+              width="{{ card_collection.featured_image.width }}"
+              loading="lazy"
+              class="motion-reduce  tw-w-full  tw-object-cover tw-h-full "
+            >
+ 
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}

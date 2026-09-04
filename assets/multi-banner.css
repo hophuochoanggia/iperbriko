@@ -1,0 +1,23 @@
+.title-alignment_left {
+  justify-content: left;
+}
+
+.title-alignment_center {
+  justify-content: center;
+}
+
+.title-alignment_right {
+  justify-content: right;
+}
+
+.content-alignment_left {
+  text-align: left;
+}
+
+.content-alignment_center {
+  text-align: center;
+}
+
+.content-alignment_right {
+  text-align: right;
+}

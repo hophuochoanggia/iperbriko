@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "pdf-viewer": {
+      "type": "pdf-viewer",
+      "settings": { "padding_top": 60, "padding_bottom": 80 }
+    }
+  },
+  "order": ["pdf-viewer"]
+}

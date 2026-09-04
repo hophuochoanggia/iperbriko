@@ -1,0 +1,9 @@
+<div class="tw-rounded-lg tw-px-4 tw-py-6 tw-bg-[#F1ECE2] tw-h-full">
+  {% if image != blank %}
+    {{ image | image_url: width: 56 | image_tag: widths: '50, 75' }}
+  {% endif %}
+  <h4 class="tw-text-sm tw-text-neutral-6 tw-font-semibold tw-mt-4">
+    {{ title }}
+  </h4>
+  <div class="rte tw-text-xs tw-text-neutral-5 tw-mt-2">{{ text }}</div>
+</div>

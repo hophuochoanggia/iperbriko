@@ -1,0 +1,88 @@
+{% comment %}
+  Renders a collection card
+
+  Accepts:
+  - card_collection: {Object} Collection Liquid object
+  - media_aspect_ratio: {String} Size of the product image card. Values are "square" and "portrait". Default is "square" (optional)
+  - columns: {Number}
+  - extend_height: {Boolean} Card height extends to available container space. Default: false (optional)
+  - wrapper_class: {String} Wrapper class for card (optional)
+  - placeholder_image: {String} Placeholder image when collection is empty (optional)
+
+  Usage:
+  {% render 'card-collection' %}
+{% endcomment %}
+
+{%- liquid
+  assign ratio = 0.8
+
+  if ratio == 0 or ratio == null
+    assign ratio = 1
+  endif
+  assign card_color_scheme = settings.card_color_scheme
+  assign card_style = settings.card_style
+  if wrapper_class == null or wrapper_class == 'none'
+    assign card_color_scheme = settings.collection_card_color_scheme
+    assign card_style = settings.collection_card_style
+  endif
+-%}
+{%- style -%}
+.title-collection{
+font-size: 14px;
+font-weight: 600;
+line-height: 18px;
+letter-spacing: 0px;
+margin-top:16px;
+
+
+}
+.img-thumbnail{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  .img-collection {
+    border-radius: 4px !important;
+background-color: #F3F4F6;
+
+
+}
+
+{%- endstyle -%}
+<div class="tw-bg-neutral-1 tw-rounded-lg card-collection  ">
+  <a
+    {% if card_collection == blank %}
+      role="link" aria-disabled="true"
+    {% else %}
+      href="{{ card_collection.url }}"
+    {% endif %}
+    class="full-unstyled-link tw-w-full tw-h-full"
+  >
+
+
+    <div
+      class="card__inner  ratio !tw-h-[210px] md:!tw-h-[384px]"
+      style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+    >
+      <div class=" tw-p-2 md:tw-px-5 md:tw-pt-5 !tw-grid tw-w-full !tw-grid-rows-6 ">
+        <div class=" tw-row-span-5  img-thumbnail">
+        <img 
+       
+          src="{{  card_collection.featured_image| image_url}}" 
+        
+          alt=""
+          height="{{ card_collection.featured_image.height }}"
+          width="{{ card_collection.featured_image.width }}"
+          loading="lazy"
+          class="motion-reduce  tw-w-full  tw-object-cover tw-h-full  "
+        ></div>
+          <div class=" title-collection  !tw-text-xs md:!tw-text-sm !tw-text-center  !tw-h-8">{{card_collection.title}}</div>
+        </div>
+     
+    </div>
+
+
+  
+
+</a>
+</div>

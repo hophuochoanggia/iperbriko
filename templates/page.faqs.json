@@ -1,0 +1,264 @@
+{
+  "sections": {
+    "main": {
+      "type": "faqs",
+      "blocks": {
+        "category_Cpna7Q": {
+          "type": "category",
+          "settings": {
+            "title": "About Sleep Apnoea"
+          }
+        },
+        "question_PbhqCt": {
+          "type": "question",
+          "settings": {
+            "title": "What is Sleep Apnoea?",
+            "body": "<p>Sleep Apnoea is a sleeping disorder that causes people to stop breathing repeatedly during sleep. When you sleep, your muscles relax, including the ones that control your airway. As a result, your airway collapses, causing you to momentarily stop breathing. Your brain senses this and wakes you up so that your airway can reopen and you can resume breathing. This can happen several times throughout the night, leading to poor sleep quality and other related health problems. The interruption in breathing often results in a loud gasp, snort or body movement.</p>"
+          }
+        },
+        "question_exnV4r": {
+          "type": "question",
+          "settings": {
+            "title": "Is Sleep Apnoea serious?",
+            "body": "<p>Sleep Apnoea can range from mild to severe and its severity is determined by a measurement called the Apnoea/Hypopnea Index (AHI). The higher the AHI, the more severe the condition.<br/><br/>For some people with Sleep Apnoea, breathing can stop up to 100 times in one night, causing constant sleep interruptions that lead to poor sleep quality. This can have serious health consequences, such as an increased risk of developing hypertension and cardiovascular disease. It's important to seek treatment if you suspect you have Sleep Apnoea, so you can improve your sleep and reduce the risk of related health problems.</p>"
+          }
+        },
+        "question_EcHrCz": {
+          "type": "question",
+          "settings": {
+            "title": "What are the symptoms I should look out for?",
+            "body": "<p>Obstructive Sleep Apnoea (OSA) can happen to anyone, regardless of their age or body type. Sometimes, a person with Sleep Apnoea might not even know they have it, so it's important for their loved ones to be aware of the following symptoms:<br/><br/>- Loud and ongoing snoring<br/>Feeling excessively sleepy during the day, even while driving or doing other activities<br/>Waking up suddenly because you are choking or gasping for air<br/>- Morning headaches<br/>Feeling depressed or irritable<br/>Restlessness during sleep<br/>Needing to go to the bathroom frequently during the night<br/>- Experiencing sexual dysfunction<br/>If you or someone you care about has any of these symptoms, it's a good idea to talk to a healthcare provider. They can help determine if further evaluation is needed and recommend appropriate treatment options to improve sleep quality and overall health.</p>"
+          }
+        },
+        "question_ryc9q6": {
+          "type": "question",
+          "settings": {
+            "title": "How can I get tested for Sleep Apnoea?",
+            "body": "<p>If you think you or someone you know might have Sleep Apnoea, the first step is to talk to your doctor and share your concerns. They can help determine if you need further evaluation, and if so, they can give you a referral form to schedule a Sleep Study with us.<br/><br/>For more frequently asked questions about Sleep Studies, please check out our website. Remember, getting the right diagnosis is the first step to better sleep and overall health!</p>"
+          }
+        },
+        "question_Lewe79": {
+          "type": "question",
+          "settings": {
+            "title": "Can Sleep Apnoea be treated?",
+            "body": "<p>The good news is that Obstructive Sleep Apnoea (OSA) can be successfully treated. CPAP Therapy is the most effective treatment, but alternative options such as oral appliances and weight loss can also help. Your doctor or Sleep and Respiratory Physician can guide you to the best treatment for your needs.<br/><br/>For more information about CPAP Therapy, check out our website FAQs. We're here to help you get better sleep and improve your overall health!</p>"
+          }
+        },
+        "category_FtwzFw": {
+          "type": "category",
+          "settings": {
+            "title": "About Sleep Studies"
+          }
+        },
+        "question_9JedGj": {
+          "type": "question",
+          "settings": {
+            "title": "What is a Sleep Study?",
+            "body": "<p>A Sleep Study is a test that helps diagnose Sleep Apnoea. It can be done at a hospital or even in your own home. There are different types of studies available, including Polysomnography (PSG) and Limited Channel Sleep Studies.<br/><br/>PSG studies (Type One and Two) record at least seven channels to capture sleep staging and calculate an AHI. Limited Channel Sleep Studies (Type Three and Four) measure fewer parameters and do not include sleep staging or AHI calculation.<br/><br/>At CLM Sleep, we offer Type One PSG studies at our Sleep Lab and Type Two PSG studies in the comfort of your own home. The main difference is that you'll be monitored overnight in the hospital Sleep Lab for the Type One study, while for the Type Two study, you won't need to stay overnight. If you're unsure which type of Sleep Study is best for you, just ask your doctor or sleep specialist.</p>"
+          }
+        },
+        "question_pewByh": {
+          "type": "question",
+          "settings": {
+            "title": "How do I know whether to go for a home or hospital Sleep Study?",
+            "body": "<p>Usually, your doctor or Sleep and Respiratory Physician will recommend which type of Sleep Study is best for you. For a simple case of investigating Sleep Apnoea, a Type Two Home-based Sleep Study is usually enough. However, if your doctor wants to investigate other Sleep Disorders or thinks that the home environment might not be suitable for the test due to lifestyle factors, they may suggest a Hospital Sleep Study. Either way, your doctor will help guide you to the best option for your needs.</p>"
+          }
+        },
+        "question_MKph83": {
+          "type": "question",
+          "settings": {
+            "title": "How do I get a referral to do a Sleep Study?",
+            "body": "<p>To conduct a Sleep Study, we will need a referral from your doctor. This is because it's important to discuss your symptoms and concerns with your doctor first and do a quick screening to determine if a Sleep Study is necessary. If your doctor thinks that further investigation is needed, they will provide a referral and we can then proceed with scheduling your Sleep Study. We're here to help you improve your sleep and overall health!</p>"
+          }
+        },
+        "question_ijFfCi": {
+          "type": "question",
+          "settings": {
+            "title": "Is the Sleep Study Medicare subsidized?",
+            "body": "<p>Medicare will subsidise the Sleep Study if the pre-study requirements are met. For Home-Based Sleep Studies, patients will need a medical referral, and approved assessment tools need to be completed and indicate a high probability for moderate to severe OSA. The approved assessment tools are: either STOP-BANG or OSA-50 and an elevated Epworth Sleepiness Scale. Alternatively, a professional attendance (face-to-face or via telehealth) with a qualified adult sleep medicine practitioner or consultant respiratory physician to confirm the necessity of the test will be sufficient, irrespective of the approved assessment tools’ results.</p><p>Note that only 1 service per patient in a 12 month period will be subsidised by Medicare.</p><p><a href=\"http://www.clmsleep.com/our-services/\">Find out more</a></p>"
+          }
+        },
+        "question_3Nwkyd": {
+          "type": "question",
+          "settings": {
+            "title": "Can I set up the Sleep Study diagnostic device myself?",
+            "body": "<p>The type of Sleep Study you need will depend on your doctor's orders or your personal choice. We offer different options, which you can learn more about on our website. Hospital-based Sleep Studies are comprehensive and require expert setup, so we'll handle everything for you when you check in. For Home-Based Sleep Studies, you can set up the equipment yourself with our manual and video guide. We'll also provide a video call with a technician to ensure you've done it correctly. If you prefer, we can set up the equipment for you at our clinic or even come to your home after hours. Just keep in mind that fees will apply for these services.</p>"
+          }
+        },
+        "question_8NLzQa": {
+          "type": "question",
+          "settings": {
+            "title": "How long is a Sleep Study?",
+            "body": "<p>A Sleep Study involves an overnight monitoring process where you sleep with the designated device for approximately 8 hours. In the case of a hospital study, you will be observed throughout the night, allowing you to freshen up, enjoy a light breakfast, and proceed to work the following morning. For a home-based study, kindly gather the equipment after completion and return it to us at your earliest convenience the next day.</p>"
+          }
+        },
+        "question_jEJpUT": {
+          "type": "question",
+          "settings": {
+            "title": "Can I move around at home after the device is set-up?",
+            "body": "<p>Of course! Once the device is set up for your home Sleep Study, you're free to move around as you normally would. Just make sure you're mindful of the equipment and try not to disrupt its placement. We understand the importance of feeling comfortable in your own space, and our goal is to make this experience as seamless as possible for you. If you have any concerns or issues, please don't hesitate to reach out to us.</p>"
+          }
+        },
+        "question_hDtTwD": {
+          "type": "question",
+          "settings": {
+            "title": "Should I shower before the set-up? What should I wear?",
+            "body": "<p>Certainly! It's a good idea to shower before the Sleep Study set-up, as clean skin can help ensure proper placement and adhesion of the monitoring equipment. As for clothing, we recommend you wear comfortable, loose-fitting pajamas or sleepwear that allows for easy movement and relaxation. Our aim is to make this experience as comfortable and stress-free as possible for you. If you have any additional questions or concerns, please feel free to contact us. We're here to help!</p>"
+          }
+        },
+        "question_xEiUWM": {
+          "type": "question",
+          "settings": {
+            "title": "What else should I do before the Sleep Technician arrives?",
+            "body": "<p>If you're a guy, it's a good idea to check with the Sleep Technician about possibly trimming some facial hair, since the electrodes need a smooth surface to stick properly during the study.<br/><br/>Also, don't forget to hop in the shower and slip into your sleepwear before the technician arrives, so we can get everything set up smoothly and easily.</p>"
+          }
+        },
+        "question_rnW3er": {
+          "type": "question",
+          "settings": {
+            "title": "What do I do after the Sleep Study on the following morning?",
+            "body": "<p>Rise and shine! Once you're up, carefully take off the device and wires, and toss those sticky patches from the electrodes. Pop everything into the bag we gave you, and remember to fill out the paperwork the Sleep Technician left behind. Simply bring the kit back to us the next morning, and we'll handle everything else.</p>"
+          }
+        },
+        "category_3VEPtW": {
+          "type": "category",
+          "settings": {
+            "title": "Troubleshooting Guide For Your Sleep Study"
+          }
+        },
+        "question_AxL4GQ": {
+          "type": "question",
+          "settings": {
+            "title": "Can I move the finger oximeter to my other fingers?",
+            "body": "<p>Before you drift off to sleep, kindly attach the Oximeter (the lovely blue finger clip) to the index finger of either hand. Secure it gently using the provided medical tape. If you experience any discomfort during the night, you're welcome to move the Oximeter to another finger. Please just ensure the chosen finger is free of acrylic nails or dark nail polish. Wishing you a pleasant night's rest!</p>"
+          }
+        },
+        "question_Ge8K9J": {
+          "type": "question",
+          "settings": {
+            "title": "What if the electrodes on my face are not sticking well?",
+            "body": "<p>Our Sleep Technicians have included medical tape in the kits for your convenience, should you need to secure the nasal cannulas.</p><p>To prevent movement during the night, simply cut two small pieces of tape and affix them to your face, ensuring the cannulas remain in place. Our goal is to provide a stable and comfortable Sleep Study experience for you.</p>"
+          }
+        },
+        "question_a9iW78": {
+          "type": "question",
+          "settings": {
+            "title": "How can i make sure the nasal cannula stays in place when I'm asleep?",
+            "body": "<p>Our Sleep Technicians have included medical tape in the kits for your convenience, should you need to secure the nasal cannulas. To prevent movement during the night, simply cut two small pieces of tape and affix them to your face, ensuring the cannulas remain in place. Our goal is to provide a stable and comfortable Sleep Study experience for you.</p>"
+          }
+        },
+        "question_hRjyJ7": {
+          "type": "question",
+          "settings": {
+            "title": "How do I check and make sure the device has turned on automatically?",
+            "body": "<p>The devices utilized in our Sleep Study are designed to activate automatically. To confirm proper functioning, open the device and observe the display screen. Upon activation, you should see a human figure with multiple sensors attached, indicating that the device is operating correctly. Your primary task is simply to sleep while the device collects the necessary data.</p>"
+          }
+        },
+        "question_Aj3rnh": {
+          "type": "question",
+          "settings": {
+            "title": "What should I do if the orange light is flashing on the top of the device?",
+            "body": "<p>If you see the orange light flashing on the device, no worries! Just follow these simple steps to get things sorted:<br/><br/>1. Slide the little latch on top of the device to the right, and ta-da! The display opens up.<br/><br/>2. Take a peek at the display, and see if any sensors on the figure are flashing.<br/><br/>3. If the flashy sensors are on the hand or nose, make sure the blue finger clip and nasal cannula are snug and secure using medical tape.<br/><br/>4. For other flashing sensors, just follow the line pointing to the wire on the side of the device. Check that the wire is plugged in properly on both ends. You can use the medical tape or wire ties we provided to fix any pesky wires.<br/><br/>Once the display stops flashing, the orange light at the top should stop too. That means everything's good to go, and you can close the display.</p>"
+          }
+        },
+        "question_UmAkJP": {
+          "type": "question",
+          "settings": {
+            "title": "What do I need to do when I wake up the following morning?",
+            "body": "<p>To remove the device, start by unplugging a wire prong on either side of the buckle. Next, unclip the big black buckles on the blue belts around your chest and stomach.<br/><br/>Toss out all the sticky electrodes and medical tape from the wires, and then pop the device and its attached wires into the plastic bag we gave you. No need to unplug or pack anything else.<br/><br/>Just double-check that you've filled out the feedback form and sleep log form, and then bring the kit and forms back to the office. We'll take it from there!</p>"
+          }
+        },
+        "category_qC9GEk": {
+          "type": "category",
+          "settings": {
+            "title": "About CPAP Therapy"
+          }
+        },
+        "question_MAPji4": {
+          "type": "question",
+          "settings": {
+            "title": "How does CPAP Therapy work?",
+            "body": "<p>CPAPShareFileEditViewInsertFormatDataToolsExtensionsHelp$%123Default (Arial)CPAP therapy, also known as PAP therapy, is a friendly and non-invasive solution for better sleep. It's made up of three main components: an air pump, a mask, and a connecting tube.<br/><br/>Here's how PAP therapy helps you sleep soundly: The air pump sends gentle air pressure through the tube and into the mask, which then keeps your throat open throughout the night. This continuous airflow ensures your brain won't need to wake you up to catch a breath, leading to a peaceful and uninterrupted slumber.<br/><br/>Remember, PAP therapy is an ongoing treatment meant to be used every night. Consistent use is key to success, and if you stop, your previous sleep issues may return quickly.competitorsSuggestionContent plan AprilAccountReview and correct existing CMS content on site<strong>F&Qs</strong>FixedExploreCPAP therapy, also known as PAP therapy, is a friendly and non-invasive solution for better sleep. It's made up of three main components: an air pump, a mask, and a connecting tube.<br/><br/>Here's how PAP therapy helps you sleep soundly: The air pump sends gentle air pressure through the tube and into the mask, which then keeps your throat open throughout the night. This continuous airflow ensures your brain won't need to wake you up to catch a breath, leading to a peaceful and uninterrupted slumber.<br/><br/>Remember, PAP therapy is an ongoing treatment meant to be used every night. Consistent use is key to success, and if you stop, your previous sleep issues may return quickly.<a href=\"https://docs.google.com/spreadsheets/d/1daqslREkq4E5P6HQCtNt4FC3plA2_RuEeaidEfBJxQQ/edit#\">Turn on screen reader support</a>HomeFileInsertPage LayoutFormulasDataReviewViewEditViewInsertFormatDataToolsTo enable screen reader support, press ⌘+Option+Z To learn about keyboard shortcuts, press ⌘slash</p>"
+          }
+        },
+        "question_XJ7QUY": {
+          "type": "question",
+          "settings": {
+            "title": "Are all CPAP brands the same?",
+            "body": "<p>Although all CPAP machines have the same basic function, they can differ a bit based on the brand. As technology advances, you might find differences in algorithms or other features. Plus, the noise levels can vary between devices from different brands. Don't worry, we only partner with trustworthy brands that offer great results for you. To find the perfect CPAP machine, consider a CPAP trial, and we'll use your sleep data to help you choose the best one for your needs.</p>"
+          }
+        },
+        "question_frEyL8": {
+          "type": "question",
+          "settings": {
+            "title": "How do I choose the right mask for me?",
+            "body": "<p>Choosing the perfect mask for your CPAP therapy is super important, and luckily, there's a variety to pick from! Masks come in three main styles: pillow masks, nasal masks, and full-face masks. Remember, there's no one-size-fits-all solution, so factors like your breathing needs, sleep habits, comfort, facial hair, and facial structure will all play a role in finding the best mask for you.<br/><br/>The most fun and effective way to discover your ideal mask is by joining us for a mask trial! We'll help you try on a few masks based on your preferences and needs. It's also a great idea to take the mask home and test it during sleep, as the most comfortable mask when you're awake might not be the best choice for an active sleeper. By the end of your mask trial, we're confident we'll find the perfect match for you!</p>"
+          }
+        },
+        "question_Wekwp3": {
+          "type": "question",
+          "settings": {
+            "title": "How long does CPAP therapy last?",
+            "body": "<p>CPAP therapy is a helpful treatment for Obstructive Sleep Apnea (OSA), but it's not a cure. So, as long as you're dealing with OSA, it's a good idea to keep up with your therapy. That being said, some people have been able to take a break from CPAP therapy after making positive lifestyle changes like getting more exercise and shedding a few pounds. If that's the case, they can do another Sleep Study to see if their OSA has improved. If so, they might be able to stop CPAP therapy.<br/><br/>Remember, OSA is a complex condition, and your best advice will come from your Respiratory and Sleep Specialist. They're here to help you every step of the way!</p>"
+          }
+        },
+        "question_KUReqi": {
+          "type": "question",
+          "settings": {
+            "title": "Can I buy my CPAP machine from overseas?",
+            "body": "<p>Buying a genuine CPAP machine should give you the same performance no matter where you get it from. However, be cautious about the warranty, as it might not apply or could be void. The 5-year warranty for your CPAP machine is only valid for devices that are TGA-approved for Australia.<br/><br/>Here's a quote from one of our partners, Philips Respironics:<br/><br/>\"Philips products are sold globally, but only those sold by Philips Australia’s authorized distribution partners are registered with the Australian regulatory body (TGA) and eligible for the DreamStation 5-year warranty by Philips Australia (terms and conditions available here).\"<br/><br/>So, if you're thinking about purchasing a machine from overseas, keep in mind that your warranty may only be valid in the country where you bought it. That means you won't be eligible for servicing or replacement parts in Australia. If you need support, you might have to pay for shipping or even travel overseas. So, weigh the pros and cons carefully before deciding if the potential savings are worth the potential hassle down the road.</p>"
+          }
+        },
+        "question_aBjpia": {
+          "type": "question",
+          "settings": {
+            "title": "Can I buy my machine from an online source?",
+            "body": "<p>Thinking about buying your CPAP machine online? We've got some tips from our friends at Philips Respironics to help you make an informed decision:<br/><br/>1. Warranty: Only TGA-approved devices in Australia are eligible for Philips Australia's 5-year DreamStation warranty. Double-check the warranty terms to avoid voiding it.<br/><br/>2. Personalization: Make sure your device's therapy pressures and settings are tailored to you, and the mask fits your individual anatomy and preferences.<br/><br/>3. Care team communication: Ensure your physician stays informed about your treatment, so you receive proper care both short and long term.<br/><br/>4. Support: Check the availability of in-person, phone, and online support, including their hours, to ensure you have assistance when needed.<br/><br/>5. Repairs/returns: Consider the process for resolving issues with your device, as the place of purchase can affect the support you receive.<br/><br/>Keep these points in mind and don't hesitate to reach out to us if you need more information or help throughout your therapy journey!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_Cpna7Q",
+        "question_PbhqCt",
+        "question_exnV4r",
+        "question_EcHrCz",
+        "question_ryc9q6",
+        "question_Lewe79",
+        "category_FtwzFw",
+        "question_9JedGj",
+        "question_pewByh",
+        "question_MKph83",
+        "question_ijFfCi",
+        "question_3Nwkyd",
+        "question_8NLzQa",
+        "question_jEJpUT",
+        "question_hDtTwD",
+        "question_xEiUWM",
+        "question_rnW3er",
+        "category_3VEPtW",
+        "question_AxL4GQ",
+        "question_Ge8K9J",
+        "question_a9iW78",
+        "question_hRjyJ7",
+        "question_Aj3rnh",
+        "question_UmAkJP",
+        "category_qC9GEk",
+        "question_MAPji4",
+        "question_XJ7QUY",
+        "question_frEyL8",
+        "question_Wekwp3",
+        "question_KUReqi",
+        "question_aBjpia"
+      ],
+      "settings": {
+        "faqs_title": "Frequently Asked Questions",
+        "faqs_description": "Below FAQ are some common concerns of our clients before purchasing the theme, if you have other questions, please just send it to",
+        "faqs_link": "cpapdiscount.au",
+        "heading_size": "h1",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": ["main"]
+}

@@ -1,0 +1,155 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign field_class = 'tw-flex tw-flex-col tw-mb-5'
+  assign input_class = 'tw-full tw-px-2 tw-py-3 tw-border tw-border-neutral-3 tw-rounded-lg focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-black tw-placeholder-neutral-3 tw-placeholder:text-neutral-3'
+
+  assign label_class = 'tw-text-base tw-text-neutral-6 tw-mb-[10px]'
+-%}
+
+<div class="contact tw-shadow-lg tw-z-[2] tw-flex tw-flex-col tw-rounded-2xl tw-h-full tw-bg-white">
+  <div class="tw-px-8 tw-pt-14 tw-pb-10 tw-h-full">
+    {%- liquid
+      assign contact_form_class = 'isolate'
+      if settings.animations_reveal_on_scroll
+        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+      endif
+    -%}
+    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+      <div class="lg:tw-max-w-[500px]">
+        {%- if form.posted_successfully? -%}
+          <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+            {% render 'icon-success' %}
+            {{ 'templates.contact.form.post_success' | t }}
+          </h2>
+        {%- elsif form.errors -%}
+          <div class="form__message">
+            <h2
+              class="form-status caption-large text-body tw-flex tw-items-center"
+              role="alert"
+              tabindex="-1"
+              autofocus
+            >
+              {% render 'icon-error' %}
+              {{ 'templates.contact.form.error_heading' | t }}
+            </h2>
+          </div>
+          <ul class="form-status-list caption-large" role="list">
+            <li>
+              <a href="#ContactForm-email" class="link">
+                {{ form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email }}
+              </a>
+            </li>
+          </ul>
+        {%- endif -%}
+      </div>
+
+      <div class="tw-grid lg:tw-grid-cols-2 tw-grid-cols-1 lg:tw-gap-6">
+        <div class="{{ field_class }} field--with-error">
+          <label class="{{ label_class }}" for="ContactForm-name">
+            {{- 'templates.contact.form.name' | t }}
+          </label>
+          <input
+            required
+            class="{{ input_class }}"
+            autocomplete="name"
+            type="text"
+            id="ContactForm-name"
+            name="contact[{{ 'templates.contact.form.name' | t }}]"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+            placeholder="{{ 'templates.contact.form.name_placeholder' | t }}"
+          >
+        </div>
+
+        <div class="{{ field_class }} field--with-error">
+          <label class="{{ label_class }}" for="ContactForm-email">
+            {{- 'templates.contact.form.email' | t }}
+          </label>
+          <input
+            required
+            autocomplete="email"
+            type="email"
+            id="ContactForm-email"
+            class="{{ input_class }}"
+            name="contact[email]"
+            spellcheck="false"
+            autocapitalize="off"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            aria-required="true"
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+              aria-describedby="ContactForm-email-error"
+            {% endif %}
+            placeholder="{{ 'templates.contact.form.email_placeholder' | t }}"
+          >
+
+          {%- if form.errors contains 'email' -%}
+            <small class="contact__field-error" id="ContactForm-email-error">
+              <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+              <span class="form__message">
+                {%- render 'icon-error' -%}
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email -}}
+              </span>
+            </small>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="{{ field_class }} field--with-error">
+        <label class="{{ label_class }}" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+        <input
+          required
+          type="tel"
+          id="ContactForm-phone"
+          class="{{ input_class }}"
+          autocomplete="tel"
+          name="contact[{{ 'templates.contact.form.phone' | t }}]"
+          pattern="[0-9\-]*"
+          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+          placeholder="{{ 'templates.contact.form.phone_placeholder' | t }}"
+        >
+      </div>
+      <div class="{{ field_class }} field--with-error">
+        <label class="{{ label_class }}" for="ContactForm-topic">
+          {{- 'templates.contact.form.topic' | t }}
+        </label>
+        <input
+          required
+          class="{{ input_class }}"
+          autocomplete="topic"
+          type="text"
+          id="ContactForm-topic"
+          name="contact[{{ 'templates.contact.form.topic' | t }}]"
+          value="{% if form.topic %}{{ form.topic }}{% elsif customer %}{{ customer.topic }}{% endif %}"
+          placeholder="{{ 'templates.contact.form.topic_placeholder' | t }}"
+        >
+      </div>
+
+      <div class="{{ field_class }} field--with-error">
+        <label class="{{ label_class }}" for="ContactForm-body">
+          {{- 'templates.contact.form.message' | t -}}
+        </label>
+        <textarea
+          required
+          rows="5"
+          id="ContactForm-body"
+          class="{{ input_class }} tw-resize-none"
+          name="contact[{{ 'templates.contact.form.message' | t }}]"
+          placeholder="{{ 'templates.contact.form.message_placeholder' | t }}"
+        >
+          {{- form.body -}}
+        </textarea>
+      </div>
+      <div>
+        <button
+          type="submit"
+          class="tw-w-full tw-py-4 tw-rounded-lg tw-bg-blue-default hover:tw-bg-opacity-80 active:tw-bg-opacity-80 transition-colors duration-200 tw-text-neutral-0 tw-text-base tw-font-bold"
+        >
+          {{ 'templates.contact.form.send' | t }}
+        </button>
+      </div>
+    {%- endform -%}
+  </div>
+</div>

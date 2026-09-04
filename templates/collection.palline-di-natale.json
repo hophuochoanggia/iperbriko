@@ -1,0 +1,616 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_tMeA87": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_B9ARAf": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Palline_di_Natale.jpg",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_B9ARAf"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "counter",
+        "hide_navigation": false,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": "Slideshow about our brand",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "color_scheme": "accent-1"
+      }
+    },
+    "collection_product_list_pNVmEe": {
+      "type": "collection-product-list",
+      "blocks": {
+        "featured_collection_ECU9kk": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "natale"
+          }
+        },
+        "featured_collection_qQKNck": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "alberi-di-natale"
+          }
+        },
+        "featured_collection_FWVR8T": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "alberi-verdi"
+          }
+        },
+        "featured_collection_GX3FTi": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "alberi-innevati"
+          }
+        },
+        "featured_collection_trNUYm": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "addobbi-natalizi"
+          }
+        },
+        "featured_collection_PUxT9q": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "illuminazione-natalizia"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_ECU9kk",
+        "featured_collection_qQKNck",
+        "featured_collection_FWVR8T",
+        "featured_collection_GX3FTi",
+        "featured_collection_trNUYm",
+        "featured_collection_PUxT9q"
+      ],
+      "settings": {
+        "title": "Collections",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "multirow_P98VVr": {
+      "type": "multirow",
+      "blocks": {
+        "row_79mm3A": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/alberi-di-natale-4.jpg",
+            "caption": "",
+            "heading": "",
+            "text": "<p>Le palline di Natale sono decorazioni indispensabili in ogni occasione natalizia. Grazie alla vasta scelta di materiali, forme e colori, le palline di Natale offrono infinite possibilità per adattarsi allo stile e allo spazio abitativo di ogni famiglia. Non si tratta solo di semplici ornamenti, ma di simboli emblematici della stagione festiva, capaci di portare calore e un'atmosfera di riunione familiare. La loro forma rotonda simboleggia l'unità e la continuità, trasmettendo un senso di cordialità e accoglienza. Per molte famiglie, scegliere e appendere le palline di Natale è un momento di affetto condiviso, una tradizione tramandata di generazione in generazione.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_79mm3A"
+      ],
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "small",
+        "heading_tag": "h2",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-right",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_ghRpJg": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_aHqVBk": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Dove Acquistare Palline di Natale</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_qz8YPF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>È consigliabile acquistare le palline di Natale presso grandi negozi specializzati in decorazioni natalizie per avere a disposizione una vasta scelta, adatta ai propri gusti e agli spazi abitativi. <a href=\"https://www.iperbriko.it/\"><span style=\"text-decoration:underline\"><strong>Iperbriko</strong></span></a> è un'ottima opzione da non perdere, con un'ampia rete di negozi in Italia che offre sia la possibilità di shopping fisico che online. Visita il nostro negozio oggi stesso per scoprire i prodotti di decorazione natalizia e approfittare di promozioni e sconti speciali!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_aHqVBk",
+        "text_qz8YPF"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_KQFrBY": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_HhkUay": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "image": "shopify://shop_images/palline_di_Natale_1.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_pG8Bdg": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "image": "shopify://shop_images/palline_di_Natale_2.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_HhkUay",
+        "column_pG8Bdg"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "rich_text_LHkmYK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_i9CQ68": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Tipologie di Palline di Natale</strong>",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_i9CQ68"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "multirow_EKcctB": {
+      "type": "multirow",
+      "blocks": {
+        "row_KBH4PJ": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/palline-di-natale-6.jpg",
+            "caption": "",
+            "heading": "Palline di Vetro",
+            "text": "<p>Le palline di vetro sono sinonimo di eleganza e raffinatezza. Grazie alla loro delicatezza, rappresentano la scelta ideale per chi desidera decorazioni sofisticate e di grande impatto visivo. Tuttavia, la loro fragilità richiede attenzione, soprattutto in presenza di bambini o animali domestici.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_w9LkPq": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/palline-di-natale-3.jpg",
+            "caption": "",
+            "heading": "Palline di Plastica",
+            "text": "<p>Perfette per chi cerca resistenza e sicurezza, le palline di plastica sono l'opzione migliore per famiglie con bambini. Sono leggere, difficili da rompere e disponibili in una vasta gamma di colori e design, senza rinunciare all'estetica.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_d83MJp": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/palline-di-natale-4.jpg",
+            "caption": "",
+            "heading": "Palline Fatte a Mano",
+            "text": "<p>Per chi ama l'originalità e la personalizzazione, le palline fatte a mano offrono un tocco unico e creativo all'albero di Natale. Ogni pezzo è diverso, riflettendo la cura e l'attenzione con cui sono realizzate, e spesso diventano ricordi preziosi da tramandare.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_KBH4PJ",
+        "row_w9LkPq",
+        "row_d83MJp"
+      ],
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "small",
+        "heading_tag": "h3",
+        "heading_size": "h2",
+        "text_style": "subtitle",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_X6wFaj": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_QxR7Hk": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "image": "shopify://shop_images/palline-di-natale-8.jpg",
+            "title": "<strong>Colori classici</strong>",
+            "text": "<p>Le palle di Natale rosse, dorate e argentate sono sempre le più utilizzate durante le festività natalizie. Il rosso simboleggia l'amore e la passione, l'oro simboleggia la ricchezza e la luce, mentre l'argento evoca purezza ed eleganza. Questi colori combinati creano una sensazione di tradizione e calore, portando immediatamente un'atmosfera festiva in ogni casa.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_8NXMgi": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "image": "shopify://shop_images/palline-di-natale-7.jpg",
+            "title": "<strong>Tendenze moderne</strong>",
+            "text": "<p>Negli ultimi anni, le Palline di Natale dai colori neutri, pastello delicati e dal design minimalista stanno diventando una tendenza per le decorazioni natalizie del 2024. Questo stile di decorazione si concentra sull'eleganza e la semplicità, ed è un'alternativa raffinata ai colori tradizionali, e si adatta meglio agli spazi abitativi moderni.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_QxR7Hk",
+        "column_8NXMgi"
+      ],
+      "settings": {
+        "title": "<strong> Colori e Temi più Popolari</strong>",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "rich_text_BnLf4V": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_KR7DXr": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Come Scegliere le Palline di Natale Giuste</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_MLy8mx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Come scegliere le Palline di Natale adatte? Scopriamolo insieme a Iperbriko.</p>"
+          }
+        },
+        "heading_TqcPQB": {
+          "type": "heading",
+          "settings": {
+            "heading": "La dimensione delle palline di Natale è adatta all'altezza dell'albero",
+            "heading_size": "h2"
+          }
+        },
+        "text_cMbpBb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Di solito, la dimensione delle palline di Natale è scelta in base all'altezza dell'albero per garantire equilibrio e armonia. Ecco alcune dimensioni comuni delle sfere:</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_KR7DXr",
+        "text_MLy8mx",
+        "heading_TqcPQB",
+        "text_cMbpBb"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 12
+      }
+    },
+    "multicolumn_MECfDd": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_RLEARX": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "image": "shopify://shop_images/palline-di-natale-5_5edfde9e-cfe0-4dd0-b497-9b58ace151d2.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_FyiTjG": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>⭐ Per un albero di pino alto da 1,2m a 1,5m, si consiglia una dimensione delle sfere da 6 cm a 8 cm.</p><p>⭐ Per un albero di Natale alto da 1,5m a 2 m, si consiglia una dimensione delle sfere da 8 cm a 10 cm.</p><p>⭐ Per un albero di pino alto da 2m a 2,5m, si consiglia una dimensione delle sfere da 10 cm a 12 cm.</p><p>⭐ Per un albero di Natale alto oltre 2,5 metri, si consiglia una dimensione delle sfere di 12 cm o più.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_RLEARX",
+        "column_FyiTjG"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_ddBrxT": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_9yEdVq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Considerare lo stile del proprio albero ",
+            "heading_size": "h2"
+          }
+        },
+        "text_iHgdaL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Quando si scelgono le palline di Natale, è fondamentale tenere in considerazione lo stile del proprio albero. Se si opta per un albero tradizionale, si possono scegliere palline classiche in colori come rosso, oro e argento. Al contrario, per un albero moderno, le palline dai colori pastello e dai design minimalisti possono essere più adatte. Assicurati che le palline esaltino la bellezza complessiva e siano in linea con il tema del tuo albero di Natale.</p>"
+          }
+        },
+        "heading_ytXjy6": {
+          "type": "heading",
+          "settings": {
+            "heading": "Consigli per abbinare le palline agli altri addobbi natalizi",
+            "heading_size": "h2"
+          }
+        },
+        "text_yUqkRx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Per creare uno spazio natalizio perfetto, è importante prestare attenzione a come abbinare armoniosamente le palline con gli altri addobbi natalizi. Ad esempio, se utilizzi luci bianche calde, le palline dorate o rosse possono mettere in risalto il tuo ambiente natalizio. Inoltre, considera di variare le dimensioni delle palline per aggiungere profondità e interesse al tuo albero di Natale.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_9yEdVq",
+        "text_iHgdaL",
+        "heading_ytXjy6",
+        "text_yUqkRx"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_fGr4eL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_wAKFCT": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Come Conservare le Palline di Natale</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_zb6pkC": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Suggerimenti per la conservazione sicura dopo le festività:</strong> Dopo le festività, è importante conservare le palline di Natale in modo sicuro per garantire che rimangano in ottime condizioni per l'anno successivo. Utilizza scatole di stoccaggio robuste e rivestite di materiali morbidi per proteggere le palline da urti e graffi. Inoltre, è consigliabile separare le palline di diverse dimensioni e materiali per evitare che si danneggino tra di loro.</p><p><strong>Evitare danni e preservare le palline per gli anni successivi:</strong> Per garantire che le palline di Natale durino nel tempo, evita di riporle in luoghi umidi o esposti alla luce diretta del sole. Una corretta conservazione non solo previene i danni, ma aiuta anche a mantenere intatta la bellezza delle palline nel corso degli anni.</p><p></p>"
+          }
+        },
+        "heading_wCg8xg": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Conclusione</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_DAM7qM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Non esitare, scegli i modelli di <strong>palline di Natale</strong> perfetti per creare un albero di Natale davvero straordinario. Rendi il tuo Natale 2024 speciale e indimenticabile con <strong>Iperbriko</strong>!</p>"
+          }
+        },
+        "text_aAwtP6": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>🏠🗓️ </strong><em><strong>Informazioni sul Centro Casa Iperbriko:</strong></em></p><p><strong>Indirizzo</strong>: Contrada Varco - San Salvatore Telesino (BN), Italia</p><p><strong>Telefono</strong>: +39 0824 974011</p><p><strong>Facebook: </strong><a href=\"https://www.facebook.com/iperbriko/\"><span style=\"text-decoration:underline\">https://www.facebook.com/iperbriko/</span></a></p><p><strong>Website:</strong><a href=\"https://www.iperbriko.it/\"><span style=\"text-decoration:underline\">https://www.iperbriko.it/</span></a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wAKFCT",
+        "text_zb6pkC",
+        "heading_wCg8xg",
+        "text_DAM7qM",
+        "text_aAwtP6"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "newsletter_47NX3w": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_x98QgE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Iscriviti alla nostra newsletter",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_EkHj3C": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Resta aggiornato con le ultime notizie, sconti e approfondimenti da Iperbriko.it!</p>"
+          }
+        },
+        "email_form_YXAQAP": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_x98QgE",
+        "paragraph_EkHj3C",
+        "email_form_YXAQAP"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "slideshow_tMeA87",
+    "banner",
+    "collection_product_list_pNVmEe",
+    "product-grid",
+    "multirow_P98VVr",
+    "rich_text_ghRpJg",
+    "multicolumn_KQFrBY",
+    "rich_text_LHkmYK",
+    "multirow_EKcctB",
+    "multicolumn_X6wFaj",
+    "rich_text_BnLf4V",
+    "multicolumn_MECfDd",
+    "rich_text_ddBrxT",
+    "rich_text_fGr4eL",
+    "newsletter_47NX3w"
+  ]
+}

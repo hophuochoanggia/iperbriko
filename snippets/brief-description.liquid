@@ -1,0 +1,60 @@
+{%- style -%}
+  .brief .description {
+    font-family: Avenir;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+{%- endstyle -%}
+
+<div class=" !tw-mt-0 brief tw-bg-[#E5E7EB] tw-rounded-lg tw-py-4 md:tw-py-6 tw-px-6 md:tw-px-6 tw-grid tw-gap-x-3 tw-gap-y-6 tw-grid-cols-1 xl:tw-grid-cols-2 tw-grid-rows-1 xl:tw-grid-rows-2 tw-my-5">
+  <div class="tw-flex tw-gap-2.5 tw-items-center">
+    <div class="tw-min-w-[48px]">
+      {% render 'icon-inventory' %}
+    </div>
+    <div class="tw-flex tw-flex-col tw-gap-0">
+      <p class="tw-text-[#111827] tw-text-sm tw-font-semibold">
+        {{- 'products.product.brief_description.title_1' | t -}}
+      </p>
+      <p class="tw-text-[#374151] description">
+        {{- 'products.product.brief_description.description_1' | t -}}
+      </p>
+    </div>
+  </div>
+  <div class="tw-flex tw-gap-2.5 tw-items-center">
+    <div class="tw-min-w-[48px]">
+      {% render 'icon-list-bullet' %}
+    </div>
+    <div class="tw-flex tw-flex-col tw-gap-0">
+      <p class="tw-text-[#111827] tw-text-sm tw-font-semibold">
+        {{- 'products.product.brief_description.title_2' | t -}}
+      </p>
+      <p class="tw-text-[#374151] description">{{- 'products.product.brief_description.description_2' | t -}}</p>
+    </div>
+  </div>
+  <div class="tw-flex tw-gap-2.5 tw-items-center">
+    <div class="tw-min-w-[48px]">
+      {% render 'icon-lock' %}
+    </div>
+
+    <div class="tw-flex tw-flex-col tw-gap-0">
+      <p class="tw-text-[#111827] tw-text-sm tw-font-semibold">
+        {{- 'products.product.brief_description.title_3' | t -}}
+      </p>
+      <p class="tw-text-[#374151] description">{{- 'products.product.brief_description.description_3' | t -}}</p>
+    </div>
+  </div>
+  <div class="tw-flex tw-gap-2.5 tw-items-center">
+    <div class="tw-min-w-[48px]">
+      {% render 'icon-thumb-up' %}
+    </div>
+    <div class="tw-flex tw-flex-col tw-gap-0">
+      <p class="tw-text-[#111827] tw-text-sm tw-font-semibold">
+        {{- 'products.product.brief_description.title_4' | t -}}
+      </p>
+      <p class="tw-text-[#374151] description">{{- 'products.product.brief_description.title_4' | t -}}</p>
+    </div>
+  </div>
+</div>

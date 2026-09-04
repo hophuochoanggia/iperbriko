@@ -1,0 +1,42 @@
+{% comment %}
+  Renders product sibling-picker
+
+  Accepts:
+  - product: {Object} product object.
+  - block: {Object} passing the block information.
+  - update_url: {Boolean} whether or not to update url when changing variants. If false, the url isn't updated. Default: true (optional).
+  Usage:
+  {% render 'product-sibling-picker', product: product, block: block %}
+{% endcomment %}
+
+{% assign sibling_handles = product.metafields.custom.siblings | split: ',' %}
+<div>
+  {% for product_handle in sibling_handles %}
+    {% assign sibling = all_products[product_handle] %}
+
+    {% if sibling %}
+      {% assign first_image = sibling.images | first %}
+      {% assign color = sibling.options_by_name.Color.values[0] %}
+      <div class="sibling-swatch" style="display: inline-block; margin: 5px;">
+        <a
+          href="{{ sibling.url }}"
+          title="{{ sibling.title }}"
+          class="tw-flex tw-flex-col tw-justify-center tw-items-center tw-gap-2"
+        >
+          {% if first_image %}
+            <img
+              src="{{ first_image.src | img_url: '100x100' }}"
+              alt="{{ sibling.title }}"
+              style="width: 60px; height: 60px; object-fit: cover; border: 1px solid #ccc; border-radius: 50%;"
+              width="30px"
+              height="30px"
+            >
+            <p>{{ color }}</p>
+          {% else %}
+            <span>No image available</span>
+          {% endif %}
+        </a>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>

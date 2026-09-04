@@ -1,0 +1,238 @@
+{% unless section.settings.use_hero == false %}
+  {%- capture section_style -%}
+      style="
+          {%- if section.settings.section_padding_top -%}padding-top:{{ section.settings.section_padding_top }}px;{%- endif -%}
+          {%- if section.settings.section_padding_bottom -%}padding-bottom:{{ section.settings.section_padding_bottom }}px;{%- endif -%}
+      "
+      {%- endcapture -%}
+  {% assign mySwiper = '.swiper-' %}
+  <div class="inner {{ section.settings.additional_class | strip_html }}">
+    <div class="hero-image">
+      {%- if section.settings.image_desktop == blank -%}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- else -%}
+        {{ section.settings.image_desktop | image_url: width: 1920 | image_tag: loading: 'eager', widths: '1920' }}
+      {%- endif -%}
+    </div>
+
+    <div class="page-width">
+      <div class="py-hero-banner-wrap" {{ section_style | strip_newlines | strip }}>
+        {% unless section.settings.show_breadcrumb == false %}
+          {% render 'breadcrumb' %}
+        {% endunless %}
+
+        <div class="content-top">
+          {%- if section.settings.sub_heading != blank -%}
+            <div class="sub-heading">{{ section.settings.sub_heading }}</div>
+          {%- endif -%}
+          {%- if section.settings.heading != blank -%}
+            <h1 class="heading">{{ section.settings.heading }}</h1>
+          {%- endif -%}
+          {%- if section.settings.content != blank -%}
+            <div class="content">{{ section.settings.content }}</div>
+          {%- endif -%}
+        </div>
+
+        <div class="content-bottom {{ section.settings.layout }}">
+          {%- if section.settings.bottom_content != blank -%}
+            <div class="bottom-content">{{ section.settings.bottom_content }}</div>
+          {%- endif -%}
+          {%- if section.blocks.size > 0 -%}
+            <div class="box-listing swiper swiper-{{section.id}}">
+              <div class="swiper-wrapper">
+                {%- for block in section.blocks -%}
+                  <div class="swiper-slide">
+                    <div class="box-item">
+                      <div class="image">
+                        {%- if block.settings.image == blank -%}
+                          {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                        {%- else -%}
+                          {{ block.settings.image | image_url: width: 768 | image_tag: loading: 'lazy' }}
+                        {%- endif -%}
+                      </div>
+
+                      {% if block.settings.heading != blank %}
+                        <h5 class="heading">{{ block.settings.heading }}</h5>
+                      {% endif %}
+
+                      {% if block.settings.content != blank %}
+                        <div class="content">{{ block.settings.content }}</div>
+                      {% endif %}
+
+                      {% if block.settings.btn_link != blank %}
+                        <div class="btn-wrap"><a href="{{ block.settings.btn_link }}" class="btn">Explore</a></div>
+                      {% endif %}
+                    </div>
+                  </div>
+                {%- endfor -%}
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <script>
+              document.addEventListener('DOMContentLoaded', function (event) {
+                var swiper = new Swiper('{{mySwiper | append: section.id }}', {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                  loop: false,
+                  pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                  },
+                  breakpoints: {
+                    520: {
+                      slidesPerView: 2,
+                    },
+                    1024: {
+                      slidesPerView: 4,
+                      spaceBetween: 40,
+                    },
+                  },
+                });
+              });
+            </script>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endunless %}
+
+{% schema %}
+{
+  "name": "[E9D] Hero Banner",
+  "tag": "section",
+  "class": "py-hero-banner",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "use_hero",
+      "label": "Show Hero Banner",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumb",
+      "label": "Show Breadcrumb",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Image: Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image: Mobile"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Sub Heading",
+      "default": "Sub Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "This is Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in diam ac nulla mollis maximus. Phasellus posuere purus ante, ut condimentum lacus elementum at. Duis commodo mauris at eros blandit volutpat."
+    },
+    {
+      "type": "header",
+      "content": "CONTENT BOTTOM"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "layout-1",
+          "label": "Layout 1"
+        },
+        {
+          "value": "layout-2",
+          "label": "Layout 2"
+        }
+      ],
+      "default": "layout-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "bottom_content",
+      "label": "Content"
+    },
+    {
+      "type": "header",
+      "content": "ADDITIONAL SETTINGS"
+    },
+    {
+      "type": "text",
+      "id": "additional_class",
+      "label": "Class"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding: Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Section padding: Bottom",
+      "default": 80
+    }
+  ],
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Content",
+          "default": "Lorem ipsum dolor sit amet"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "[E9D] Hero Banner"
+    }
+  ]
+}
+{% endschema %}

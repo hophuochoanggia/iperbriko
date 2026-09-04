@@ -1,0 +1,58 @@
+<div class="tw-bg-white tw-z-[3] tw-relative tw-shadow">
+  <div class="page-width">
+    {% render 'header-mega-menu' %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.mega-menu.name",
+  "class": "section-mega__menu",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "t:sections.mega-menu.settings.menu.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "t:sections.mega-menu.blocks.menu.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Menu",
+          "label": "t:sections.mega-menu.blocks.menu.settings.text.label"
+        },
+        {
+          "type": "html",
+          "id": "icon",
+          "default": "icon",
+          "label": "t:sections.mega-menu.blocks.menu.settings.icon.label"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "t:sections.mega-menu.settings.menu.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.mega-menu.presets.name",
+      "blocks": [
+        {
+          "type": "menu"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

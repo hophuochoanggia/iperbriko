@@ -1,0 +1,824 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": true,
+        "color_scheme": "accent-1"
+      }
+    },
+    "rich_text_ex9L8E": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 40
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_WXyTWg": {
+      "type": "rich-text",
+      "blocks": {
+        "text_cftKb4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>La scelta dei <strong>mobili cucina</strong> adatti per lo spazio cucina non si basa solo su fattori estetici, ma deve anche rispondere a requisiti di funzionalità e praticità. È fondamentale che la tua cucina sia bella, funzionale e soddisfi le esigenze quotidiane.</p>"
+          }
+        },
+        "heading_MKHB34": {
+          "type": "heading",
+          "settings": {
+            "heading": "Su quali fattori basarsi per scegliere i mobili cucina?",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "text_cftKb4",
+        "heading_MKHB34"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_EfcRti": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_jntNm3": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "<strong>Moderno</strong>",
+            "text": "<p> I mobili hanno linee nette e colori armoniosi.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_neaDnG": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "<strong>Classico</strong>",
+            "text": "<p>Predilige i mobili con colori del legno naturale, un design impressionante e dettagli accattivanti.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_hQyJwP": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "<strong>Minimalismo</strong>",
+            "text": "<p> I mobili hanno un design semplice, utilizzano colori neutri, in particolare il bianco, e richiedono ampi spazi vuoti per creare una sensazione di ampiezza.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_jntNm3",
+        "column_neaDnG",
+        "column_hQyJwP"
+      ],
+      "settings": {
+        "title": "<strong>Stile di design della cucina</strong>",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_YwnUdm": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dUtQin": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Dimensioni e spazio della cucina</strong>",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dUtQin"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "multirow_U7QxYr": {
+      "type": "multirow",
+      "blocks": {
+        "row_xwUWi8": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/mobili-cucine-1.jpg",
+            "caption": "",
+            "heading": "Cucina piccola",
+            "text": "<p>Scegliere modelli di mobili cucina intelligenti, con cassetti multifunzionali o design a muro, per ottimizzare lo spazio e la superficie della cucina. Allo stesso tempo, utilizzare arredi di colori chiari per creare una sensazione di ampliamento dello spazio.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_TEe46G": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/mobili-cucine-2.jpg",
+            "caption": "",
+            "heading": "Cucina grande",
+            "text": "<p>Può adattarsi alla maggior parte dei modelli di mobili cucina, come cassettiera per cucina, pensile per cucina, sottolavello cucina, base per cucina. Inoltre, la scelta dello stile e dei colori può essere personalizzata in base ai gusti del proprietario della casa.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_xwUWi8",
+        "row_TEe46G"
+      ],
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "small",
+        "heading_tag": "h3",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_ADG7dp": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_brfWVH": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "Legno naturale o legno composito",
+            "text": "<p> Il legno è sempre una scelta popolare per gli spazi cucina, creando un'atmosfera accogliente e lussuosa. Il olmo, il rovere, il noce e il pino sono tra i materiali più frequentemente scelti per i mobili da cucina.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Qenp6A": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "Colori",
+            "text": "<p>Le tonalità delicate come il crema, il bianco, il grigio o le sfumature del legno naturale sono spesso preferite dalle famiglie. Tuttavia, alcune famiglie optano anche per colori vivaci come il marrone, il rosso o il verde per i dettagli in evidenza.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_brfWVH",
+        "column_Qenp6A"
+      ],
+      "settings": {
+        "title": "<strong>Materiale e colore</strong>",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_77adwy": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_kacpjq": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Pensile per cucina</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_zmr4t9": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>Guida alla Scelta dei Pensili da Cucina</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_kacpjq",
+        "text_zmr4t9"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "multirow_HHh8kw": {
+      "type": "multirow",
+      "blocks": {
+        "row_R8d9fP": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/f2687c229f513840c3a3440f16f8af09.jpg",
+            "caption": "",
+            "heading": "",
+            "text": "<p><strong>Cucina piccola (4 - 6 m²): </strong>Optare per pensili di dimensioni ridotte come 40x32xH72 o 60x32xH72 per risparmiare spazio e ottimizzare l'utilizzo.</p><p><strong>Cucina media (6 - 8 m²): </strong>Scegliere pensili da 60x32xH72 o 80x32xH72 per garantire sufficiente spazio di stoccaggio senza ingombrare.</p><p><strong>Cucina grande (8 - 16 m²): </strong>Optare per modelli più grandi come 80x32xH72 o 100x32xH72 per sfruttare al massimo lo spazio e facilitare le attività in cucina.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_R8d9fP"
+      ],
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "small",
+        "heading_tag": "h2",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_R64x6P": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_PtQTrk": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Base per cucina</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_dJRVzQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>Guida alla Scelta delle Basi da Cucina in Base alle Dimensioni della Cucina</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PtQTrk",
+        "text_dJRVzQ"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "multirow_RMKghP": {
+      "type": "multirow",
+      "blocks": {
+        "row_qgRgcz": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/image_1920_77b181d3-43fe-40f3-bd4a-97bc59bf1336.jpg",
+            "caption": "",
+            "heading": "",
+            "text": "<p><strong>Cucine Piccole (4 - 6 m²)</strong>: Scegli basi di dimensioni 40x50xH85 o 40x60xH85 per ottimizzare lo spazio in cucine compatte.</p><p><strong>Cucine Medie (6 - 8 m²): </strong>Le basi di dimensioni 60x60xH85 offrono un buon equilibrio tra spazio di archiviazione e design compatto.</p><p><strong>Cucine di Dimensioni Medie-Grandi (8 - 12 m²): </strong>Le basi 80x50xH85 o 80x60xH85 combinano funzionalità e stile per spazi più confortevoli.</p><p><strong>Cucine Grandi (12 - 16 m²): </strong>Opta per basi 100x60xH85 per massimizzare lo spazio di archiviazione in cucine grandi.</p><p><strong>Cucine Molto Grandi (Oltre 16 m²): </strong>Le basi di dimensioni 120x60xH85 sono perfette per ambienti open-space e cucine di grandi dimensioni.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_qgRgcz"
+      ],
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "small",
+        "heading_tag": "h2",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_7fXf7T": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_GzrTWP": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Cassettiera per cucina</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_eFkANB": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>Guida alla scelta delle dimensioni dei mobili da cucina con cassetti</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_GzrTWP",
+        "text_eFkANB"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "multirow_8X4xJV": {
+      "type": "multirow",
+      "blocks": {
+        "row_D8gkn4": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/image_1920_3844bf36-4a92-4d3c-b7e5-6c741bba5a71.jpg",
+            "caption": "",
+            "heading": "",
+            "text": "<p><strong>Cucina Piccola (4 - 6 m²)</strong>: Scegliere mobili con larghezza di 40 cm per ottimizzare lo spazio, adatti per appartamenti piccoli o cucine strette.</p><p><strong>Cucina Media (6 - 8 m²)</strong>: I mobili con larghezza di 60 cm offrono abbastanza spazio per riporre senza compromettere l'equilibrio dello spazio cucina.</p><p><strong>Cucina Grande (8 - 12 m²</strong>): Un mobile da 80 cm è l'ideale, offrendo comfort nello stoccaggio e un'alta estetica.</p><p><strong>Cucina Molto Grande (12 - 16 m² o più)</strong>: Mobili con larghezza di 100 cm - 120 cm sono perfetti, supportando lo stoccaggio di oggetti grandi e attrezzature da cucina.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_D8gkn4"
+      ],
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "small",
+        "heading_tag": "h2",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_pYU4Xp": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "multirow_YGQbpq": {
+      "type": "multirow",
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "small",
+        "heading_tag": "h2",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_hjKh6U": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_9Nri7W": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "<strong>Superficie della cucina</strong>",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_BMazkC": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "<strong>Dimensioni armadietto adatte</strong>",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_JR6CEj": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "<strong>Motivo</strong>",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_CEBwbV": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>6 m²</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_LQAGkN": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>Lunghezza 80-100 cm, Profondità 50 cm, Altezza 80-85 cm</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_xidCp6": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>Armadietto compatto, non occupa troppo spazio in cucina.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_QdR7wf": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>8-10 m²</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_beh3P7": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>Lunghezza 100-120 cm, profondità 50 cm, altezza 85 cm</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_tiTdt8": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>Garantisce spazio sufficiente per utensili e zona cottura.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_8tFcqf": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>10-12 m²</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_L3rpmJ": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>Lunghezza 120 cm, profondità 50 cm, altezza 85 cm</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_JgEtBa": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>Armadietto più grande per cucine con più utensili e spazio.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_bA7jzG": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>12-15 m²</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_qqpWNW": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>Lunghezza 120-140 cm, profondità 50 cm, altezza 85-90 cm</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_JpUPc7": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>Necessario armadietto più grande per ottimizzare lo spazio</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_JcyV7P": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>Più di 15 m²</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_qP8GMd": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>Armadietto sotto lavello: lunghezza 140 cm, profondità 50 cm, altezza 85-90 cm</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_XnUVKK": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "title": "",
+            "text": "<p>Adatto a cucine più grandi, con maggiore spazio di stoccaggio</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_9Nri7W",
+        "column_BMazkC",
+        "column_JR6CEj",
+        "column_CEBwbV",
+        "column_LQAGkN",
+        "column_xidCp6",
+        "column_QdR7wf",
+        "column_beh3P7",
+        "column_tiTdt8",
+        "column_8tFcqf",
+        "column_L3rpmJ",
+        "column_JgEtBa",
+        "column_bA7jzG",
+        "column_qqpWNW",
+        "column_JpUPc7",
+        "column_JcyV7P",
+        "column_qP8GMd",
+        "column_XnUVKK"
+      ],
+      "settings": {
+        "title": "<strong>Sottolavello cucina</strong>",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "multicolumn_aeTwTX": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_XfDNm6": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "image": "shopify://shop_images/image_1920_7318fab9-1c86-45fe-9ba7-06c993c07a80.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_cLEwnz": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "image": "shopify://shop_images/image_1920_f1761c42-6a94-4ee6-9f85-74fea93ed9f4.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_LGeGWt": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "image": "shopify://shop_images/888f6f2cdc11d48039810de91364c424.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_w4NJy7": {
+          "type": "column",
+          "settings": {
+            "column_style": "none",
+            "image": "shopify://shop_images/image_1920_43e41ae6-7424-40f6-a48c-a70082252502.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_XfDNm6",
+        "column_cLEwnz",
+        "column_LGeGWt",
+        "column_w4NJy7"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "circle",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 12,
+        "padding_bottom": 20
+      }
+    },
+    "newsletter_47NX3w": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_x98QgE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Iscriviti alla nostra newsletter",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_EkHj3C": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Resta aggiornato con le ultime notizie, sconti e approfondimenti da Iperbriko.it!</p>"
+          }
+        },
+        "email_form_YXAQAP": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_x98QgE",
+        "paragraph_EkHj3C",
+        "email_form_YXAQAP"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "rich_text_ex9L8E",
+    "product-grid",
+    "rich_text_WXyTWg",
+    "multicolumn_EfcRti",
+    "rich_text_YwnUdm",
+    "multirow_U7QxYr",
+    "multicolumn_ADG7dp",
+    "rich_text_77adwy",
+    "multirow_HHh8kw",
+    "rich_text_R64x6P",
+    "multirow_RMKghP",
+    "rich_text_7fXf7T",
+    "multirow_8X4xJV",
+    "rich_text_pYU4Xp",
+    "multirow_YGQbpq",
+    "multicolumn_hjKh6U",
+    "multicolumn_aeTwTX",
+    "newsletter_47NX3w"
+  ]
+}

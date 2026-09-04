@@ -1,0 +1,43 @@
+{% comment %}
+  Renders share button.
+  Accepts:
+  - block: {Object} passes in the block information.
+  - share_link: {String} url to be added to the input the user will get/copy.
+
+  Usage:
+  {% render 'share-button',
+    block: block,
+    share_link: share_url
+  %}
+{% endcomment %}
+<script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
+
+<div class="tw-flex tw-flex-row tw-gap-3">
+  <div>
+    <a
+      target="_blank"
+      href="//www.facebook.com/sharer.php?u={{ shop.url | append: share_link }}"
+    >
+      {%- render 'icon-facebook' -%}
+      <span class="visually-hidden">facebook</span>
+    </a>
+  </div>
+  <div>
+    <a
+      target="_blank"
+      href="//twitter.com/share?text={{ product.title | url_param_escape }}&amp;url={{ shop.url | append: share_link }}"
+    >
+      {%- render 'icon-twitter' -%}
+      <span class="visually-hidden">twitter</span>
+    </a>
+  </div>
+  <div>
+    <a
+      target="_blank"
+      href="//pinterest.com/pin/create/button/?url={{ shop.url | append: share_link }}&amp;media={{ product | img_url: '1024x1024' }}&amp;description={{ product.title | url_param_escape }}"
+    >
+      {%- render 'icon-pinterest' -%}
+      <span class="visually-hidden">pinterest</span>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+{% style %}
+  ol {
+    list-style: none;
+    counter-reset: cupcake;
+    padding-left: 32px;
+  }
+  ol li {
+    counter-increment: cupcake;
+    font-family: 'Inter', sans-serif; /* Change this to your desired font */
+  }
+  ol li:before {
+    content: counters(cupcake, '.') '. ';
+  }
+{% endstyle %}
+
+<div class="tw-bg-[#0000001a] tw-p-5 tw-rounded-[10px]">
+  <div class="accordion tw-w-full">
+    <button
+      class="tw-w-full tw-flex tw-flex-row tw-justify-between tw-text-sm tw-font-semibold tw-items-center tw-mb-3"
+      data-accordion-action
+    >
+      <span>{{ 'general.table_of_content' | t }}</span>
+      <div class="tw-w-4 tw-transition-transform" data-accordion-icon>
+        {% render 'icon-caret' %}
+      </div>
+    </button>
+    <hr class="tw-border-[#d1d5db] tw-border-[none] tw-border-t-[1px] tw-border-solid">
+    <div data-accordion-target>
+      <ol
+        id="toc-list"
+        class="tw-px-5 tw-mb-2.5 tw-no-underline tw-text-base tw-text-gray-700 tw-font-[normal] hover:tw-font-[bold] hover:tw-text-[black]"
+      ></ol>
+    </div>
+  </div>
+</div>
+
+<script>
+  function compare_tag(prev, next) {
+    const prev_level = Number(prev[1]);
+    const next_level = Number(next[1]);
+    return prev_level < next_level ? '<ol>' : '</ol>';
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    let toc = '';
+    let last_tag = 'h2';
+    document.querySelectorAll('.article-content h2, .article-content h3, .article-content h4').forEach(function (item) {
+      const tag = item.tagName.toLowerCase();
+      const title = item.innerText;
+      const anchor = title.replace(/\s+/g, '-').toLowerCase();
+      item.setAttribute('id', anchor);
+
+      const selector = {
+        h2: `<li class="tw-mb-2.5 tw-inside">
+              <a class="tw-no-underline tw-text-base tw-font-sans tw-text-gray-700 hover:tw-font-[bold] hover:tw-text-[black] hover:tw-font-sans" href="#${anchor}">
+                ${title}
+              </a>
+            </li>`,
+        h3: `<li class="tw-mb-2.5 tw-ml-2 tw-inside">
+              <a class="tw-no-underline tw-text-base tw-font-sans tw-text-gray-700 hover:tw-font-[bold] hover:tw-text-[black] hover:tw-font-sans" href="#${anchor}">
+                ${title}
+              </a>
+            </li>`,
+        h4: `<li class="tw-mb-2.5 tw-ml-4 tw-list-disc tw-inside">
+              <a class="tw-no-underline tw-text-base tw-font-sans tw-text-gray-700 hover:tw-font-[bold] hover:tw-text-[black] hover:tw-font-sans" href="#${anchor}">
+                ${title}
+              </a>
+            </li>`,
+      };
+
+      if (last_tag !== tag) {
+        toc += compare_tag(last_tag, tag);
+        last_tag = tag;
+      }
+      toc += selector[tag];
+    });
+    document.getElementById('toc-list').innerHTML = toc;
+  });
+</script>

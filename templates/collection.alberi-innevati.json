@@ -1,0 +1,453 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_tMeA87": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_B9ARAf": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Alberi_Innevati.jpg",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_B9ARAf"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "counter",
+        "hide_navigation": false,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "color_scheme": "accent-1"
+      }
+    },
+    "collection_product_list_pNVmEe": {
+      "type": "collection-product-list",
+      "blocks": {
+        "featured_collection_ECU9kk": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "natale"
+          }
+        },
+        "featured_collection_qQKNck": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "alberi-di-natale"
+          }
+        },
+        "featured_collection_FWVR8T": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "palline-di-natale"
+          }
+        },
+        "featured_collection_trNUYm": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "addobbi-natalizi"
+          }
+        },
+        "featured_collection_PUxT9q": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "illuminazione-natalizia"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_ECU9kk",
+        "featured_collection_qQKNck",
+        "featured_collection_FWVR8T",
+        "featured_collection_trNUYm",
+        "featured_collection_PUxT9q"
+      ],
+      "settings": {
+        "title": "Collections",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_9yL37Y": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RriBd7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Il significato degli Alberi Innevati",
+            "heading_size": "h2"
+          }
+        },
+        "text_mVWBFw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>L'albero di Natale coperto di neve evoca l'immagine di un inverno gelido ma pieno di calore, diventando simbolo delle festività natalizie e portando gioia e unione alla famiglia nello spazio decorato insieme. Gli Alberi Innevati esprimono anche i desideri per un anno nuovo di pace, prosperità e nuovi inizi, in linea con lo spirito della stagione festiva invernale, trasmettendo una sensazione di tranquillità e fortuna.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RriBd7",
+        "text_mVWBFw"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_LHkmYK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_i9CQ68": {
+          "type": "heading",
+          "settings": {
+            "heading": "Tipi di Alberi di Natale Innevati",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_i9CQ68"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "multirow_EKcctB": {
+      "type": "multirow",
+      "blocks": {
+        "row_KBH4PJ": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/albero-innevato-1.jpg",
+            "caption": "",
+            "heading": "Albero di Natale innevato classico",
+            "text": "<p>Come gli Alberi Verdi, anche gli Alberi Innevati sono considerati simboli tradizionali del Natale. Tuttavia, questo modello di albero ha uno strato di neve leggera sopra, che crea un effetto naturale, simile a quello di un vero albero di Natale in un inverno gelido. Se desideri un'atmosfera accogliente e tradizionale, le palline decorative e gli accessori di colore rosso, giallo e verde sono una scelta adatta.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_w9LkPq": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/albero-innevato-2.jpg",
+            "caption": "",
+            "heading": "Albero innevato con luci LED integrate",
+            "text": "<p>L'albero di Natale è dotato di luci LED, che emettono una luce calda e scintillante. Le lampade sono distribuite uniformemente su tutta la pianta, con una luce gialla o bianca che crea un effetto di illuminazione armonioso. Questo design non è solo pratico, ma ti consente anche di risparmiare tempo nella decorazione, portando una bellezza moderna e accogliente al tuo spazio abitativo.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_d83MJp": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/albero-innevato-3.jpg",
+            "caption": "",
+            "heading": "Albero innevato con pigne e bacche rosse",
+            "text": "<p>L'Albero Innevato è decorato con pigne e bacche rosse, portando una bellezza naturale e affascinante. Uno strato di neve che copre delicatamente i rami mette ulteriormente in risalto la raffinatezza e l'eleganza di questo albero. La combinazione perfetta tra il bianco della neve, il marrone caldo dei pini e il rosso brillante delle bacche crea un effetto di contrasto cromatico, affascinante e accattivante, mantenendo comunque l'armonia nell'ambiente decorativo.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_pKYVYb": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/albero-innevato-4.jpg",
+            "caption": "",
+            "heading": "Albero innevato a colonna (slim)",
+            "text": "<p>L'albero innevato a colonna ha un design snello e sottile, molto adatto per spazi limitati. Le dimensioni compatte consentono di posizionare facilmente la pianta negli angoli piccoli o nei corridoi senza occupare troppo spazio o ostacolare il passaggio. Con il suo design elegante, questo albero di Natale si abbina facilmente a vari tipi di decorazioni, dalle luci LED alle palline, fino agli accessori colorati. La sua bellezza semplice ed elegante rende questo albero adatto a molti stili di decorazione, dal moderno al classico, creando uno spazio caldo e colorato per la stagione festiva.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_abfhzD": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/albero-innevato-5.jpg",
+            "caption": "Alberi di Natale",
+            "heading": "Albero innevato mini da tavolo",
+            "text": "<p>L'albero innevato mini da tavolo ha solitamente un'altezza di 30-60 cm, molto adatto per decorare la scrivania, il tavolo degli ospiti, le mensole decorative o altri angoli piccoli della casa. Con le sue dimensioni compatte, questo albero di Natale non occupa molto spazio ed è la scelta ideale per gli spazi ristretti che desiderano comunque creare un'atmosfera natalizia accogliente.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_KBH4PJ",
+        "row_w9LkPq",
+        "row_d83MJp",
+        "row_pKYVYb",
+        "row_abfhzD"
+      ],
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "small",
+        "heading_tag": "h3",
+        "heading_size": "h2",
+        "text_style": "subtitle",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_JUDBBB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_JcPg89": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Altezza popolare degli alberi di Natale innevato</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_9Jkdnh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>L'altezza comune dell'albero di Natale varia da 150 cm a 240 cm. Quando scegli l'altezza dell'albero, devi considerare lo spazio decorativo, le dimensioni dei mobili e l'altezza del soffitto. Di seguito è riportata una tabella che mostra specificamente l'altezza degli alberi comunemente utilizzati.</p>"
+          }
+        },
+        "text_BY3AnM": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_JcPg89",
+        "text_9Jkdnh",
+        "text_BY3AnM"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "rich_text_BnLf4V": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_TqcPQB": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Come scegliere l'albero di Natale verde adatto al tuo spazio</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_cMbpBb": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        },
+        "text_WenwEc": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Altezza dell'albero di Natale</strong></p>"
+          }
+        },
+        "text_PbE6xq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>L'altezza ideale degli alberi verdi è di avere la cima dell'albero a una distanza dal soffitto di 30-60 cm. Soffitto basso (2,4 - 2,5 m) dovresti scegliere una pianta alta circa 1,5 - 1,8 m. Soffitti alti (3m o più) possono scegliere alberi da 2,1 a 2,4 m o più, a seconda dell'area. Questa è solo un altezza di riferimento, dovresti comunque dare priorità a scegliere un'altezza dell'albero di Natale che si adatti agli scopi della tua famiglia.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TqcPQB",
+        "text_cMbpBb",
+        "text_WenwEc",
+        "text_PbE6xq"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 12
+      }
+    },
+    "rich_text_ddBrxT": {
+      "type": "rich-text",
+      "blocks": {
+        "text_PPiaAz": {
+          "type": "text",
+          "settings": {
+            "text": "<h3><strong>La larghezza dell'albero di Natale</strong></h3>"
+          }
+        },
+        "text_iHgdaL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>In generale, gli alberi di Natale hanno un diametro che è circa 1/2 o 1/3 dell'altezza. Ad esempio, un albero alto 1,8 m avrà tipicamente un diametro compreso tra 0,9 m e 1,2 m, a seconda che abbia una forma snella o una chioma ampia. Se hai uno spazio decorativo ampio e desideri creare un punto focale per l'ambiente con uno stile tradizionale, è consigliabile optare per un albero con una chioma ampia. Al contrario, se hai uno spazio decorativo limitato, ami lo stile minimalista o desideri decorare con più alberi nello stesso ambiente, un albero snello è una scelta appropriata.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_PPiaAz",
+        "text_iHgdaL"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_fGr4eL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_wCg8xg": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Conclusione</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_DAM7qM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Con la loro bellezza naturale e il design elegante, gli <strong>Alberi Innevati</strong> portano un'atmosfera calda e colorata per il tuo Natale. Non sono solo un punto focale decorativo ma anche un simbolo di preziosi ricordi e momenti di riunione con la famiglia durante le festività. Scegli un albero di Natale innevato da Iperbriko per trasformare il tuo spazio abitativo in un perfetto quadro natalizio, ricco di amore e gioia!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wCg8xg",
+        "text_DAM7qM"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "newsletter_47NX3w": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_x98QgE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Iscriviti alla nostra newsletter",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_EkHj3C": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Resta aggiornato con le ultime notizie, sconti e approfondimenti da Iperbriko.it!</p>"
+          }
+        },
+        "email_form_YXAQAP": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_x98QgE",
+        "paragraph_EkHj3C",
+        "email_form_YXAQAP"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "slideshow_tMeA87",
+    "banner",
+    "collection_product_list_pNVmEe",
+    "product-grid",
+    "rich_text_9yL37Y",
+    "rich_text_LHkmYK",
+    "multirow_EKcctB",
+    "rich_text_JUDBBB",
+    "rich_text_BnLf4V",
+    "rich_text_ddBrxT",
+    "rich_text_fGr4eL",
+    "newsletter_47NX3w"
+  ]
+}

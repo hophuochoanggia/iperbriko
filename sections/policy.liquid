@@ -1,0 +1,49 @@
+
+{%- style -%}
+
+@media screen and (max-width: 768px) {
+
+  .title{
+  margin-block-start: 0 !important;
+    margin-block-end:  0 !important;
+}
+}
+
+
+{%- endstyle -%}
+<div class="page-width tw-pb-20 ">
+  <div class="tw-flex tw-justify-center tw-items-center md:tw-mb-10 tw-mb-6">
+    <h1 class="tw-font-bold md:tw-text-4xl tw-text-3xl   title ">
+      {{ section.settings.heading | escape }}
+    </h1>
+  </div>
+
+  <div class="rte {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} lg:tw-px-[102px]">
+    {{ page.content }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Policy page",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Terms and Conditions",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Page",
+      "name": "Policy page"
+    }
+  ]
+}
+{% endschema %}

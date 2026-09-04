@@ -1,0 +1,472 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "our-brands",
+      "blocks": {
+        "service_card_TA4PPw": {
+          "type": "service-card",
+          "settings": {
+            "heading": "ALFA Forni",
+            "image": "shopify://shop_images/Frame_37454.png",
+            "link": ""
+          }
+        },
+        "service_card_BWjzXb": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Ariete",
+            "image": "shopify://shop_images/Frame_37449.png",
+            "link": "shopify://collections/ariete"
+          }
+        },
+        "service_card_eaEajj": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Bestway",
+            "image": "shopify://shop_images/Frame_37455.png",
+            "link": "shopify://collections/bestway"
+          }
+        },
+        "service_card_GWVgkM": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Bimar",
+            "image": "shopify://shop_images/Frame_37456.png",
+            "link": "shopify://collections/bimar"
+          }
+        },
+        "service_card_pb9dxJ": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Bizzotto",
+            "image": "shopify://shop_images/Frame_37457.png",
+            "link": "shopify://collections/bizzotto"
+          }
+        },
+        "service_card_L3tdkB": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Black and Decker",
+            "image": "shopify://shop_images/Frame_37458.png",
+            "link": "shopify://collections/black-and-decker"
+          }
+        },
+        "service_card_dMpQgp": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Bonetti illumina",
+            "image": "shopify://shop_images/Brand_07.png",
+            "link": "shopify://collections/bonetti-illumina"
+          }
+        },
+        "service_card_WVqmWg": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Bosch",
+            "image": "shopify://shop_images/Brand_08_a0faa37c-64df-4f45-a2e4-741a69ef4abd.png",
+            "link": "shopify://collections/bosch"
+          }
+        },
+        "service_card_qjdCVc": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Bostik",
+            "image": "shopify://shop_images/Brand_09.png",
+            "link": "shopify://collections/bostik"
+          }
+        },
+        "service_card_q4Hpig": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Broil King",
+            "image": "shopify://shop_images/Brand_10.png",
+            "link": "shopify://collections/broil-king"
+          }
+        },
+        "service_card_k6wBR3": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Bticino",
+            "image": "shopify://shop_images/Brand_11.png",
+            "link": "shopify://collections/bticino"
+          }
+        },
+        "service_card_iXUQie": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Carillo",
+            "image": "shopify://shop_images/Brand_12.png",
+            "link": "shopify://collections/carillo"
+          }
+        },
+        "service_card_xm9aiN": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Char-Broil",
+            "image": "shopify://shop_images/Brand_14.png",
+            "link": "shopify://collections/char-broil"
+          }
+        },
+        "service_card_UitDK7": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Domopak Living",
+            "image": "shopify://shop_images/Brand_15.png",
+            "link": "shopify://collections/domopak-living"
+          }
+        },
+        "service_card_qbnV4C": {
+          "type": "service-card",
+          "settings": {
+            "heading": "EME",
+            "image": "shopify://shop_images/Brand_16.png",
+            "link": "shopify://collections/eme"
+          }
+        },
+        "service_card_9bMLQz": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Gardena",
+            "image": "shopify://shop_images/Brand_17.png",
+            "link": "shopify://collections/gardena"
+          }
+        },
+        "service_card_eB9DdH": {
+          "type": "service-card",
+          "settings": {
+            "heading": "G3 ferrari",
+            "image": "shopify://shop_images/Brand_18_a6c4ca4e-74ca-4134-ba76-0672a7f38d12.png",
+            "link": "shopify://collections/g3-ferrari"
+          }
+        },
+        "service_card_KGywyg": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Girmi",
+            "image": "shopify://shop_images/Brand_19.png",
+            "link": "shopify://collections/girmi"
+          }
+        },
+        "service_card_9HCBfR": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Global relax",
+            "image": "shopify://shop_images/Brand_20.png",
+            "link": "shopify://collections/global-relax"
+          }
+        },
+        "service_card_yg9dCE": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Guzzini",
+            "image": "shopify://shop_images/Brand_21.png",
+            "link": "shopify://collections/guzzini"
+          }
+        },
+        "service_card_YbP4Kn": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Husqvarna",
+            "image": "shopify://shop_images/Brand_22.png",
+            "link": "shopify://collections/husqvarna"
+          }
+        },
+        "service_card_pUMkbC": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Industrial Starter",
+            "image": "shopify://shop_images/Brand_23.png",
+            "link": "shopify://collections/industrial-starter"
+          }
+        },
+        "service_card_EfUqjj": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Karcher",
+            "image": "shopify://shop_images/Brand_24.png",
+            "link": "shopify://collections/karcher"
+          }
+        },
+        "service_card_3H8t33": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Keter",
+            "image": "shopify://shop_images/Brand_25.png",
+            "link": "shopify://collections/keter"
+          }
+        },
+        "service_card_tNycfp": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Lavazza",
+            "image": "shopify://shop_images/Brand_26.png",
+            "link": "shopify://collections/lavazza"
+          }
+        },
+        "service_card_WyWqAd": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Leifheit",
+            "image": "shopify://shop_images/Brand_27.png",
+            "link": "shopify://collections/leifheit"
+          }
+        },
+        "service_card_YFyf9x": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Lemax",
+            "image": "shopify://shop_images/Brand_28.png",
+            "link": "shopify://collections/lemax"
+          }
+        },
+        "service_card_6DkLbA": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Luigi Bormioli",
+            "image": "shopify://shop_images/Brand_29.png",
+            "link": "shopify://collections/luigi-bormioli"
+          }
+        },
+        "service_card_gVhyyU": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Mc Culloch",
+            "image": "shopify://shop_images/Brand_31.png",
+            "link": "shopify://collections/mc-culloch"
+          }
+        },
+        "service_card_mgPFPc": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Mottinox",
+            "image": "shopify://shop_images/Brand_32.png",
+            "link": "shopify://collections/mottinox"
+          }
+        },
+        "service_card_Fnj44t": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Omada",
+            "image": "shopify://shop_images/Brand_33.png",
+            "link": "shopify://collections/omada"
+          }
+        },
+        "service_card_G9FENx": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Outdoorchef",
+            "image": "shopify://shop_images/Brand_34.png",
+            "link": "shopify://collections/outdoorchef"
+          }
+        },
+        "service_card_jtBewe": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Purina",
+            "image": "shopify://shop_images/Brand_35.png",
+            "link": "shopify://collections/purina"
+          }
+        },
+        "service_card_y7giJE": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Qlima",
+            "image": "shopify://shop_images/Brand_36.png",
+            "link": "shopify://metaobjects/brand/qlima"
+          }
+        },
+        "service_card_GPJkxg": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Salmar",
+            "image": "shopify://shop_images/Brand_37.png",
+            "link": "shopify://metaobjects/brand/salmar"
+          }
+        },
+        "service_card_bPdJGn": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Scab",
+            "image": "shopify://shop_images/Brand_38.png",
+            "link": "shopify://collections/scab"
+          }
+        },
+        "service_card_FmMxbf": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Socim",
+            "image": "shopify://shop_images/Brand_39.png",
+            "link": "shopify://collections/socim"
+          }
+        },
+        "service_card_pma6xK": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Sovil",
+            "image": "shopify://shop_images/Brand_40.png",
+            "link": "shopify://collections/sovil"
+          }
+        },
+        "service_card_NKkURq": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Stanley",
+            "image": "shopify://shop_images/Brand_41.png",
+            "link": "shopify://collections/stanley"
+          }
+        },
+        "service_card_jgxnki": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Tescoma",
+            "image": "shopify://shop_images/Brand_42.png",
+            "link": "shopify://collections/tescoma"
+          }
+        },
+        "service_card_LcA666": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Tognana",
+            "image": "shopify://shop_images/Brand_43.png",
+            "link": "shopify://collections/tognana"
+          }
+        },
+        "service_card_nABzi3": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Tood",
+            "image": "shopify://shop_images/Brand_44.png",
+            "link": "shopify://collections/tood"
+          }
+        },
+        "service_card_Yn7jfR": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Twinkly",
+            "image": "shopify://shop_images/Brand_45.png",
+            "link": "shopify://collections/twinkly"
+          }
+        },
+        "service_card_Y664xz": {
+          "type": "service-card",
+          "settings": {
+            "heading": "U Power",
+            "image": "shopify://shop_images/Brand_46.png",
+            "link": "shopify://collections/u-power"
+          }
+        },
+        "service_card_gyPdMh": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Vacchetti",
+            "image": "shopify://shop_images/Brand_47.png",
+            "link": "shopify://collections/vacchetti"
+          }
+        },
+        "service_card_BpDC7c": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Valex",
+            "image": "shopify://shop_images/Brand_48.png",
+            "link": "shopify://collections/valex"
+          }
+        },
+        "service_card_9bcR3y": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Villeroy & Boch",
+            "image": "shopify://shop_images/Brand_49.png",
+            "link": "shopify://collections/villeroy-boch"
+          }
+        },
+        "service_card_MXB3WB": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Weber",
+            "image": "shopify://shop_images/Brand_50.png",
+            "link": "shopify://collections/weber"
+          }
+        },
+        "service_card_Ej9amT": {
+          "type": "service-card",
+          "settings": {
+            "heading": "Zephir",
+            "image": "shopify://shop_images/Brand_51.png",
+            "link": "shopify://collections/zephir"
+          }
+        }
+      },
+      "block_order": [
+        "service_card_TA4PPw",
+        "service_card_BWjzXb",
+        "service_card_eaEajj",
+        "service_card_GWVgkM",
+        "service_card_pb9dxJ",
+        "service_card_L3tdkB",
+        "service_card_dMpQgp",
+        "service_card_WVqmWg",
+        "service_card_qjdCVc",
+        "service_card_q4Hpig",
+        "service_card_k6wBR3",
+        "service_card_iXUQie",
+        "service_card_xm9aiN",
+        "service_card_UitDK7",
+        "service_card_qbnV4C",
+        "service_card_9bMLQz",
+        "service_card_eB9DdH",
+        "service_card_KGywyg",
+        "service_card_9HCBfR",
+        "service_card_yg9dCE",
+        "service_card_YbP4Kn",
+        "service_card_pUMkbC",
+        "service_card_EfUqjj",
+        "service_card_3H8t33",
+        "service_card_tNycfp",
+        "service_card_WyWqAd",
+        "service_card_YFyf9x",
+        "service_card_6DkLbA",
+        "service_card_gVhyyU",
+        "service_card_mgPFPc",
+        "service_card_Fnj44t",
+        "service_card_G9FENx",
+        "service_card_jtBewe",
+        "service_card_y7giJE",
+        "service_card_GPJkxg",
+        "service_card_bPdJGn",
+        "service_card_FmMxbf",
+        "service_card_pma6xK",
+        "service_card_NKkURq",
+        "service_card_jgxnki",
+        "service_card_LcA666",
+        "service_card_nABzi3",
+        "service_card_Yn7jfR",
+        "service_card_Y664xz",
+        "service_card_gyPdMh",
+        "service_card_BpDC7c",
+        "service_card_9bcR3y",
+        "service_card_MXB3WB",
+        "service_card_Ej9amT"
+      ],
+      "custom_css": [],
+      "settings": {
+        "heading": "I nostri brand",
+        "description": "",
+        "columns_desktop": 3,
+        "padding_top": 72,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

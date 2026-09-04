@@ -1,0 +1,136 @@
+{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign social_icons = true
+  if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
+    assign social_icons = false
+  endif
+
+  if section.blocks.size > 0
+    assign announcement_bar = true
+  endif
+
+  assign icon_class = 'tw-bg-white tw-p-2 tw-rounded-md tw-aspect-square tw-w-8 tw-flex tw-justify-center tw-items-center hover:tw-scale-105 tw-transition-all tw-duration-200 tw-ease-in-out tw-cursor-pointer'
+-%}
+
+{% if social_icons %}
+  {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+<div
+  class="utility-bar tw-bg-gray-200 gradient tw-py-3"
+  {{ block.shopify_attributes }}
+>
+  <div class="page-width tw-flex tw-flex-row tw-items-center tw-justify-between">
+    <a
+      class="tw-flex tw-flex-row tw-gap-2 tw-items-center"
+      href="tel:{{ settings.brand_phonenumber | strip_html }}"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="{{ icon_class }}">
+        {% render 'icon-phone' %}
+      </div>
+      <div class="reset-p tw-font-semibold tw-text-base ">{{ settings.brand_phonenumber | strip_html }}</div>
+    </a>
+
+    <div class="tw-flex tw-flex-row tw-gap-4">
+      <a
+        class="{{ icon_class }}"
+        href="{{ settings.social_facebook_link }}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {%- render 'icon-facebook-fill' -%}
+      </a>
+
+      <a
+        class="{{ icon_class }}"
+        href="{{ settings.social_instagram_link }}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {% render 'icon-instagram-fill' %}
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .reset-p p {
+    all: revert;
+    font: inherit;
+    font-size: inherit;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "max_blocks": 12,
+  "class": "announcement-bar-section",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.announcement-bar.settings.header__1.content",
+      "info": "t:sections.announcement-bar.settings.header__1.info"
+    },
+
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "t:sections.announcement-bar.settings.phone_number.label",
+      "default": "1-800-555-5555"
+    },
+    {
+      "type": "url",
+      "id": "facebook_link",
+      "label": "t:sections.announcement-bar.settings.facebook_link.label"
+    },
+    {
+      "type": "url",
+      "id": "instagram_link",
+      "label": "t:sections.announcement-bar.settings.instagram_link.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "default": false,
+      "label": "t:sections.announcement-bar.settings.show_announcement.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.announcement-bar.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Welcome to our store",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.announcement-bar.presets.name",
+      "blocks": [
+        {
+          "type": "announcement"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

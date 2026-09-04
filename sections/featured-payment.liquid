@@ -1,0 +1,319 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- if section.settings.enable_quick_add -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{% comment %} {%- liquid
+  assign show_mobile_slider = true
+-%} {% endcomment %}
+
+{%- liquid
+  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
+  assign show_mobile_slider = false
+  if section.settings.swipe_on_mobile and section.blocks.size > columns_mobile_int
+    assign show_mobile_slider = true
+  endif
+-%}
+<div class=" color-{{ section.settings.color_scheme }} isolate gradient tw-bg-white lg:!tw-bg-[#F9FAFB] !tw-py-12 ">
+  <div class="   page-width ">
+    {%- unless section.settings.heading == blank -%}
+      <div class="title-wrapper-with-link{% if posts_displayed > 2 %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin tw-mb-6">
+        <h2
+          id="SectionHeading-{{ section.id }}"
+          class="blog__title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} tw-text-2xl tw-font-bold tw-text-neutral-6"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+          {% endif %}
+        >
+          {{ section.settings.heading }}
+        </h2>
+
+        {%- if section.settings.show_view_all  -%}
+          <div
+            class=" !tw-hidden lg:!tw-block blog__view-all center small-hide medium-hide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+            {% endif %}
+          >
+            <a
+              href="{{ section.settings.link }}"
+              id="ViewAll-{{ section.id }}"
+              class="tw-flex tw-gap-2 tw-text-gray-900 tw-font-medium tw-text-sm tw-items-center"
+              aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}"
+            >
+             See all
+              {% render 'icon-right-arrow' %}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endunless -%}
+    <slider-component class=" !tw-hidden lg:!tw-block  tw-rounded-2xl !tw-bg-white slider-mobile-gutter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} tw-px-16">
+      <ul
+        class="
+          collection-list contains-card contains-card--collection tw-gap-4
+          {% if settings.card_style == 'standard' %} contains-card--standard{% endif %}
+          !tw-flex tw-grid-cols-6 grid--{{ section.settings.columns_mobile }}-col-tablet-down
+          slider slider--desktop grid--peek
+          {% if section.settings.swipe_on_mobile %} slider slider--tablet grid--peek{% endif %}
+          collection-list---items
+        "
+        id="Slider-{{ section.id }}"
+        role="list"
+      >
+        {%- liquid
+          assign columns = section.blocks.size
+          if columns > 3
+            assign columns = 4
+          endif
+        -%}
+
+        {%- for block in section.blocks -%}
+          <a href="{{ block.settings.link }}">
+          <li
+            id="Slide-{{ section.id }}-{{ forloop.index }}"
+            class=" tw-max-w-[160px] 
+            tw-max-h-[160px] collection-list__item grid__item{% if show_mobile_slider %} slider__slide{% endif %}{% if block.settings.collection.featured_image == nil %} collection-list__item--no-media{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {{ block.shopify_attributes }}
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: {{ forloop.index }};"
+            {% endif %}
+          >
+                  
+       <div
+        class="
+       
+          {% if block.settings.image == blank %} placeholder{% endif %}
+          {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}
+          tw-relative 
+        "
+      >
+      
+        {%- liquid
+          assign image_height = block.settings.image.width | divided_by: media_aspect_ratio
+          assign sizes = full_width
+        -%}
+        {{
+          block.settings.image
+          | image_url: width: 160
+          | image_tag:
+        
+            fetchpriority: fetch_priority
+        }}
+      </div> 
+          </li></a>
+        {%- endfor -%}
+      </ul>
+
+      <div class="slider-buttons no-js-hidden">
+        <button
+          type="button"
+          class="!tw-visible tw-absolute tw-left-4 tw-top-1/2 -tw-translate-y-1/2 slider-button slider-button--prev tw-z-50"
+          name="previous"
+          aria-label="{{ 'general.slider.previous_slide' | t }}"
+        >
+          {% render 'icon-slider-prev' %}
+        </button>
+  
+        <button
+          type="button"
+          class="tw-absolute tw-right-4 tw-top-1/2 -tw-translate-y-1/2 slider-button slider-button--next tw-z-50"
+          name="next"
+          aria-label="{{ 'general.slider.next_slide' | t }}"
+        >
+          {% render 'icon-slider-next' %}
+        </button>
+      </div>
+    </slider-component>
+    <div class="lg:!tw-hidden !tw-block">
+    <div class="   !tw-grid tw-grid-cols-4 md:tw-grid-cols-5  tw-gap-2 tw-bg-white ">
+      {%- liquid
+        assign columns = section.blocks.size
+        if columns > 3
+          assign columns = 4
+        endif
+      -%}
+
+      {%- for block in section.blocks limit: 16%}
+        <a href="{{ block.settings.link }}" class="">
+        <div
+          id="Slide-{{ section.id }}-{{ forloop.index }}"
+          class=" tw-w-[80px]  hover:tw-shadow-2xl
+          tw-cursor-pointer
+          tw-transition-all
+          tw-duration-500
+          tw-h-[80px] collection-list__item grid__item{% if show_mobile_slider %} slider__slide{% endif %}{% if block.settings.collection.featured_image == nil %} collection-list__item--no-media{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {{ block.shopify_attributes }}
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: {{ forloop.index }};"
+          {% endif %}
+        >
+                
+     <div
+      class="
+     
+        {% if block.settings.image == blank %} placeholder{% endif %}
+        {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}
+        tw-relative 
+      "
+    >
+    
+      {%- liquid
+        assign image_height = block.settings.image.width | divided_by: media_aspect_ratio
+        assign sizes = full_width
+      -%}
+      {{
+        block.settings.image
+        | image_url: width: 80
+        | image_tag:
+      
+          fetchpriority: fetch_priority
+      }}
+    </div> 
+        </div></a>
+      {%- endfor -%}
+    
+    </div>
+    {%- if section.settings.show_view_all  -%}
+      <div
+        class=" tw-justify-center tw-items-center tw-flex tw-gap-2 blog__view-all center small-hide medium-hide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        {% if settings.animations_reveal_on_scroll %}
+          data-cascade
+        {% endif %}
+      >
+        <a
+          href="{{ section.settings.link }}"
+          id="ViewAll-{{ section.id }}"
+          class=" tw-font-medium tw-text-sm tw-items-center tw-flex tw-gap-2 tw-text-[#2B5899] tw-justify-center "
+          aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}"
+        >
+          See more
+          
+          {% render 'icon-right-arrow-blue' %}
+        </a>
+      </div>
+    {%- endif -%}
+  </div></div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Our Brands",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "show see all"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link our page"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Our Brands",
+      "label": "Heading"
+    },
+
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Columns on desktop",
+      "default": 3
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service-card",
+      "name": "Item Brand",
+      
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "heading",
+          "default": "Item Brand"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link brand page"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.blogs.presets.name"
+    }
+  ]
+}
+{% endschema %}
+
