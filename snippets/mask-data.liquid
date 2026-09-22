@@ -1,10 +1,10 @@
 {%- assign collection = collections[section.settings.filter_collection] -%}
 
-{%- capture 'products_data' -%}
+{%- capture products_data -%}
 {% paginate collection.products by 50 %}
 [
 {%- for product in collection.products -%}
-  {%- capture 'product_html' -%}
+  {%- capture product_html -%}
   <div class="quiz-product">
     <a href="{{ product.url }}">
       {{ product.title }}
@@ -28,7 +28,7 @@
 {% endpaginate %}
 {%- endcapture -%}
 
-{%- capture 'filters_data' -%}
+{%- capture filters_data -%}
 {
   {%- for block in section.blocks -%}
     {%- if block.type == 'Answer' -%}
@@ -68,7 +68,7 @@
   | replace: ',}', '}'
 -%}
 
-{%- capture 'blocks_data' -%}
+{%- capture blocks_data -%}
 {
 {%- for block in section.blocks -%}
   {%- if block.type == 'Answer'-%}
@@ -88,3 +88,22 @@
     {%- assign question_total = question_total | plus: 1 -%}
   {%- endif -%}
 {%- endfor -%}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- capture 'products_data' -%}"
+  to: "{%- capture products_data -%}"
+  position: 77..106
+- from: "{%- capture 'product_html' -%}"
+  to: "{%- capture product_html -%}"
+  position: 195..223
+- from: "{%- capture 'filters_data' -%}"
+  to: "{%- capture filters_data -%}"
+  position: 1007..1035
+- from: "{%- capture 'blocks_data' -%}"
+  to: "{%- capture blocks_data -%}"
+  position: 2083..2110
+{% endcomment %}
