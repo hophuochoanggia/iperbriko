@@ -18,9 +18,9 @@
       "blocks": {
         "slide_KDeLb6": {
           "type": "slide",
-          "disabled": true,
+          "disabled": false,
           "settings": {
-            "image": "shopify://shop_images/banner_vivi_l_estate_all_aperto.png",
+            "image": "shopify://shop_images/Banner_palline_natale_ita.png",
             "link": "shopify://collections/volantino-ferragosto",
             "button_style_secondary": false,
             "box_align": "middle-center",
@@ -40,6 +40,7 @@
           }
         },
         "slide_pFmW6a": {
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Casalinghi_italiano.png",
             "link": "shopify://collections/accessori-e-utensili-cucina"
