@@ -16,6 +16,13 @@
     "slideshow_pxARFp": {
       "settings": {},
       "blocks": {
+        "slide_pFmW6a": {
+          "disabled": false,
+          "settings": {
+            "image": "shopify://shop_images/Banner_Natale_generico_ita.png",
+            "link": "shopify://collections/natale"
+          }
+        },
         "slide_KDeLb6": {
           "type": "slide",
           "disabled": false,
@@ -28,7 +35,7 @@
             "text_alignment": "center",
             "image_overlay_opacity": 0,
             "color_scheme": "scheme-1",
-            "header-679de40951e0cce5df551511987c76aa": null,
+            "header-df5b342787f9928680fbcbf8085bf56d": null,
             "text_alignment_mobile": "center"
           }
         },
@@ -37,13 +44,6 @@
           "settings": {
             "image": "shopify://shop_images/Banner_alberi_natale_ita.png",
             "link": "shopify://collections/alberi-di-natale"
-          }
-        },
-        "slide_pFmW6a": {
-          "disabled": false,
-          "settings": {
-            "image": "shopify://shop_images/Banner_Natale_generico_ita.png",
-            "link": "shopify://collections/natale"
           }
         },
         "slide_AmDdiL": {
@@ -71,28 +71,29 @@
         "featured_collection_jqqiTR": {
           "disabled": false,
           "settings": {
-            "collection": "ombrelloni-1"
+            "collection": "alberi-di-natale"
           }
         },
         "featured_collection_aNHB9V": {
           "disabled": false,
           "settings": {
-            "collection": "casette-da-giardino"
+            "collection": "copribase-per-alberi-di-natale"
           }
         },
         "featured_collection_EppJTh": {
           "disabled": false,
           "settings": {
-            "collection": "accessori-piscina"
+            "collection": "villaggi-di-natale"
           }
         },
         "featured_collection_xYNhH7": {
+          "disabled": true,
           "settings": {
             "collection": "gazebi"
           }
         },
         "featured_collection_yWrhDh": {
-          "disabled": false,
+          "disabled": true,
           "settings": {
             "collection": "tavoli-da-esterno"
           }
@@ -102,7 +103,7 @@
           "settings": {}
         },
         "featured_collection_8hd8WJ": {
-          "disabled": true,
+          "disabled": false,
           "settings": {}
         }
       },
@@ -119,8 +120,8 @@
     },
     "featured_collection_Dft6pN": {
       "settings": {
-        "title": "<strong>Iperbriko  consiglia</strong>",
-        "collection": "set-da-giardino",
+        "title": "<strong>Iperbriko &nbsp;consiglia</strong>",
+        "collection": "alberi-verdi",
         "products_to_show": 25
       },
       "blocks": {}
