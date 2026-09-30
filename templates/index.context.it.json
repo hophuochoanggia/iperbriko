@@ -46,13 +46,6 @@
             "link": "shopify://collections/natale"
           }
         },
-        "slide_V4jYJa": {
-          "disabled": false,
-          "settings": {
-            "image": "shopify://shop_images/banner_luci_natale_ita.png",
-            "link": "shopify://collections/illuminazione-natalizia"
-          }
-        },
         "slide_AmDdiL": {
           "disabled": true,
           "settings": {}
@@ -62,7 +55,6 @@
         "slide_pFmW6a",
         "slide_KDeLb6",
         "slide_hdkXE3",
-        "slide_V4jYJa",
         "slide_AmDdiL"
       ]
     },
