@@ -33,17 +33,17 @@
           }
         },
         "slide_hdkXE3": {
-          "disabled": true,
+          "disabled": false,
           "settings": {
             "image": "shopify://shop_images/Banner_alberi_natale_ita.png",
             "link": "shopify://collections/alberi-di-natale"
           }
         },
         "slide_pFmW6a": {
-          "disabled": true,
+          "disabled": false,
           "settings": {
-            "image": "shopify://shop_images/Casalinghi_italiano.png",
-            "link": "shopify://collections/accessori-e-utensili-cucina"
+            "image": "shopify://shop_images/Banner_Natale_generico_ita.png",
+            "link": "shopify://collections/natale"
           }
         },
         "slide_V4jYJa": {
