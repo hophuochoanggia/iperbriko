@@ -57,7 +57,7 @@
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Home",
+          "name": "{% if request.locale.iso_code == 'fr' %}Accueil{% else %}Home{% endif %}",
           "item": "{{ shop.url }}"
         },
         {
@@ -84,7 +84,7 @@
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Home",
+          "name": "{% if request.locale.iso_code == 'fr' %}Accueil{% else %}Home{% endif %}",
           "item": "{{ shop.url }}"
         },
         {
@@ -105,7 +105,7 @@
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Home",
+          "name": "{% if request.locale.iso_code == 'fr' %}Accueil{% else %}Home{% endif %}",
           "item": "{{ shop.url }}"
         },
         {
@@ -126,7 +126,7 @@
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Home",
+          "name": "{% if request.locale.iso_code == 'fr' %}Accueil{% else %}Home{% endif %}",
           "item": "{{ shop.url }}"
         }
       ]
@@ -141,11 +141,11 @@
     <nav
       class="breadcrumbs"
       role="navigation"
-      aria-label="breadcrumbs"
+      aria-label="{% if request.locale.iso_code == 'fr' %}Fil d’Ariane{% else %}breadcrumbs{% endif %}"
     >
       <ol class="breadcrumbs__list">
         <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link" href="/">Home</a>
+          <a class="breadcrumbs__link" href="/">{% if request.locale.iso_code == 'fr' %}Accueil{% else %}Home{% endif %}</a>
         </li>
         {%- if template == 'collection.collection-brand' -%}
           <li class="breadcrumbs__item">
@@ -167,7 +167,7 @@
                 aria-current="page"
               >
                 {%- if page.title == 'Policy' -%}
-                  Terms and Conditions
+                  {% if request.locale.iso_code == 'fr' %}Conditions générales{% else %}Terms and Conditions{% endif %}
                 {%- else -%}
                   {{- page.title -}}
                 {%- endif -%}
@@ -179,7 +179,7 @@
                 class="breadcrumbs__link"
                 href="{{ routes.all_products_collection_url }}"
                 aria-current="page"
-                >Products</a
+                >{% if request.locale.iso_code == 'fr' %}Produits{% else %}Products{% endif %}</a
               >
             </li>
             {%- if collection.url -%}
@@ -245,7 +245,7 @@
                   aria-current="page"
                 >
                   {% comment %} {{- blog.title -}} {% endcomment %}
-                  Blogs
+                  {% if request.locale.iso_code == 'fr' %}Blog{% else %}Blogs{% endif %}
                 </a>
               </li>
             {%- endif -%}
@@ -257,7 +257,7 @@
                 aria-current="page"
               >
                 {% comment %} {{- blog.title -}} {% endcomment %}
-                Blogs
+                {% if request.locale.iso_code == 'fr' %}Blog{% else %}Blogs{% endif %}
               </a>
             </li>
             <li class="breadcrumbs__item">
