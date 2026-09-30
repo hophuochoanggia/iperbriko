@@ -19,7 +19,7 @@
           {% render 'share-button', share_link: article.url %}
           <div>|</div>
           {% render 'icon-calendar' %}
-          {{ article.published_at | date: '%B %d, %Y' }}
+          {% if request.locale.iso_code == 'fr' %}{{ article.published_at | time_tag: format: 'date' }}{% else %}{{ article.published_at | date: '%B %d, %Y' }}{% endif %}
           <div>|</div>
           {% render 'icon-tag' %}
           {{ blog.title }}
