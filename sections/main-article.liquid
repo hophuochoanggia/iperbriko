@@ -45,7 +45,7 @@
           fetchpriority="high"
           width="100%"
           height="{{ article.image.height }}"
-          alt="{{ article.image.alt | escape }}"
+          alt="{% if request.locale.iso_code == 'fr' %}{{ article.title | escape }}{% else %}{{ article.image.alt | escape }}{% endif %}"
           class="tw-rounded-2xl tw-align-middle"
         >
         {%- for block in section.blocks -%}
