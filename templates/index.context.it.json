@@ -21,7 +21,7 @@
           "disabled": false,
           "settings": {
             "image": "shopify://shop_images/Banner_palline_natale_ita.png",
-            "link": "shopify://collections/volantino-ferragosto",
+            "link": "shopify://collections/palline-di-natale",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": false,
