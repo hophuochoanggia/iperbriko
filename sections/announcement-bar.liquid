@@ -25,7 +25,8 @@
   <div class="page-width tw-flex tw-flex-row tw-items-center tw-justify-between">
     <a
       class="tw-flex tw-flex-row tw-gap-2 tw-items-center"
-      href="tel:{{ settings.brand_phonenumber | strip_html }}"
+      href="tel:{% if request.locale.iso_code == 'fr' %}+3908241490803{% else %}{{ settings.brand_phonenumber | strip_html }}{% endif %}"
+        {% if request.locale.iso_code == 'fr' %}aria-label="Appeler le service clients en ligne : +39 0824 1490803"{% endif %}
       target="_blank"
       rel="noopener noreferrer"
     >
