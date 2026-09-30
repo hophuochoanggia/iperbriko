@@ -26,20 +26,6 @@
             "text_alignment_mobile": "center"
           }
         },
-        "slide_V4jYJa": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Banner_Albero_Innevato_italiano.jpg",
-            "link": "shopify://collections/alberi-innevati",
-            "button_style_secondary": true,
-            "box_align": "bottom-left",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "text_alignment_mobile": "center"
-          }
-        },
         "slide_hdkXE3": {
           "type": "slide",
           "settings": {
@@ -71,7 +57,6 @@
       },
       "block_order": [
         "slide_pFmW6a",
-        "slide_V4jYJa",
         "slide_hdkXE3",
         "slide_AmDdiL"
       ],
