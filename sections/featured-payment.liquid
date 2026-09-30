@@ -68,7 +68,7 @@
               class="tw-flex tw-gap-2 tw-text-gray-900 tw-font-medium tw-text-sm tw-items-center"
               aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}"
             >
-             See all
+             {% if request.locale.iso_code == 'fr' %}Voir toutes les marques{% else %}See all{% endif %}
               {% render 'icon-right-arrow' %}
             </a>
           </div>
