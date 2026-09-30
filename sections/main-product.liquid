@@ -229,7 +229,7 @@
                           <circle cx="4.31445" cy="5" r="4.31445" fill="red"/>
                         </svg>
 
-                        Not available
+                        {% if request.locale.iso_code == 'fr' %}Indisponible{% else %}Not available{% endif %}
                       {%- endif -%}
                     {%- endif -%}
                   {%- endif -%}
