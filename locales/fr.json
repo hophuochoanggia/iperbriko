@@ -557,5 +557,12 @@
       "expanded": "Formulaire de destinataire de carte-cadeau agrandi",
       "collapsed": "Formulaire de destinataire de carte-cadeau réduit"
     }
+  },
+  "customer_accounts": {
+    "orders": {
+      "order_list": {
+        "filter_title": "Filtre"
+      }
+    }
   }
 }
