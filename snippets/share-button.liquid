@@ -1,3 +1,9 @@
+{% liquid
+  assign localized_share_origin = shop.url
+  if request.locale.iso_code == 'fr'
+    assign localized_share_origin = 'https://www.iperbriko.fr'
+  endif
+%}
 {% comment %}
   Renders share button.
   Accepts:
@@ -16,7 +22,7 @@
   <div>
     <a
       target="_blank"
-      href="//www.facebook.com/sharer.php?u={{ shop.url | append: share_link }}"
+      href="//www.facebook.com/sharer.php?u={{ localized_share_origin | append: share_link }}"
     >
       {%- render 'icon-facebook' -%}
       <span class="visually-hidden">facebook</span>
@@ -25,7 +31,7 @@
   <div>
     <a
       target="_blank"
-      href="//twitter.com/share?text={{ product.title | url_param_escape }}&amp;url={{ shop.url | append: share_link }}"
+      href="//twitter.com/share?text={{ product.title | url_param_escape }}&amp;url={{ localized_share_origin | append: share_link }}"
     >
       {%- render 'icon-twitter' -%}
       <span class="visually-hidden">twitter</span>
@@ -34,7 +40,7 @@
   <div>
     <a
       target="_blank"
-      href="//pinterest.com/pin/create/button/?url={{ shop.url | append: share_link }}&amp;media={{ product | img_url: '1024x1024' }}&amp;description={{ product.title | url_param_escape }}"
+      href="//pinterest.com/pin/create/button/?url={{ localized_share_origin | append: share_link }}&amp;media={{ product | img_url: '1024x1024' }}&amp;description={{ product.title | url_param_escape }}"
     >
       {%- render 'icon-pinterest' -%}
       <span class="visually-hidden">pinterest</span>

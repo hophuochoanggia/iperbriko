@@ -11,6 +11,12 @@
   "markets": {
     "it": {
       "parent": "@default"
+    },
+    "eu": {
+      "parent": "@default"
+    },
+    "francia": {
+      "parent": "@default"
     }
   }
 }
