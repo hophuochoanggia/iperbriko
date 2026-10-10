@@ -198,6 +198,8 @@
   }
 
   .header-search-figma__field {
+    position: relative;
+    z-index: 2;
     display: flex;
     align-items: center;
     gap: 0.8rem;
@@ -207,6 +209,28 @@
     background: #fff;
     border: 1px solid #274f94;
     border-radius: 0.8rem;
+  }
+
+  .header-search-figma__field .reset__button.field__button {
+    position: static;
+    top: auto;
+    right: auto;
+    transform: none;
+    flex-shrink: 0;
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  .header-search-figma .predictive-search.predictive-search--header {
+    left: 0;
+    width: 100%;
+    top: calc(100% + 0.4rem);
+    z-index: 10;
+  }
+
+  .header-search-figma.header-search-figma--desktop {
+    position: relative;
+    z-index: 2;
   }
 
   .header-search-figma__input {
