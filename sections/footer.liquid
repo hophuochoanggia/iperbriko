@@ -49,61 +49,51 @@
     or section.settings.enable_follow_on_shop
   -%}
     {%- unless only_empty_brand -%}
-      <div class="footer__content-top !tw-pb-16 page-width">
+      <div class="footer__content-top page-width">
         {%- if section.blocks.size > 0 -%}
           {%- liquid
-            if section.blocks.size == 9
-              assign footer_grid_class = 'grid--3-col-tablet'
-            elsif section.blocks.size > 6
-              assign footer_grid_class = 'grid--4-col-desktop'
-            elsif section.blocks.size > 4
-              assign footer_grid_class = 'grid--3-col-tablet'
-            endif
+            assign image_blocks = section.blocks | where: 'type', 'image'
+            assign navigation_blocks = section.blocks | where: 'type', 'link_list'
           -%}
+
+          {%- if image_blocks.size > 0 -%}
+            <div class="footer__logo-row{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+              {% for block in image_blocks %}
+                <div
+                  class="footer-block footer-block--image {{ block.settings.alignment }}"
+                  {{ block.shopify_attributes }}
+                >
+                  {%- if block.settings.image != blank -%}
+                    {%- assign image_size_2x = block.settings.image_width | times: 1.5 | at_most: 5760 -%}
+                    <div class="footer-block__image-wrapper">
+                      <img
+                        srcset="{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
+                        src="{{ block.settings.image | image_url: width: 760 }}"
+                        alt="{{ block.settings.image.alt | escape }}"
+                        loading="lazy"
+                        width="{{ block.settings.image.width }}"
+                        height="auto"
+                      >
+                    </div>
+                  {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                  {%- endif -%}
+                </div>
+              {% endfor %}
+            </div>
+          {%- endif -%}
+
           <div
-            class="footer__blocks-wrapper lg:tw-flex lg:tw-flex-wrap lg:tw-gap-6 lg:tw-justify-between grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            class="footer__blocks-wrapper{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
             {% if settings.animations_reveal_on_scroll %}
               data-cascade
             {% endif %}
           >
-            <div>
-              {% assign image_blocks = section.blocks | where: 'type', 'image' %}
-              {% for block in image_blocks %}
-                <div
-                  class="footer__blocks-wrapper grid tw-justify-between tw-gap-6 grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                  {% if settings.animations_reveal_on_scroll %}
-                    data-cascade
-                  {% endif %}
-                >
-                  <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
-                    {%- if block.settings.image != blank -%}
-                      {%- assign image_size_2x = block.settings.image_width | times: 1.5 | at_most: 5760 -%}
-                      <div
-                        class="footer-block__image-wrapper 3xl:tw-max-w-[423px] tw-max-w-[280px]"
-                        {% comment %} style="max-width: {{ block.settings.image_width }}px;" {% endcomment %}
-                      >
-                        <img
-                          srcset="{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
-                          src="{{ block.settings.image | image_url: width: 760 }}"
-                          alt="{{ block.settings.image.alt | escape }}"
-                          loading="lazy"
-                          width="{{ block.settings.image.width }}"
-                          height="auto"
-                        >
-                      </div>
-                    {%- else -%}
-                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
-                    {%- endif -%}
-                  </div>
-                </div>
-              {% endfor %}
-            </div>
-            <div class="lg:tw-flex lg:tw-flex-wrap lg:tw-gap-32 3xl:tw-gap-52">
-              <div class="tw-flex tw-gap-6 tw-flex-col tw-mb-6">
-                {% assign navigation_blocks = section.blocks | where: 'type', 'link_list' %}
+            {%- if navigation_blocks.size > 0 -%}
+              <div class="footer__menus">
                 {% for block in navigation_blocks %}
                   <div
-                    class="footer-block {% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                    class="footer-block footer-block--menu{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                     {{ block.shopify_attributes }}
                     {% if settings.animations_reveal_on_scroll %}
                       data-cascade
@@ -111,18 +101,18 @@
                     {% endif %}
                   >
                     {%- if block.settings.heading != blank -%}
-                      <div class="inline-richtext tw-text-neutral-1 tw-mb-4 tw-font-semibold">
+                      <div class="footer-block__heading inline-richtext tw-text-neutral-1 tw-font-semibold tw-text-base">
                         {{- block.settings.heading -}}
                       </div>
                     {%- endif -%}
 
                     {%- if block.settings.menu != blank -%}
-                      <ul class="list-unstyled tw-space-y-2">
+                      <ul class="footer-block__links list-unstyled">
                         {%- for link in block.settings.menu.links -%}
                           <li>
                             <a
                               href="{{ link.url }}"
-                              class="link link--text tw-text-neutral-3 tw-no-underline tw-text-base tw-font-normal"
+                              class="link link--text footer-block__link tw-text-neutral-3 tw-font-normal tw-no-underline"
                             >
                               {{ link.title }}
                             </a>
@@ -133,63 +123,63 @@
                   </div>
                 {% endfor %}
               </div>
-              <div class="tw-flex tw-flex-col tw-gap-6 tw-max-w-[300px]">
-                {%- for block in section.blocks -%}
+            {%- endif -%}
+
+            <div class="footer__info">
+              {%- for block in section.blocks -%}
+                {%- unless block.type == 'link_list' or block.type == 'image' or block.type == 'brand_information' -%}
                   <div
-                    class="footer-block {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                    class="footer-block{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                     {{ block.shopify_attributes }}
                     {% if settings.animations_reveal_on_scroll %}
                       data-cascade
                       style="--animation-order: {{ forloop.index }};"
                     {% endif %}
                   >
-                    {%- if block.settings.heading != blank and block.type != 'link_list' -%}
-                      <div class="inline-richtext tw-text-neutral-1 tw-mb-4 tw-font-semibold">
+                    {%- if block.settings.heading != blank -%}
+                      <div class="footer-block__heading footer-block__heading--info inline-richtext tw-text-neutral-1 tw-font-semibold tw-text-base">
                         {{- block.settings.heading -}}
                       </div>
                     {%- endif -%}
                     {%- case block.type -%}
                       {%- when 'text' -%}
-                        <div class="rte tw-text-neutral-3 tw-font-normal tw-text-base">
+                        <div class="footer-block__text rte tw-text-neutral-3 tw-font-normal">
                           {{ block.settings.subtext }}
                         </div>
                       {%- when 'contact' -%}
-                        <div class="tw-flex tw-flex-col tw-space-y-4 tw-underline tw-text-neutral-3 tw-font-normal tw-text-base">
-                       
-                          <a href = "tel:{{   block.settings.phoneNumber }}"    target="_blank">    {{- block.settings.phoneNumber -}}</a>
-                          <a href = "mailto:{{ block.settings.email }}"    target="_blank"> {{ block.settings.email }}</a>
-                         
+                        <div class="footer-block__contact tw-text-neutral-3 tw-font-normal tw-underline">
+                          <a href="tel:{{ block.settings.phoneNumber }}" target="_blank">
+                            {{- block.settings.phoneNumber -}}
+                          </a>
+                          <a href="mailto:{{ block.settings.email }}" target="_blank">
+                            {{- block.settings.email -}}
+                          </a>
                         </div>
-
                       {%- when 'openingTime' -%}
-                        <div class="tw-flex tw-flex-col tw-space-y-4 tw-text-neutral-3 tw-font-normal tw-text-base">
-                          <div class="tw-flex tw-items-center tw-space-x-2">
-                            <div class="tw-text-neutral-1 tw-font-medium">
+                        <div class="footer-block__hours tw-text-neutral-3 tw-font-normal">
+                          <div class="footer-block__hours-row">
+                            <div class="footer-block__hours-label tw-font-medium tw-text-neutral-1">
                               {{- block.settings.weekdaysTitle -}}
                             </div>
-                            <div class="tw-text-neutral-3 tw-font-normal">
-                              {{- block.settings.weekdaysMorningHours -}}
-                            </div>
-                            <div class="tw-text-neutral-3 tw-font-normal !tw-ml-5">
-                              {{- block.settings.weekdaysAfternoonHours -}}
+                            <div class="footer-block__hours-times">
+                              <div>{{- block.settings.weekdaysMorningHours -}}</div>
+                              <div>{{- block.settings.weekdaysAfternoonHours -}}</div>
                             </div>
                           </div>
-                          <div class="tw-flex tw-items-center tw-space-x-2">
-                            <div class="tw-text-neutral-1 tw-font-medium">
+                          <div class="footer-block__hours-row">
+                            <div class="footer-block__hours-label tw-font-medium tw-text-neutral-1">
                               {{- block.settings.weekendTitle -}}
                             </div>
-                            <div class="tw-text-neutral-3 tw-font-normal">
-                              {{- block.settings.weekendMorningHours -}}
-                            </div>
-                            <div class="tw-text-neutral-3 tw-font-normal !tw-ml-5">
-                              {{- block.settings.weekendAfternoonHours -}}
+                            <div class="footer-block__hours-times">
+                              <div>{{- block.settings.weekendMorningHours -}}</div>
+                              <div>{{- block.settings.weekendAfternoonHours -}}</div>
                             </div>
                           </div>
                         </div>
                     {%- endcase -%}
                   </div>
-                {%- endfor -%}
-              </div>
+                {%- endunless -%}
+              {%- endfor -%}
             </div>
           </div>
         {%- endif -%}
@@ -198,119 +188,132 @@
   {%- endif -%}
 
   <div
-    class="page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} tw-max"
+    class="page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
     {% if settings.animations_reveal_on_scroll %}
       data-cascade
     {% endif %}
   >
-    <div class="footer__content-bottom-wrapper page-width">
-      <div class="footer__column footer__localization isolate">
-        {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
-          <noscript>
-            {%- form 'localization', id: 'FooterCountryFormNoScript', class: 'localization-form' -%}
-              <div class="localization-form__select">
-                <div class="visually-hidden" id="FooterCountryLabelNoScript">
-                  {{ 'localization.country_label' | t }}
-                </div>
-                <select
-                  class="localization-selector link"
-                  name="country_code"
-                  aria-labelledby="FooterCountryLabelNoScript"
-                >
-                  {%- for country in localization.available_countries -%}
-                    <option
-                      value="{{ country.iso_code }}"
-                      {%- if country.iso_code == localization.country.iso_code %}
-                        selected
-                      {% endif %}
-                    >
-                      {{ country.name }} ({{ country.currency.iso_code }}
-                      {{ country.currency.symbol }})
-                    </option>
-                  {%- endfor -%}
-                </select>
-                {% render 'icon-caret' %}
-              </div>
-              <button class="button button--tertiary">{{ 'localization.update_country' | t }}</button>
-            {%- endform -%}
-          </noscript>
-          <localization-form>
-            {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
-              <div class="no-js-hidden">
-                <div class="caption-large text-body" id="FooterCountryLabel">
-                  {{ 'localization.country_label' | t }}
-                </div>
-                {%- render 'country-localization', localPosition: 'FooterCountry' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {%- endif -%}
-
-        {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-          <noscript>
-            {%- form 'localization', id: 'FooterLanguageFormNoScript', class: 'localization-form' -%}
-              <div class="localization-form__select">
-                <div class="visually-hidden" id="FooterLanguageLabelNoScript">
-                  {{ 'localization.language_label' | t }}
-                </div>
-                <select
-                  class="localization-selector link"
-                  name="locale_code"
-                  aria-labelledby="FooterLanguageLabelNoScript"
-                >
-                  {%- for language in localization.available_languages -%}
-                    <option
-                      value="{{ language.iso_code }}"
-                      lang="{{ language.iso_code }}"
-                      {%- if language.iso_code == localization.language.iso_code %}
-                        selected
-                      {% endif %}
-                    >
-                      {{ language.endonym_name | capitalize }}
-                    </option>
-                  {%- endfor -%}
-                </select>
-                {% render 'icon-caret' %}
-              </div>
-              <button class="button button--tertiary">{{ 'localization.update_language' | t }}</button>
-            {%- endform -%}
-          </noscript>
-
-          <localization-form>
-            {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
-              <div class="no-js-hidden">
-                <div class="caption-large text-body" id="FooterLanguageLabel">
-                  {{ 'localization.language_label' | t }}
-                </div>
-                {%- render 'language-localization', localPosition: 'FooterLanguage' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {%- endif -%}
+    {%- if section.settings.payment_enable -%}
+      <div class="footer__payment footer__payment--row">
+        <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+        <ul class="list list-payment" role="list">
+          {%- for type in shop.enabled_payment_types -%}
+            <li class="list-payment__item">
+              {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+            </li>
+          {%- endfor -%}
+        </ul>
       </div>
-      <div class="footer__column footer__column--info">
-        {%- if section.settings.payment_enable -%}
-          <div class="footer__payment">
-            <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
-            <ul class="list list-payment" role="list">
-              {%- for type in shop.enabled_payment_types -%}
-                <li class="list-payment__item">
-                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                </li>
-              {%- endfor -%}
-            </ul>
-          </div>
-        {%- endif -%}
+    {%- endif -%}
+
+    {%- if section.settings.enable_country_selector and localization.available_countries.size > 1
+      or section.settings.enable_language_selector and localization.available_languages.size > 1
+    -%}
+      <div class="footer__content-bottom-wrapper footer__localization-row">
+        <div class="footer__column footer__localization isolate">
+          {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+            <noscript>
+              {%- form 'localization', id: 'FooterCountryFormNoScript', class: 'localization-form' -%}
+                <div class="localization-form__select">
+                  <div class="visually-hidden" id="FooterCountryLabelNoScript">
+                    {{ 'localization.country_label' | t }}
+                  </div>
+                  <select
+                    class="localization-selector link"
+                    name="country_code"
+                    aria-labelledby="FooterCountryLabelNoScript"
+                  >
+                    {%- for country in localization.available_countries -%}
+                      <option
+                        value="{{ country.iso_code }}"
+                        {%- if country.iso_code == localization.country.iso_code %}
+                          selected
+                        {% endif %}
+                      >
+                        {{ country.name }} ({{ country.currency.iso_code }}
+                        {{ country.currency.symbol }})
+                      </option>
+                    {%- endfor -%}
+                  </select>
+                  {% render 'icon-caret' %}
+                </div>
+                <button class="button button--tertiary">{{ 'localization.update_country' | t }}</button>
+              {%- endform -%}
+            </noscript>
+            <localization-form>
+              {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
+                <div class="no-js-hidden">
+                  <div class="caption-large text-body" id="FooterCountryLabel">
+                    {{ 'localization.country_label' | t }}
+                  </div>
+                  {%- render 'country-localization', localPosition: 'FooterCountry' -%}
+                </div>
+              {%- endform -%}
+            </localization-form>
+          {%- endif -%}
+
+          {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+            <noscript>
+              {%- form 'localization', id: 'FooterLanguageFormNoScript', class: 'localization-form' -%}
+                <div class="localization-form__select">
+                  <div class="visually-hidden" id="FooterLanguageLabelNoScript">
+                    {{ 'localization.language_label' | t }}
+                  </div>
+                  <select
+                    class="localization-selector link"
+                    name="locale_code"
+                    aria-labelledby="FooterLanguageLabelNoScript"
+                  >
+                    {%- for language in localization.available_languages -%}
+                      <option
+                        value="{{ language.iso_code }}"
+                        lang="{{ language.iso_code }}"
+                        {%- if language.iso_code == localization.language.iso_code %}
+                          selected
+                        {% endif %}
+                      >
+                        {{ language.endonym_name | capitalize }}
+                      </option>
+                    {%- endfor -%}
+                  </select>
+                  {% render 'icon-caret' %}
+                </div>
+                <button class="button button--tertiary">{{ 'localization.update_language' | t }}</button>
+              {%- endform -%}
+            </noscript>
+
+            <localization-form>
+              {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
+                <div class="no-js-hidden">
+                  <div class="caption-large text-body" id="FooterLanguageLabel">
+                    {{ 'localization.language_label' | t }}
+                  </div>
+                  {%- render 'language-localization', localPosition: 'FooterLanguage' -%}
+                </div>
+              {%- endform -%}
+            </localization-form>
+          {%- endif -%}
+        </div>
       </div>
-    </div>
-    <div class="footer__content-bottom-wrapper tw-flex tw-justify-between tw-border-t-blue-2 tw-border-t tw-pt-8 tw-items-center{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
+    {%- endif -%}
+
+    <div class="footer__content-bottom-wrapper footer__bar tw-border-t-blue-2 tw-pt-8">
       <div class="footer__copyright caption">
-        <small class="tw-font-normal tw-text-neutral-2 tw-text-sm"
-          >&copy; Copyright {{ 'now' | date: '%Y' }} - I-Home s.r.l. Unipersonale | {% if request.locale.iso_code == 'fr' %}N° de TVA : 14296891006 REA RM-1510598 - Capital social : 82.000 € - Tous droits réservés{% else %}P.iva: 14296891006 REA RM-1510598 - Capitale sociale 82.000 € - Tutti i diritti sono riservati{% endif %}
+        <small class="footer__copyright-text tw-text-sm tw-font-normal tw-text-neutral-2">
+          <span class="footer__copyright-line">
+            &copy; Copyright {{ 'now' | date: '%Y' }} - I-Home s.r.l. Unipersonale
+          </span>
+          <span class="footer__copyright-line">
+            {%- if request.locale.iso_code == 'fr' -%}
+              N° de TVA : 14296891006 REA RM-1510598 - Capital social : 82.000 € - Tous droits réservés
+            {%- else -%}
+              P.iva: 14296891006 REA RM-1510598 - Capitale sociale 82.000 € - Tutti i diritti sono riservati
+            {%- endif -%}
+          </span>
         </small>
       </div>
       <div
-        class="footer-block--newsletter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} !tw-mt-0"
+        class="footer-block--newsletter !tw-mt-0{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         {% if settings.animations_reveal_on_scroll %}
           data-cascade
         {% endif %}
@@ -325,7 +328,7 @@
         {%- endif -%}
 
         {%- if section.settings.show_social and has_social_icons -%}
-          {%- render 'social-icons', class: 'footer__list-social' -%}
+          {%- render 'social-icons', class: 'footer__list-social', icon_style: 'minimal' -%}
         {%- endif -%}
       </div>
     </div>

@@ -2,10 +2,12 @@
   Renders social icons.
   Accepts:
   - class: {String} a class to be added to the <ul> element (optional).
+  - icon_style: {String} 'minimal' for simple monochrome glyphs (optional).
 
   Usage:
   {% render 'social-icons',
-    class: 'my-class'
+    class: 'my-class',
+    icon_style: 'minimal'
   %}
 {% endcomment %}
 
@@ -13,7 +15,11 @@
   {%- if settings.social_facebook_link != blank -%}
     <li class="list-social__item">
       <a href="{{ settings.social_facebook_link }}" class="link list-social__link">
-        {%- render 'icon-facebook' -%}
+        {%- if icon_style == 'minimal' -%}
+          {%- render 'icon-facebook-simple' -%}
+        {%- else -%}
+          {%- render 'icon-facebook' -%}
+        {%- endif -%}
         <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
       </a>
     </li>
@@ -21,7 +27,11 @@
   {%- if settings.social_instagram_link != blank -%}
     <li class="list-social__item">
       <a href="{{ settings.social_instagram_link }}" class="link list-social__link">
-        {%- render 'icon-instagram' -%}
+        {%- if icon_style == 'minimal' -%}
+          {%- render 'icon-instagram-simple' -%}
+        {%- else -%}
+          {%- render 'icon-instagram' -%}
+        {%- endif -%}
         <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
       </a>
     </li>
