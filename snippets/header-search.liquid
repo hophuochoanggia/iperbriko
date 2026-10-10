@@ -8,28 +8,21 @@
   {% render 'header-search', input_id: 'My-Id'%}
 {% endcomment %}
 
-<details-modal class="tw-hidden">
+<details-modal class="header-search-modal header-search-modal--mobile">
   <details>
     <summary
       class="header__icon header__icon--search header__icon--summary focus-inset modal__toggle"
       aria-haspopup="dialog"
       aria-label="{{ 'general.search.search' | t }}"
     >
-      <div class="tw-hidden lg:tw-block tw-relative">
-        <div class="tw-absolute tw-inset-y-0 tw-start-0 tw-flex tw-items-center tw-ps-4 tw-pointer-events-none">
-          <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false">
-            <use href="#icon-search">
-          </svg>
-        </div>
-      </div>
-      <div class="lg:tw-hidden">
-        <svg class="modal__toggle-open tw-w-[2.4rem] tw-h-[2.4rem] icon-search" aria-hidden="true" focusable="false">
-          <use href="#icon-search">
-        </svg>
-        <svg class="modal__toggle-close icon icon-close" aria-hidden="true" focusable="false">
+      <span class="header-search-modal__icon modal__toggle-open">
+        {% render 'icon-search-blue' %}
+      </span>
+      <span class="header-search-modal__icon modal__toggle-close">
+        <svg class="icon icon-close" aria-hidden="true" focusable="false" width="18" height="17">
           <use href="#icon-close">
         </svg>
-      </div>
+      </span>
     </summary>
     <div
       class="search-modal modal__content gradient"
@@ -69,7 +62,6 @@
                 spellcheck="false"
               {%- endif -%}
             >
-            {% comment %} <label class="field__label" for="{{ input_id }}">{{ 'general.search.search' | t }}</label> {% endcomment %}
             <input type="hidden" name="options[prefix]" value="last">
             <button
               type="reset"
@@ -84,15 +76,12 @@
               class="search__button field__button"
               aria-label="{{ 'general.search.header' | t }}"
             >
-              <svg class="icon icon-search" aria-hidden="true" focusable="false">
-                <use href="#icon-search">
-              </svg>
+              {% render 'icon-search-blue' %}
             </button>
           </div>
 
           {%- if settings.predictive_search_enabled -%}
             <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
-              {% comment %} {%- render 'loading-spinner', class: 'predictive-search__loading-state' -%} {% endcomment %}
             </div>
 
             <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
@@ -119,30 +108,28 @@
 
 {%- if settings.predictive_search_enabled -%}
   <predictive-search
-    class="search-modal__form tw-hidden lg:tw-block"
+    class="search-modal__form header-search-figma header-search-figma--desktop"
     data-loading-text="{{ 'accessibility.loading' | t }}"
   >
     <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
-      <div class="tw-rounded-full">
+      <div class="header-search-figma__field">
         <input
-          class="search__input tw-py-3 tw-border-none tw-px-14 tw-outline-none tw-shadow-none tw-w-full tw-flex tw-bg-gray-medium tw-rounded-full"
-          id="{{ input_id }}"
+          class="search__input header-search-figma__input"
+          id="{{ input_id }}-desktop"
           type="search"
           name="q"
           value="{{ search.terms | escape }}"
           placeholder="{{ 'general.search.header' | t }}"
-          {%- if settings.predictive_search_enabled -%}
-            role="combobox"
-            aria-expanded="false"
-            aria-owns="predictive-search-results"
-            aria-controls="predictive-search-results"
-            aria-haspopup="listbox"
-            aria-autocomplete="list"
-            autocorrect="off"
-            autocomplete="off"
-            autocapitalize="off"
-            spellcheck="false"
-          {%- endif -%}
+          role="combobox"
+          aria-expanded="false"
+          aria-owns="predictive-search-results"
+          aria-controls="predictive-search-results"
+          aria-haspopup="listbox"
+          aria-autocomplete="list"
+          autocorrect="off"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
         >
         <input type="hidden" name="options[prefix]" value="last">
         <button
@@ -156,27 +143,93 @@
         </button>
 
         <button
-          class="search__button field__button"
+          class="header-search-figma__submit"
           aria-label="{{ 'general.search.header' | t }}"
         >
-          {%- render 'icon-search' -%}
+          {% render 'icon-search-blue' %}
         </button>
       </div>
 
-      {%- if settings.predictive_search_enabled -%}
-        <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
-          {% comment %} {%- render 'loading-spinner', class: 'predictive-search__loading-state' -%} {% endcomment %}
-        </div>
+      <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
+      </div>
 
-        <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
-      {%- endif -%}
+      <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
     </form>
-{%- else -%}
-  <search-form class="search-modal__form">
-{%- endif -%}
-
-{%- if settings.predictive_search_enabled -%}
   </predictive-search>
 {%- else -%}
+  <search-form class="search-modal__form header-search-figma header-search-figma--desktop">
+    <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+      <div class="header-search-figma__field">
+        <input
+          class="search__input header-search-figma__input"
+          id="{{ input_id }}-desktop"
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="{{ 'general.search.header' | t }}"
+        >
+        <input type="hidden" name="options[prefix]" value="last">
+        <button
+          class="header-search-figma__submit"
+          aria-label="{{ 'general.search.header' | t }}"
+        >
+          {% render 'icon-search-blue' %}
+        </button>
+      </div>
+    </form>
   </search-form>
 {%- endif -%}
+
+<style>
+  .header-search-figma {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .header-search-figma__field {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    height: 4.8rem;
+    padding: 0 0.8rem 0 1.6rem;
+    background: #fff;
+    border: 1px solid #274f94;
+    border-radius: 0.8rem;
+  }
+
+  .header-search-figma__input {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 100%;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    font-size: 1.4rem;
+    color: #111827;
+  }
+
+  .header-search-figma__input::placeholder {
+    color: #9ca3af;
+  }
+
+  .header-search-figma__submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.8rem;
+    height: 4rem;
+    border: none;
+    background: transparent;
+    color: #274f94;
+    cursor: pointer;
+    border-radius: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  .header-search-figma__submit .icon {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+</style>

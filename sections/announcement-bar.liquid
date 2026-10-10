@@ -1,70 +1,253 @@
-{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
-
 {%- liquid
-  assign social_icons = true
-  if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
-    assign social_icons = false
-  endif
-
-  if section.blocks.size > 0
-    assign announcement_bar = true
-  endif
-
-  assign icon_class = 'tw-bg-white tw-p-2 tw-rounded-md tw-aspect-square tw-w-8 tw-flex tw-justify-center tw-items-center hover:tw-scale-105 tw-transition-all tw-duration-200 tw-ease-in-out tw-cursor-pointer'
+  assign store_phone = section.settings.store_phone | default: '+39 0824 974011'
+  assign web_phone = section.settings.web_phone | default: section.settings.phone_number | default: '+39 0824 1490803'
+  assign order_status_label = section.settings.order_status_label | default: 'Order Status'
+  assign weekly_ad_label = section.settings.weekly_ad_label | default: 'Weekly Ad'
+  assign rotate_speed = section.settings.rotate_speed | default: 4 | times: 1000
 -%}
 
-{% if social_icons %}
-  {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
-{% endif %}
+<div class="utility-bar utility-bar--figma" {{ section.shopify_attributes }}>
+  <div class="page-width utility-bar__inner">
+    <p class="utility-bar__phones utility-bar__phones--desktop">
+      <span>{{ 'sections.announcement-bar.store_label' | t }}</span>
+      <a
+        class="utility-bar__phone-link"
+        href="tel:{{ store_phone | replace: ' ', '' }}"
+      >
+        <strong>{{ store_phone }}</strong>
+      </a>
+      <span class="utility-bar__sep" aria-hidden="true">|</span>
+      <span>{{ 'sections.announcement-bar.web_label' | t }}</span>
+      <a
+        class="utility-bar__phone-link"
+        href="tel:{{ web_phone | replace: ' ', '' }}"
+      >
+        <strong>{{ web_phone }}</strong>
+      </a>
+    </p>
 
-<div
-  class="utility-bar tw-bg-gray-200 gradient tw-py-3"
-  {{ block.shopify_attributes }}
->
-  <div class="page-width tw-flex tw-flex-row tw-items-center tw-justify-between">
-    <a
-      class="tw-flex tw-flex-row tw-gap-2 tw-items-center"
-      href="tel:{% if request.locale.iso_code == 'fr' %}+3908241490803{% else %}{{ settings.brand_phonenumber | strip_html }}{% endif %}"
-        {% if request.locale.iso_code == 'fr' %}aria-label="Appeler le service clients en ligne : +39 0824 1490803"{% endif %}
-      target="_blank"
-      rel="noopener noreferrer"
+    <utility-bar-rotator
+      class="utility-bar__rotator"
+      data-speed="{{ rotate_speed }}"
+      aria-live="polite"
     >
-      <div class="{{ icon_class }}">
-        {% render 'icon-phone' %}
+      <div class="utility-bar__slide is-active" data-utility-slide>
+        <span>{{ 'sections.announcement-bar.store_label' | t }}</span>
+        <a class="utility-bar__phone-link" href="tel:{{ store_phone | replace: ' ', '' }}">
+          <strong>{{ store_phone }}</strong>
+        </a>
       </div>
-      <div class="reset-p tw-font-semibold tw-text-base ">{{ settings.brand_phonenumber | strip_html }}</div>
-    </a>
+      <div class="utility-bar__slide" data-utility-slide>
+        <span>{{ 'sections.announcement-bar.web_label' | t }}</span>
+        <a class="utility-bar__phone-link" href="tel:{{ web_phone | replace: ' ', '' }}">
+          <strong>{{ web_phone }}</strong>
+        </a>
+      </div>
+      {%- for block in section.blocks -%}
+        {%- if block.settings.text != blank -%}
+          <div class="utility-bar__slide" data-utility-slide {{ block.shopify_attributes }}>
+            {%- if block.settings.link != blank -%}
+              <a class="utility-bar__phone-link" href="{{ block.settings.link }}">
+                {{ block.settings.text }}
+              </a>
+            {%- else -%}
+              <span>{{ block.settings.text }}</span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </utility-bar-rotator>
 
-    <div class="tw-flex tw-flex-row tw-gap-4">
-      <a
-        class="{{ icon_class }}"
-        href="{{ settings.social_facebook_link }}"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {%- render 'icon-facebook-fill' -%}
-      </a>
+    <div class="utility-bar__links">
+      {%- if section.settings.order_status_link != blank -%}
+        <a class="utility-bar__link" href="{{ section.settings.order_status_link }}">
+          {{ order_status_label }}
+        </a>
+      {%- else -%}
+        <span class="utility-bar__link">{{ order_status_label }}</span>
+      {%- endif -%}
 
-      <a
-        class="{{ icon_class }}"
-        href="{{ settings.social_instagram_link }}"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {% render 'icon-instagram-fill' %}
-      </a>
+      {%- if section.settings.weekly_ad_link != blank -%}
+        <a class="utility-bar__link" href="{{ section.settings.weekly_ad_link }}">
+          {{ weekly_ad_label }}
+        </a>
+      {%- else -%}
+        <span class="utility-bar__link">{{ weekly_ad_label }}</span>
+      {%- endif -%}
     </div>
   </div>
 </div>
 
 <style>
-  .reset-p p {
-    all: revert;
-    font: inherit;
-    font-size: inherit;
+  .utility-bar--figma {
+    background-color: #274f94;
+    color: #fff;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+  }
+
+  .utility-bar--figma .utility-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+    width: 100%;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .utility-bar--figma .utility-bar__phones {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: #fff;
+  }
+
+  .utility-bar--figma .utility-bar__phone-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .utility-bar--figma .utility-bar__phone-link:hover {
+    text-decoration: underline;
+  }
+
+  .utility-bar--figma .utility-bar__sep {
+    margin: 0 0.4rem;
+    opacity: 0.9;
+  }
+
+  .utility-bar--figma .utility-bar__links {
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+    flex-shrink: 0;
+  }
+
+  .utility-bar--figma .utility-bar__link {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .utility-bar--figma a.utility-bar__link:hover {
+    text-decoration: underline;
+  }
+
+  .utility-bar--figma .utility-bar__rotator {
+    display: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .utility-bar--figma {
+      min-height: 3.6rem;
+    }
+
+    .utility-bar--figma .utility-bar__inner {
+      justify-content: center;
+      padding-top: 0.8rem;
+      padding-bottom: 0.8rem;
+    }
+
+    .utility-bar--figma .utility-bar__phones--desktop,
+    .utility-bar--figma .utility-bar__links {
+      display: none;
+    }
+
+    .utility-bar--figma .utility-bar__rotator {
+      display: grid;
+      width: 100%;
+      min-height: 1.8rem;
+      place-items: center;
+      text-align: center;
+      font-size: 1.2rem;
+      line-height: 1.4;
+      overflow: hidden;
+    }
+
+    .utility-bar--figma .utility-bar__slide {
+      grid-area: 1 / 1;
+      margin: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(0.4rem);
+      transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
+      pointer-events: none;
+      white-space: nowrap;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0 0.8rem;
+    }
+
+    .utility-bar--figma .utility-bar__slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
   }
 </style>
+
+<script>
+  if (!customElements.get('utility-bar-rotator')) {
+    class UtilityBarRotator extends HTMLElement {
+      connectedCallback() {
+        this.slides = Array.from(this.querySelectorAll('[data-utility-slide]'));
+        if (this.slides.length < 2) return;
+
+        this.index = this.slides.findIndex((slide) => slide.classList.contains('is-active'));
+        if (this.index < 0) this.index = 0;
+        this.speed = Number(this.dataset.speed) || 4000;
+        this.mq = window.matchMedia('(max-width: 749px)');
+        this.onChange = this.start.bind(this);
+        this.onVisibility = () => {
+          if (document.hidden) this.stop();
+          else this.start();
+        };
+
+        if (this.mq.addEventListener) this.mq.addEventListener('change', this.onChange);
+        else if (this.mq.addListener) this.mq.addListener(this.onChange);
+        document.addEventListener('visibilitychange', this.onVisibility);
+        this.start();
+      }
+
+      disconnectedCallback() {
+        this.stop();
+        if (!this.mq) return;
+        if (this.mq.removeEventListener) this.mq.removeEventListener('change', this.onChange);
+        else if (this.mq.removeListener) this.mq.removeListener(this.onChange);
+        document.removeEventListener('visibilitychange', this.onVisibility);
+      }
+
+      show(next) {
+        this.slides[this.index].classList.remove('is-active');
+        this.index = next;
+        this.slides[this.index].classList.add('is-active');
+      }
+
+      start() {
+        this.stop();
+        if (!this.mq || !this.mq.matches || this.slides.length < 2) return;
+        this.timer = window.setInterval(() => {
+          this.show((this.index + 1) % this.slides.length);
+        }, this.speed);
+      }
+
+      stop() {
+        if (this.timer) {
+          window.clearInterval(this.timer);
+          this.timer = null;
+        }
+      }
+    }
+
+    customElements.define('utility-bar-rotator', UtilityBarRotator);
+  }
+</script>
 
 {% schema %}
 {
@@ -80,12 +263,55 @@
       "content": "t:sections.announcement-bar.settings.header__1.content",
       "info": "t:sections.announcement-bar.settings.header__1.info"
     },
-
+    {
+      "type": "text",
+      "id": "store_phone",
+      "label": "Store phone",
+      "default": "+39 0824 974011"
+    },
+    {
+      "type": "text",
+      "id": "web_phone",
+      "label": "Web department phone",
+      "default": "+39 0824 1490803"
+    },
     {
       "type": "text",
       "id": "phone_number",
       "label": "t:sections.announcement-bar.settings.phone_number.label",
-      "default": "1-800-555-5555"
+      "default": "+39 0824 1490803"
+    },
+    {
+      "type": "range",
+      "id": "rotate_speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Mobile rotate speed",
+      "default": 4
+    },
+    {
+      "type": "text",
+      "id": "order_status_label",
+      "label": "Order status label",
+      "default": "Order Status"
+    },
+    {
+      "type": "url",
+      "id": "order_status_link",
+      "label": "Order status link"
+    },
+    {
+      "type": "text",
+      "id": "weekly_ad_label",
+      "label": "Weekly ad label",
+      "default": "Weekly Ad"
+    },
+    {
+      "type": "url",
+      "id": "weekly_ad_link",
+      "label": "Weekly ad link"
     },
     {
       "type": "url",

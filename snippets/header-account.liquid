@@ -40,26 +40,27 @@ width: auto !important;
 
 
 }
- #menu-drawer{
+.header-account-drawer #HeaderAccountDrawer {
   position: absolute;
   z-index: 100;
-  right: 5%;
-  top: 50%;
-} 
+  right: 0;
+  top: 100%;
+  left: auto;
+}
 
 </style>
 
-<header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}" >
-  <details id="Details-menu-drawer-container" class="menu-drawer-container">
+<header-drawer class="header-account-drawer" data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}" >
+  <details id="Details-header-account" class="menu-drawer-container header-account-drawer__details">
     <summary
-      class="header__icon header__icon--menu header__icon--summary link focus-inset"
-      aria-label="{{ 'sections.header.menu' | t }}"
+      class="header__icon header__icon--account header__icon--summary link focus-inset"
+      aria-label="{{ 'customer.account_fallback' | t }}"
     >
-      <span>
-        {% render 'icon-account' %}
+      <span class="header__icon-account-figma">
+        {% render 'icon-user-outline' %}
       </span>
     </summary>
-    <div id="menu-drawer" class="menu-acc gradient motion-reduce color-{{ section.settings.menu_color_scheme }} !tw-h-auto !tw-bg-white">
+    <div id="HeaderAccountDrawer" class="menu-acc gradient motion-reduce color-{{ section.settings.menu_color_scheme }} !tw-h-auto !tw-bg-white">
       
       {% for link in linklists.account-menu.links %}
         <div

@@ -48,7 +48,7 @@
     "search": {
       "search": "Cerca",
       "reset": "Cancella termine ricerca",
-      "header": "Cerca..."
+      "header": "Cosa possiamo aiutarti a trovare?"
     },
     "cart": {
       "view": "Visualizza carrello ({{ count }})",
@@ -123,6 +123,11 @@
       "about_this_item": "Su questo prodotto",
       "description": "Descrizione",
       "on_sale": "In offerta",
+      "sale_badge": "SALE",
+      "reviews_count": {
+        "one": "{{ count }} recensione",
+        "other": "{{ count }} recensioni"
+      },
       "quantity": {
         "label": "Quantità",
         "input_label": "Quantità per {{ product }}",
@@ -304,11 +309,16 @@
     "header": {
       "announcement": "Annuncio",
       "menu": "Menu",
+      "wishlist": "Lista desideri",
       "cart_count": {
         "one": "{{ count }} articolo",
         "other": "{{ count }} articoli",
         "many": "{{ count }} articoli"
       }
+    },
+    "announcement-bar": {
+      "store_label": "Punto vendita:",
+      "web_label": "Reparto Web:"
     },
     "cart": {
       "title": "Il tuo carrello",

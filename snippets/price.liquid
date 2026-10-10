@@ -34,6 +34,11 @@
   if target == product and product.price_varies
     assign money_price = 'products.product.price.from_price_html' | t: price: money_price
   endif
+
+  assign savings_percent = 0
+  if compare_at_price > price and compare_at_price > 0
+    assign savings_percent = compare_at_price | minus: price | times: 100.0 | divided_by: compare_at_price | round
+  endif
 -%}
 
 <div
@@ -47,13 +52,13 @@
     {%- if show_badges %} price--show-badge{% endif -%}
   "
 >
-  <div class="">
+  <div class="price__container">
     {%- comment -%}
       Explanation of description list:
         - div.price__regular: Displayed when there are no variants on sale
         - div.price__sale: Displayed when a variant is a sale
     {%- endcomment -%}
-    <div class="price__regular !tw-flex-wrap  !tw-text-sm md:!tw-text-base">
+    <div class="price__regular">
       {%- if product.quantity_price_breaks_configured? -%}
         {%- if show_compare_at_price and compare_at_price -%}
           {%- unless product.price_varies == false and product.compare_at_price_varies %}
@@ -61,7 +66,7 @@
               {{- 'products.product.price.regular_price' | t -}}
             </span>
             <span>
-              <s class="price-item price-item--regular variant-item__old-price !tw-text-xl  md:!tw-text-2xl">
+              <s class="price-item price-item--regular variant-item__old-price">
                 {% if settings.currency_code_enabled %}
                   {{ compare_at_price | money_with_currency }}
                 {% else %}
@@ -72,44 +77,34 @@
           {%- endunless -%}
         {%- endif -%}
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-        <span class="price-item price-item--regular !tw-text-xl  md:!tw-text-2xl">
+        <span class="price-item price-item--regular">
           {{- 'products.product.volume_pricing.price_range' | t: minimum: money_price_min, maximum: money_price_max -}}
         </span>
       {%- else -%}
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-        <span class="price-item price-item--regular !tw-text-xl  md:!tw-text-2xl">
+        <span class="price-item price-item--regular">
           {{ money_price }}
         </span>
       {%- endif -%}
     </div>
-    <div class="price__sale  tw-flex-wrap">
-      {%- unless product.price_varies == false and product.compare_at_price_varies %}
-        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-        <div>
-          <span>
-            <s class="price-item price-item--regular !tw-font-normal !tw-text-sm md:!tw-text-base !tw-text-[#6B7280]">
-              {% if settings.currency_code_enabled %}
-                {{ compare_at_price | money_with_currency }}lll
-              {% else %}
-                {{ compare_at_price | money }}
-              {% endif %}
-            </s>
-          </span>
-          {%- assign savings = product.compare_at_price
-            | minus: product.price
-            | times: 100.0
-            | divided_by: product.compare_at_price
-            | round
-            | append: '%'
-            | prepend: '-'
-          -%}
-          <span class="percent-saving !tw-font-bold md:!tw-text-sm !tw-text-xs"x>{{ savings }}</span>
-        </div>
-      {%- endunless -%}
+    <div class="price__sale">
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
-      <span class="price-item price-item--sale price-item--last !tw-font-bold !tw-text-xl  md:!tw-text-2xl !tw-mr-2">
+      <span class="price-item price-item--sale price-item--last">
         {{ money_price }}
       </span>
+      {%- unless product.price_varies == false and product.compare_at_price_varies %}
+        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+        <s class="price-item price-item--regular">
+          {% if settings.currency_code_enabled %}
+            {{ compare_at_price | money_with_currency }}
+          {% else %}
+            {{ compare_at_price | money }}
+          {% endif %}
+        </s>
+        {%- if savings_percent > 0 -%}
+          <span class="percent-saving">-{{ savings_percent }}%</span>
+        {%- endif -%}
+      {%- endunless -%}
     </div>
     <small class="unit-price caption{% if product.selected_or_first_available_variant.unit_price_measurement == nil %} hidden{% endif %}">
       <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>

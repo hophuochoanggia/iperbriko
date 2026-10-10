@@ -520,6 +520,18 @@
             },
             "icon": {
               "label": "Icon"
+            },
+            "promo_header": {
+              "content": "Promotional card"
+            },
+            "promo_image": {
+              "label": "Image"
+            },
+            "promo_heading": {
+              "label": "Heading"
+            },
+            "promo_link": {
+              "label": "Link"
             }
           }
         }

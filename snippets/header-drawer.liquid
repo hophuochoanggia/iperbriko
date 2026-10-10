@@ -16,11 +16,11 @@ color: #2B5899  !important;
 }
 
 </style>
-<header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}" class="menu-mobile !tw-bg-white" >
+<header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}" class="menu-mobile" >
   <details id="Details-menu-drawer-container" class="menu-drawer-container">
   
     <summary
-      class="header__icon header__icon--menu header__icon--summary link focus-inset !tw-bg-white"
+      class="header__icon header__icon--menu header__icon--summary link focus-inset"
       aria-label="{{ 'sections.header.menu' | t }}"
     >  
       <span>
@@ -33,6 +33,16 @@ color: #2B5899  !important;
         <div class="menu-drawer__navigation-container">
           <nav class="menu-drawer__navigation">
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
+              <li>
+                <a
+                  id="HeaderDrawer-shop-all"
+                  href="{{ section.settings.shop_all_link | default: routes.all_products_collection_url }}"
+                  class="menu-drawer__menu-item list-menu__item link link--text focus-inset menu-drawer__menu-item--shop-all"
+                >
+                  {% render 'icon-grid' %}
+                  <span>{{ section.settings.shop_all_label | default: 'Shop All' | escape }}</span>
+                </a>
+              </li>
               {%- for block in section.blocks -%}
                 <li>
                   {%- if block.settings.menu.links != blank -%}

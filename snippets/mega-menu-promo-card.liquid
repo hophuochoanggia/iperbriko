@@ -1,0 +1,75 @@
+{% comment %}
+  Renders the mega menu promotional card.
+
+  Accepts:
+  - image: {Object} Image object (optional)
+  - heading: {String} Promo heading text
+  - link: {String} Promo URL
+
+  Usage:
+  {% render 'mega-menu-promo-card', image: block.settings.promo_image, heading: block.settings.promo_heading, link: block.settings.promo_link %}
+{% endcomment %}
+
+{%- liquid
+  assign promo_heading = heading | strip
+  assign promo_link = link | strip
+  assign has_image = false
+  if image != blank
+    assign has_image = true
+  endif
+
+  if has_image or promo_heading != blank
+    assign show_promo = true
+  else
+    assign show_promo = false
+  endif
+
+  assign promo_alt = promo_heading
+  if has_image and image.alt != blank
+    assign promo_alt = image.alt
+  endif
+-%}
+
+{%- if show_promo -%}
+  {%- if promo_link != blank -%}
+    <a href="{{ promo_link }}" class="mega-menu__promo">
+  {%- else -%}
+    <div class="mega-menu__promo">
+  {%- endif -%}
+    <div class="mega-menu__promo-media">
+      {%- if has_image -%}
+        {{
+          image
+          | image_url: width: 840
+          | image_tag:
+            loading: 'eager',
+            widths: '372, 420, 744, 840',
+            sizes: '420px',
+            class: 'mega-menu__promo-image',
+            alt: promo_alt
+        }}
+      {%- else -%}
+        <img
+          src="{{ 'mega-menu-promo-default.jpg' | asset_url }}"
+          alt="{{ promo_alt | escape }}"
+          class="mega-menu__promo-image"
+          loading="eager"
+          width="420"
+          height="363"
+        >
+      {%- endif -%}
+    </div>
+    {%- if promo_heading != blank -%}
+      <div class="mega-menu__promo-content">
+        <span class="mega-menu__promo-heading">{{ promo_heading | escape }}</span>
+        <span class="mega-menu__promo-icon" aria-hidden="true">
+          {% render 'icon-chevron-right' %}
+        </span>
+      </div>
+    {%- endif -%}
+  {%- if promo_link != blank -%}
+    </a>
+  {%- else -%}
+    </div>
+  {%- endif -%}
+{%- endif -%}

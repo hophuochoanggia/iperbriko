@@ -519,3 +519,227 @@
   font-size: 2.5rem;
   line-height: 3rem;
 }
+
+/* Product card — Figma Iperbriko */
+.product-card-wrapper .product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+  text-align: left;
+  overflow: hidden;
+}
+
+.product-card__media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 16.4rem;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+@media screen and (min-width: 990px) {
+  .product-card__media {
+    height: 30rem;
+  }
+}
+
+.product-card__media-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 22rem;
+  max-height: 26rem;
+  margin: 0 auto;
+}
+
+.product-card__media-inner img,
+.product-card__media-inner .placeholder-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.product-card__badge {
+  position: absolute;
+  z-index: 2;
+  top: 2rem;
+  left: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0 1.2rem;
+  border-radius: 0.4rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.product-card__badge--sale {
+  background: #274f94;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.product-card__badge--sold-out {
+  background: #e5e7eb;
+  color: #6b7280;
+}
+
+.product-card__badge--online {
+  top: auto;
+  bottom: 0.8rem;
+  left: 1.6rem;
+  background: #05a660;
+  color: #fff;
+}
+
+.product-card__content {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 1.2rem;
+  width: 100%;
+  padding: 1.2rem 1.6rem 1.6rem;
+  box-sizing: border-box;
+}
+
+.product-card__review-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  min-height: 2.4rem;
+  width: 100%;
+}
+
+.product-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 0;
+}
+
+.product-card__rating .icon-stars-five {
+  flex-shrink: 0;
+  width: 8.8rem;
+  height: 1.6rem;
+}
+
+.product-card__review-count {
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: normal;
+  color: #333;
+  white-space: nowrap;
+}
+
+.product-card__wishlist {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #274f94;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.product-card__wishlist:hover {
+  opacity: 0.75;
+}
+
+.product-card__title {
+  margin: 0;
+  min-height: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #595959;
+}
+
+.product-card__title a {
+  color: inherit;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-card__title a::after {
+  z-index: 1;
+}
+
+.product-card__price {
+  margin: 0;
+}
+
+.product-card__actions,
+.product-card__form {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin: 0;
+}
+
+.product-card__atc,
+.product-card__atc.quick-add__submit,
+button.product-card__atc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 4.8rem;
+  height: 4.8rem;
+  padding: 0 1.6rem;
+  border: 0;
+  border-radius: 0.6rem;
+  background: #274f94;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  line-height: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.product-card__atc::before,
+.product-card__atc::after,
+.product-card__atc.quick-add__submit::before,
+.product-card__atc.quick-add__submit::after {
+  display: none;
+  content: none;
+  box-shadow: none;
+}
+
+.product-card__atc:hover,
+.product-card__atc.quick-add__submit:hover {
+  background: #1f3f78;
+  color: #fff;
+}
+
+.product-card__atc:disabled,
+.product-card__atc[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.product-card__atc--placeholder {
+  pointer-events: none;
+}

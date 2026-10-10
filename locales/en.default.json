@@ -46,7 +46,7 @@
       "previous": "Previous page"
     },
     "search": {
-      "header": "Search...",
+      "header": "What can we help you find?",
       "search": "Search",
       "reset": "Clear search term"
     },
@@ -132,6 +132,11 @@
       "inventory_out_of_stock_continue_selling": "In stock",
       "sku": "SKU",
       "on_sale": "Sale",
+      "sale_badge": "SALE",
+      "reviews_count": {
+        "one": "{{ count }} review",
+        "other": "{{ count }} reviews"
+      },
       "product_variants": "Product variants",
       "media": {
         "gallery_viewer": "Gallery Viewer",
@@ -311,11 +316,16 @@
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
+      "wishlist": "Wishlist",
       "cart_count": {
         "one": "{{ count }} item",
         "other": "{{ count }} items",
         "many": "{{ count }} articles"
       }
+    },
+    "announcement-bar": {
+      "store_label": "Punto vendita:",
+      "web_label": "Reparto Web:"
     },
     "cart": {
       "title": "Your cart",
