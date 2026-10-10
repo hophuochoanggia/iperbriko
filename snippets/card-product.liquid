@@ -42,8 +42,9 @@
       assign qty_rules = true
     endif
 
+    assign card_variant = card_product.selected_or_first_available_variant
     assign on_sale = false
-    if card_product.compare_at_price > card_product.price and card_product.available
+    if card_variant.compare_at_price > card_variant.price and card_product.available
       assign on_sale = true
     endif
 
@@ -176,7 +177,12 @@
         </h3>
 
         <div class="product-card__price card-information">
-          {% render 'price', product: card_product, price_class: 'price--product-card', show_compare_at_price: true %}
+          {% render 'price-card-thumnail',
+            product: card_product,
+            use_variant: true,
+            price_class: 'price--product-card',
+            show_compare_at_price: true
+          %}
           {%- if card_product.quantity_price_breaks_configured? -%}
             <div class="card__information-volume-pricing-note">
               <span class="caption">{{ 'products.product.volume_pricing.note' | t }}</span>

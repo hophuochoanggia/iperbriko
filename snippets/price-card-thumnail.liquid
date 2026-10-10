@@ -95,15 +95,17 @@
               {% endif %}
             </s>
           </span>
-          {%- assign savings = product.compare_at_price
-            | minus: product.price
-            | times: 100.0
-            | divided_by: product.compare_at_price
-            | round
-            | append: '%'
-            | prepend: '-'
-          -%}
-          <span class="percent-saving !tw-font-bold !tw-font-xl">{{ savings }}</span>
+          {%- if compare_at_price > price and compare_at_price > 0 -%}
+            {%- assign savings = compare_at_price
+              | minus: price
+              | times: 100.0
+              | divided_by: compare_at_price
+              | round
+              | append: '%'
+              | prepend: '-'
+            -%}
+            <span class="percent-saving !tw-font-bold !tw-font-xl">{{ savings }}</span>
+          {%- endif -%}
         </div>
       {%- endunless -%}
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
