@@ -48,6 +48,11 @@
     endif
 
     assign review_count = card_product.metafields.reviews.rating_count.value | default: card_product.metafields.reviews.rating_count | default: 0
+    assign product_rating = card_product.metafields.reviews.rating.value
+    assign has_rating = false
+    if product_rating != blank or review_count > 0
+      assign has_rating = true
+    endif
   -%}
   <div class="card-wrapper product-card-wrapper underline-links-hover">
     <div
@@ -132,11 +137,13 @@
       <div class="product-card__content">
         <div class="product-card__review-row">
           <div class="product-card__rating">
-            {% render 'icon-stars-five' %}
-            {%- if review_count != blank and review_count > 0 -%}
-              <span class="product-card__review-count">
-                {{ 'products.product.reviews_count' | t: count: review_count }}
-              </span>
+            {%- if has_rating -%}
+              {% render 'icon-stars-five' %}
+              {%- if review_count > 0 -%}
+                <span class="product-card__review-count">
+                  {{ 'products.product.reviews_count' | t: count: review_count }}
+                </span>
+              {%- endif -%}
             {%- endif -%}
             <div
               class="audien-review-star-rating"
@@ -292,9 +299,7 @@
       </div>
       <div class="product-card__content">
         <div class="product-card__review-row">
-          <div class="product-card__rating">
-            {% render 'icon-stars-five' %}
-          </div>
+          <div class="product-card__rating"></div>
           <span class="product-card__wishlist" aria-hidden="true">
             {% render 'icon-wishlist' %}
           </span>

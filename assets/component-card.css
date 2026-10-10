@@ -695,6 +695,12 @@
   margin: 0;
 }
 
+/* Override Dawn .card--card .quick-add side margin so ATC aligns with card content */
+.product-card.card--card .product-card__actions.quick-add,
+.product-card .product-card__actions.quick-add {
+  margin: 0;
+}
+
 .product-card__atc,
 .product-card__atc.quick-add__submit,
 button.product-card__atc {

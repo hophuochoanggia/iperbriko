@@ -675,6 +675,51 @@
         "padding_bottom": 40
       }
     },
+    "tabbed_collection_home": {
+      "type": "tabbed-collection",
+      "blocks": {
+        "tab_idee_regalo": {
+          "type": "tab",
+          "settings": {
+            "title": "Idee regalo",
+            "collection": "alberi-di-natale",
+            "image": "",
+            "promo_heading": "Idee regalo",
+            "promo_text": "Trova grandi idee regalo\nper chi ami.",
+            "cta_label": "Scopri tutto",
+            "cta_link": "shopify://collections/alberi-di-natale"
+          }
+        },
+        "tab_offerte": {
+          "type": "tab",
+          "settings": {
+            "title": "Offerte della settimana",
+            "collection": "illuminazione-natalizia",
+            "image": "",
+            "promo_heading": "Offerte della settimana",
+            "promo_text": "Scopri le migliori offerte\ndi questa settimana.",
+            "cta_label": "Scopri tutto",
+            "cta_link": "shopify://collections/illuminazione-natalizia"
+          }
+        }
+      },
+      "block_order": [
+        "tab_idee_regalo",
+        "tab_offerte"
+      ],
+      "settings": {
+        "tabs_label": "Collezioni in evidenza",
+        "products_to_show": 8,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "enable_quick_add": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 48
+      }
+    },
     "1730997113287ea270": {
       "type": "apps",
       "custom_css": [
@@ -697,6 +742,7 @@
     "our_brand",
     "featured_collection_Wm8NAp",
     "featured_blog",
+    "tabbed_collection_home",
     "1730997113287ea270"
   ]
 }

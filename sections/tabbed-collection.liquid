@@ -1,0 +1,344 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'quick-add.css' | asset_url | stylesheet_tag }}
+{{ 'section-tabbed-collection.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'tabbed-collection.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- if section.blocks.size > 0 -%}
+  <div class="tabbed-collection section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+    <div class="page-width tabbed-collection__inner">
+      <tabbed-collection>
+        <div
+          class="tabbed-collection__tabs"
+          role="tablist"
+          aria-label="{{ section.settings.tabs_label | escape }}"
+        >
+          {%- for block in section.blocks -%}
+            {%- assign tab_label = block.settings.title | default: block.settings.collection.title | default: 'Collection' -%}
+            <button
+              type="button"
+              class="tabbed-collection__tab{% if forloop.first %} is-active{% endif %}"
+              id="TabbedTab-{{ section.id }}-{{ block.id }}"
+              role="tab"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              aria-controls="TabbedPanel-{{ section.id }}-{{ block.id }}"
+              tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
+              data-tabbed-tab
+              {{ block.shopify_attributes }}
+            >
+              {{ tab_label | escape }}
+            </button>
+          {%- endfor -%}
+        </div>
+
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign tab_label = block.settings.title | default: block.settings.collection.title | default: 'Collection'
+            assign products_to_show = section.settings.products_to_show
+            assign collection = block.settings.collection
+            assign promo_heading = block.settings.promo_heading | default: tab_label
+            assign promo_text = block.settings.promo_text
+            assign cta_label = block.settings.cta_label | default: 'Scopri tutto'
+            assign cta_link = block.settings.cta_link
+            if cta_link == blank and collection != blank
+              assign cta_link = collection.url
+            endif
+
+            # Prefer custom promo, else collection image / first product so panel matches the rail
+            assign promo_image = block.settings.image
+            if promo_image == blank and collection.image != blank
+              assign promo_image = collection.image
+            endif
+            if promo_image == blank and collection != blank and collection.products.first.featured_media != blank
+              assign promo_image = collection.products.first.featured_media.preview_image
+            endif
+          -%}
+          <div
+            class="tabbed-collection__panel{% if forloop.first %} is-active{% endif %}"
+            id="TabbedPanel-{{ section.id }}-{{ block.id }}"
+            role="tabpanel"
+            aria-labelledby="TabbedTab-{{ section.id }}-{{ block.id }}"
+            data-tabbed-panel
+            {% unless forloop.first %}
+              hidden
+            {% endunless %}
+          >
+            <div class="tabbed-collection__layout">
+              <aside class="tabbed-collection__promo">
+                {%- if cta_link != blank -%}
+                  <a
+                    class="tabbed-collection__promo-link"
+                    href="{{ cta_link }}"
+                    aria-label="{{ tab_label | escape }}"
+                  >
+                {%- endif -%}
+                <div class="tabbed-collection__promo-media">
+                  {%- if promo_image != blank -%}
+                    {{
+                      promo_image
+                      | image_url: width: 1200
+                      | image_tag:
+                        widths: '500, 750, 1000, 1200',
+                        sizes: '(min-width: 990px) 500px, 100vw',
+                        loading: 'lazy',
+                        alt: tab_label | escape
+                    }}
+                  {%- else -%}
+                    {%- liquid
+                      assign fallback_asset = 'tabbed-collection-idee-regalo.jpg'
+                      assign tab_key = tab_label | downcase
+                      if tab_key contains 'offert'
+                        assign fallback_asset = 'tabbed-collection-offerte.jpg'
+                      endif
+                    -%}
+                    <img
+                      src="{{ fallback_asset | asset_url }}"
+                      alt="{{ tab_label | escape }}"
+                      width="1500"
+                      height="1500"
+                      loading="lazy"
+                    >
+                  {%- endif -%}
+                </div>
+                {%- if cta_link != blank -%}
+                  </a>
+                {%- endif -%}
+              </aside>
+
+              <div class="tabbed-collection__rail">
+                <slider-component>
+                  <ul
+                    id="Slider-{{ section.id }}-{{ block.id }}"
+                    class="tabbed-collection__grid"
+                    role="list"
+                    aria-label="{{ tab_label | escape }}"
+                    data-tabbed-grid
+                  >
+                    {%- if collection != blank -%}
+                      {%- for product in collection.products limit: products_to_show -%}
+                        <li class="tabbed-collection__slide" id="Slide-{{ section.id }}-{{ block.id }}-{{ forloop.index }}">
+                          {% render 'card-product',
+                            card_product: product,
+                            media_aspect_ratio: section.settings.image_ratio,
+                            show_secondary_image: section.settings.show_secondary_image,
+                            show_vendor: section.settings.show_vendor,
+                            show_rating: section.settings.show_rating,
+                            show_quick_add: section.settings.enable_quick_add,
+                            section_id: section.id
+                          %}
+                        </li>
+                      {%- endfor -%}
+                    {%- else -%}
+                      {%- for i in (1..4) -%}
+                        <li class="tabbed-collection__slide">
+                          {%- assign placeholder_image = 'product-apparel-' | append: forloop.index -%}
+                          {% render 'card-product',
+                            show_vendor: section.settings.show_vendor,
+                            media_aspect_ratio: section.settings.image_ratio,
+                            placeholder_image: placeholder_image
+                          %}
+                        </li>
+                      {%- endfor -%}
+                    {%- endif -%}
+                  </ul>
+
+                  <button
+                    type="button"
+                    class="tabbed-collection__next"
+                    name="next"
+                    aria-label="{{ 'general.slider.next_slide' | t }}"
+                    data-tabbed-next
+                  >
+                    {% render 'icon-slider-next' %}
+                  </button>
+                </slider-component>
+
+                <div class="tabbed-collection__progress" aria-hidden="true">
+                  <span class="tabbed-collection__progress-bar" data-tabbed-progress></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </tabbed-collection>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Tabbed collection",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "tabs_label",
+      "label": "Tabs accessibility label",
+      "default": "Collezioni in evidenza"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 8,
+      "label": "Products to show"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "square", "label": "Square" }
+      ],
+      "default": "adapt",
+      "label": "Image ratio"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "Show second image on hover"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "Show vendor"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": true,
+      "label": "Show product rating"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_add",
+      "default": true,
+      "label": "Enable quick add"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab title",
+          "default": "Idee regalo"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Promo image"
+        },
+        {
+          "type": "text",
+          "id": "promo_heading",
+          "label": "Promo heading",
+          "default": "Idee regalo"
+        },
+        {
+          "type": "textarea",
+          "id": "promo_text",
+          "label": "Promo text",
+          "default": "Trova grandi idee regalo\nper chi ami."
+        },
+        {
+          "type": "text",
+          "id": "cta_label",
+          "label": "Button label",
+          "default": "Scopri tutto"
+        },
+        {
+          "type": "url",
+          "id": "cta_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tabbed collection",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": {
+            "title": "Idee regalo",
+            "promo_heading": "Idee regalo",
+            "promo_text": "Trova grandi idee regalo\nper chi ami.",
+            "cta_label": "Scopri tutto"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "title": "Offerte della settimana",
+            "promo_heading": "Offerte della settimana",
+            "promo_text": "Scopri le migliori offerte\ndi questa settimana.",
+            "cta_label": "Scopri tutto"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

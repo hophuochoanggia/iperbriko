@@ -185,12 +185,23 @@
     flex: 1 1 auto;
     min-width: 0;
     max-width: none;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 990px) {
+    .header-search-figma.header-search-figma--desktop.search-modal__form,
+    .header-search-figma.header-search-figma--desktop .search-modal__form,
+    .header-search-figma.header-search-figma--desktop form {
+      max-width: none;
+      width: 100%;
+    }
   }
 
   .header-search-figma__field {
     display: flex;
     align-items: center;
     gap: 0.8rem;
+    width: 100%;
     height: 4.8rem;
     padding: 0 0.8rem 0 1.6rem;
     background: #fff;

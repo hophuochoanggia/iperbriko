@@ -355,11 +355,12 @@
       order: 1;
     }
 
-    /* Desktop: account sits with right icons (Figma), not beside logo */
+    /* Desktop: logo | search (flex) | tight icon group right */
     @media screen and (min-width: 990px) {
       .header--figma {
         display: flex;
         align-items: center;
+        gap: 0;
       }
 
       .header--figma .header__cluster--left,
@@ -372,17 +373,26 @@
         order: 1;
       }
 
-      .header--figma .header-search-figma--desktop,
-      .header--figma .header-search-modal--mobile {
+      .header--figma .header-search-figma--desktop {
         order: 2;
         flex: 1 1 auto;
+        align-self: center;
+        width: auto;
+        min-width: 0;
+        max-width: none;
         margin-left: 2.4rem;
-        margin-right: 1.6rem;
+        margin-right: 0.8rem;
+      }
+
+      .header--figma .header-search-figma--desktop .header-search-figma__field,
+      .header--figma .header-search-figma--desktop form {
+        width: 100%;
       }
 
       .header--figma .header__account--actions {
         order: 3;
-        margin-left: auto;
+        margin-left: 0;
+        flex-shrink: 0;
       }
 
       .header--figma .header__icon--wishlist {
@@ -396,6 +406,11 @@
 
       .header--figma .desktop-localization-wrapper {
         order: 6;
+      }
+
+      .header--figma .cart-count-bubble--figma {
+        top: 0.6rem;
+        right: 0.6rem;
       }
     }
 
@@ -421,6 +436,18 @@
       justify-content: center;
       text-decoration: none;
       background: transparent;
+    }
+
+    @media screen and (min-width: 990px) {
+      .header--figma .header__account--actions .header__icon,
+      .header--figma .header__icons--figma .header__icon--wishlist,
+      .header--figma .header__icons--figma .header__icon--cart,
+      .header--figma #cart-icon-bubble.header__icon--cart {
+        width: 3.6rem;
+        min-width: 3.6rem;
+        height: 4rem;
+        flex-shrink: 0;
+      }
     }
 
     .header__icons--figma .header__icon .icon,
@@ -615,8 +642,20 @@
     }
 
     @media screen and (min-width: 990px) {
-      .header-search-figma.header-search-figma--desktop {
+      .header-search-figma.header-search-figma--desktop,
+      .header--figma .header-search-figma--desktop.search-modal__form,
+      .header--figma .header-search-figma--desktop .search-modal__form,
+      .header--figma .header-search-figma--desktop form {
         display: block;
+        flex: 1 1 auto;
+        width: 100%;
+        min-width: 0;
+        max-width: none; /* override Dawn .search-modal__form { max-width: 74.2rem } */
+      }
+
+      .header--figma .header-search-figma--desktop .header-search-figma__field {
+        width: 100%;
+        max-width: none;
       }
 
       .header-search-modal--mobile {
@@ -677,6 +716,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 0.4rem;
       height: 4.4rem;
       min-height: 4.4rem;
       max-height: none;
@@ -685,9 +725,9 @@
       font-size: 1.3rem;
       font-weight: 400;
       line-height: 1.2;
-      color: #111827;
+      color: #6b7280;
       text-decoration: none;
-      border-bottom: none;
+      border-bottom: 2px solid transparent;
       background: transparent;
       box-sizing: border-box;
     }
@@ -703,9 +743,9 @@
 
     .header-nav--figma .header__menu-item:hover,
     .header-nav--figma .mega-menu[open] > .header__menu-item {
-      color: #274f94;
-      background: transparent;
-      border-bottom: none;
+      color: #2b5899;
+      background: #f9fafb;
+      border-bottom-color: #2a5798;
     }
 
     .header-nav--figma .header__menu-item span {
@@ -715,9 +755,22 @@
       line-height: inherit;
     }
 
+    /* Show category icons like live theme */
     .header-nav--figma .header__menu-item svg,
     .header-nav--figma .header__menu-item .icon {
-      display: none;
+      display: block;
+      width: 2.4rem;
+      height: 2.4rem;
+      flex-shrink: 0;
+    }
+
+    .header-nav--figma .header__menu-item svg path {
+      fill: #6b7280;
+    }
+
+    .header-nav--figma .header__menu-item:hover svg path,
+    .header-nav--figma .mega-menu[open] > .header__menu-item svg path {
+      fill: #2b5899;
     }
 
     .header-nav--figma .header__menu-item--shop-all {
@@ -726,12 +779,18 @@
       gap: 0.6rem;
     }
 
-    .header-nav--figma .header__menu-item--shop-all .icon-grid {
+    .header-nav--figma .header__menu-item--shop-all .icon-grid,
+    .header-nav--figma .header__menu-item--shop-all svg {
       display: block;
       width: 1.6rem;
       height: 1.6rem;
       flex-shrink: 0;
       color: #274f94;
+    }
+
+    .header-nav--figma .header__menu-item--shop-all svg path {
+      fill: none;
+      stroke: #274f94;
     }
 
     .header-nav--figma .header__menu-item--sale,
@@ -1204,6 +1263,11 @@
           "id": "text",
           "default": "Menu",
           "label": "t:sections.mega-menu.blocks.menu.settings.text.label"
+        },
+        {
+          "type": "html",
+          "id": "icon",
+          "label": "t:sections.mega-menu.blocks.menu.settings.icon.label"
         },
         {
           "type": "link_list",

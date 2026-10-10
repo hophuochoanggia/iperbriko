@@ -43,7 +43,7 @@
               class="header__menu-item list-menu__item link focus-inset{% if is_sale %} header__menu-item--sale{% endif %}"
               {% if is_sale %}data-sale="true"{% endif %}
             >
-              {{ block.settings.icon }}
+              {% render 'header-nav-icon', icon: block.settings.icon, menu: block.settings.menu %}
               <span>
                 {{ block.settings.text | escape }}
               </span>
