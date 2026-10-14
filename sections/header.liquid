@@ -411,8 +411,8 @@
       }
 
       .header--figma .cart-count-bubble--figma {
-        top: 0.6rem;
-        right: 0.6rem;
+        top: 0;
+        right: 0;
       }
     }
 
@@ -499,10 +499,10 @@
 
     .cart-count-bubble--figma {
       position: absolute;
-      top: 0.8rem;
-      right: 1.2rem;
-      left: auto;
-      bottom: auto;
+      top: 0;
+      right: 0;
+      left: auto !important;
+      bottom: auto !important;
       width: 1.6rem;
       height: 1.6rem;
       min-width: 1.6rem;
@@ -512,6 +512,8 @@
       font-size: 0.9rem;
       font-weight: 700;
       line-height: 1;
+      z-index: 1;
+      pointer-events: none;
     }
 
     .header-nav--figma {
@@ -888,8 +890,8 @@
       }
 
       .cart-count-bubble--figma {
-        top: 0.4rem;
-        right: 0.4rem;
+        top: 0.2rem;
+        right: 0.2rem;
       }
     }
   </style>

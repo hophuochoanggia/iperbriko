@@ -1,0 +1,115 @@
+{% comment %}
+  Unlocked GWP offer in cart drawer: gift product + Add after threshold.
+
+  Visible when progress bar enabled, GWP product set, cart spend (ex gift cards)
+  meets threshold, gift not in cart, variant available.
+{% endcomment %}
+
+{%- liquid
+  assign gwp_product = settings.cart_gwp_product
+  assign show_gwp_offer = false
+
+  if settings.cart_show_free_shipping_bar != false and gwp_product != blank and cart != empty
+    assign gift_card_cents = 0
+    for item in cart.items
+      if item.product.gift_card?
+        assign gift_card_cents = gift_card_cents | plus: item.final_line_price
+      endif
+    endfor
+
+    assign cart_total = cart.total_price | default: 0 | minus: gift_card_cents
+    if cart_total < 0
+      assign cart_total = 0
+    endif
+
+    assign threshold_units = settings.cart_gwp_threshold | default: settings.cart_free_shipping_threshold | default: 0 | plus: 0
+    if threshold_units < 0
+      assign threshold_units = 0
+    endif
+    assign threshold = threshold_units | times: 100
+
+    assign unlocked = false
+    if threshold == 0 or cart_total >= threshold
+      assign unlocked = true
+    endif
+
+    assign gwp_in_cart = false
+    for item in cart.items
+      if item.product_id == gwp_product.id
+        assign gwp_in_cart = true
+        break
+      endif
+    endfor
+
+    assign gwp_variant = gwp_product.selected_or_first_available_variant
+    if unlocked and gwp_in_cart == false and gwp_variant != blank and gwp_variant.available
+      assign show_gwp_offer = true
+    endif
+  endif
+-%}
+
+{%- if show_gwp_offer -%}
+  {%- liquid
+    assign image = gwp_variant.featured_image | default: gwp_product.featured_image
+    assign form_id = 'cart-gwp-' | append: gwp_product.id
+    assign heading = settings.cart_gwp_unlocked_message | strip
+    if heading == blank
+      assign heading = 'sections.cart.your_free_gift' | t
+    endif
+  -%}
+
+  <div
+    class="cart-gwp-offer"
+    data-cart-gwp-offer
+    data-gwp-product-id="{{ gwp_product.id }}"
+  >
+    <div class="cart-gwp-offer__header">
+      <h2 class="cart-gwp-offer__heading">{{ heading }}</h2>
+    </div>
+
+    <div class="cart-gwp-offer__item">
+      <a href="{{ gwp_product.url }}" class="cart-gwp-offer__image-link">
+        {%- if image -%}
+          {{
+            image
+            | image_url: width: 240
+            | image_tag:
+              class: 'cart-gwp-offer__image',
+              loading: 'lazy',
+              widths: '120, 180, 240',
+              sizes: '88px',
+              alt: gwp_product.title
+          }}
+        {%- else -%}
+          {{ 'product-1' | placeholder_svg_tag: 'cart-gwp-offer__image cart-gwp-offer__image--placeholder' }}
+        {%- endif -%}
+      </a>
+
+      <div class="cart-gwp-offer__info">
+        <a href="{{ gwp_product.url }}" class="cart-gwp-offer__title">{{ gwp_product.title }}</a>
+        <div class="cart-gwp-offer__price">
+          <span class="cart-gwp-offer__badge">{{ 'sections.cart.free' | t }}</span>
+          {%- if gwp_variant.price > 0 -%}
+            <s class="cart-gwp-offer__price-compare">{{ gwp_variant.price | money }}</s>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <product-form class="cart-gwp-offer__form">
+        {%- form 'product', gwp_product, id: form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+          <input type="hidden" name="id" value="{{ gwp_variant.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <input type="hidden" name="properties[_gwp]" value="true">
+          <button
+            type="submit"
+            name="add"
+            class="cart-gwp-offer__add"
+            aria-label="{{ 'sections.cart.add_free_gift' | t }} — {{ gwp_product.title | escape }}"
+          >
+            {{ 'sections.cart.add' | t }}
+          </button>
+        {%- endform -%}
+      </product-form>
+    </div>
+  </div>
+{%- endif -%}

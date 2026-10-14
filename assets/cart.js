@@ -52,7 +52,7 @@ class CartItems extends HTMLElement {
         .then((response) => response.text())
         .then((responseText) => {
           const html = new DOMParser().parseFromString(responseText, 'text/html');
-          const selectors = ['cart-drawer-items', '.cart-drawer__footer'];
+          const selectors = ['cart-drawer-items', '.cart-drawer__footer', '.cart-drawer__gwp'];
           for (const selector of selectors) {
             const targetElement = document.querySelector(selector);
             const sourceElement = html.querySelector(selector);
@@ -162,7 +162,10 @@ class CartItems extends HTMLElement {
             ? trapFocus(cartDrawerWrapper, lineItem.querySelector(`[name="${name}"]`))
             : lineItem.querySelector(`[name="${name}"]`).focus();
         } else if (parsedState.item_count === 0 && cartDrawerWrapper) {
-          trapFocus(cartDrawerWrapper.querySelector('.drawer__inner-empty'), cartDrawerWrapper.querySelector('a'));
+          trapFocus(
+            cartDrawerWrapper.querySelector('.cart-drawer__empty') || cartDrawerWrapper.querySelector('.drawer__inner'),
+            cartDrawerWrapper.querySelector('.cart-drawer__empty-button') || cartDrawerWrapper.querySelector('.drawer__close')
+          );
         } else if (document.querySelector('.cart-item') && cartDrawerWrapper) {
           trapFocus(cartDrawerWrapper, document.querySelector('.cart-item__name'));
         }

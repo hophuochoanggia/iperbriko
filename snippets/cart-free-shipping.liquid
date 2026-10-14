@@ -1,0 +1,101 @@
+{% comment %}
+  Cart GWP progress bar (Stanley pattern).
+
+  Settings:
+  - cart_show_free_shipping_bar — show/hide
+  - cart_gwp_threshold — spend in store currency units
+  - cart_gwp_product — optional reward label fallback
+  - cart_gwp_reward_label — “away from [label]”
+  - cart_gwp_unlocked_message — unlocked copy
+
+  Progress uses cart.total_price excluding gift-card lines. Hidden when cart empty.
+{% endcomment %}
+
+{%- unless settings.cart_show_free_shipping_bar == false or cart == empty -%}
+  {%- liquid
+    assign gift_card_cents = 0
+    for item in cart.items
+      if item.product.gift_card?
+        assign gift_card_cents = gift_card_cents | plus: item.final_line_price
+      endif
+    endfor
+
+    assign cart_total = cart.total_price | default: 0 | minus: gift_card_cents
+    if cart_total < 0
+      assign cart_total = 0
+    endif
+
+    assign threshold_units = settings.cart_gwp_threshold | default: settings.cart_free_shipping_threshold | default: 0 | plus: 0
+    if threshold_units < 0
+      assign threshold_units = 0
+    endif
+    assign threshold = threshold_units | times: 100
+
+    assign reward_label = settings.cart_gwp_reward_label | strip
+    if reward_label == blank and settings.cart_gwp_product != blank
+      assign reward_label = settings.cart_gwp_product.title
+    endif
+    if reward_label == blank
+      assign reward_label = 'sections.cart.gwp_reward_fallback' | t
+    endif
+    assign unlocked_msg = settings.cart_gwp_unlocked_message | strip
+
+    assign remaining = threshold | minus: cart_total
+    if remaining < 0
+      assign remaining = 0
+    endif
+
+    if threshold > 0
+      assign progress = cart_total | times: 100.0 | divided_by: threshold
+    else
+      assign progress = 100
+    endif
+    if progress > 100
+      assign progress = 100
+    endif
+
+    assign unlocked = false
+    if threshold == 0 or remaining == 0 and cart_total > 0
+      assign unlocked = true
+    endif
+  -%}
+
+  <div
+    class="cart-free-shipping"
+    data-cart-free-shipping
+    data-threshold="{{ threshold }}"
+    data-cart-total="{{ cart_total }}"
+    {% if settings.cart_gwp_product != blank %}
+      data-gwp-product="{{ settings.cart_gwp_product.handle }}"
+    {% endif %}
+    style="--cart-free-shipping-progress: {{ progress }}%;"
+  >
+    <div
+      class="cart-free-shipping__bar-container"
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuenow="{{ progress | round }}"
+      aria-valuemax="100"
+      aria-label="{{ 'sections.cart.gwp_progress' | t }}"
+    >
+      <span class="cart-free-shipping__min">{{ 0 | money_without_trailing_zeros }}</span>
+      <div class="cart-free-shipping__bar">
+        <div class="cart-free-shipping__fill" style="width: {{ progress }}%;"></div>
+      </div>
+      <span class="cart-free-shipping__max">{{ threshold | money_without_trailing_zeros }}</span>
+    </div>
+
+    <p class="cart-free-shipping__text" aria-live="polite" role="status">
+      {%- if unlocked -%}
+        {%- if unlocked_msg != blank -%}
+          {{ unlocked_msg }}
+        {%- else -%}
+          {{ 'sections.cart.gwp_unlocked_html' | t: reward: reward_label }}
+        {%- endif -%}
+      {%- else -%}
+        {%- assign remaining_money = remaining | money -%}
+        {{ 'sections.cart.gwp_remaining_html' | t: remaining: remaining_money, reward: reward_label }}
+      {%- endif -%}
+    </p>
+  </div>
+{%- endunless -%}

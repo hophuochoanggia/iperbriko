@@ -1484,6 +1484,63 @@
         "content": "t:settings_schema.cart.settings.cart_drawer.header"
       },
       {
+        "type": "header",
+        "content": "Gift with purchase (GWP)"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_show_free_shipping_bar",
+        "label": "Show GWP progress bar",
+        "default": false
+      },
+      {
+        "type": "number",
+        "id": "cart_gwp_threshold",
+        "label": "GWP threshold",
+        "info": "Spend amount in store currency to unlock the gift (e.g. 99 = €99)",
+        "default": 99
+      },
+      {
+        "type": "product",
+        "id": "cart_gwp_product",
+        "label": "GWP product",
+        "info": "Gift shown with Add after threshold. Also used as progress label when message label is blank."
+      },
+      {
+        "type": "text",
+        "id": "cart_gwp_reward_label",
+        "label": "GWP message label",
+        "default": "a free gift",
+        "info": "Shown in “You're just … away from [label]”. Leave blank to use the GWP product title."
+      },
+      {
+        "type": "text",
+        "id": "cart_gwp_unlocked_message",
+        "label": "GWP unlocked message",
+        "default": "You've unlocked a free gift"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_show_upsells",
+        "label": "Show cart upsells",
+        "default": true
+      },
+      {
+        "type": "collection",
+        "id": "cart_upsell_collection",
+        "label": "Upsell collection",
+        "info": "Products shown under “Grab some extras” in the cart drawer"
+      },
+      {
+        "type": "range",
+        "id": "cart_upsell_limit",
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "label": "Upsell product limit",
+        "default": 4
+      },
+      {
         "type": "collection",
         "id": "cart_drawer_collection",
         "label": "t:settings_schema.cart.settings.cart_drawer.collection.label",

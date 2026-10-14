@@ -1,0 +1,103 @@
+{% comment %}
+  "Grab some extras" upsells for cart drawer (Stanley-style).
+{% endcomment %}
+
+{%- liquid
+  assign upsell_collection = settings.cart_upsell_collection
+  assign upsell_limit = settings.cart_upsell_limit | default: 4
+  assign show_upsells = false
+
+  if settings.cart_show_upsells != false and upsell_collection != blank and upsell_collection.products_count > 0
+    assign show_upsells = true
+  endif
+-%}
+
+{%- if show_upsells -%}
+  {%- capture upsell_items -%}
+    {%- assign rendered = 0 -%}
+    {%- for product in upsell_collection.products -%}
+      {%- if rendered >= upsell_limit -%}
+        {%- break -%}
+      {%- endif -%}
+
+      {%- liquid
+        assign in_cart = false
+        for item in cart.items
+          if item.product_id == product.id
+            assign in_cart = true
+            break
+          endif
+        endfor
+      -%}
+
+      {%- unless in_cart or product.available == false -%}
+        {%- liquid
+          assign upsell_variant = product.selected_or_first_available_variant
+          assign image = upsell_variant.featured_image | default: product.featured_image
+          assign form_id = 'cart-upsell-' | append: product.id
+          assign rendered = rendered | plus: 1
+        -%}
+
+        <li class="cart-upsells__item">
+          <a href="{{ product.url }}" class="cart-upsells__image-link">
+            {%- if image -%}
+              {{
+                image
+                | image_url: width: 240
+                | image_tag:
+                  class: 'cart-upsells__image',
+                  loading: 'lazy',
+                  widths: '120, 180, 240',
+                  sizes: '72px',
+                  alt: product.title
+              }}
+            {%- else -%}
+              {{ 'product-1' | placeholder_svg_tag: 'cart-upsells__image cart-upsells__image--placeholder' }}
+            {%- endif -%}
+          </a>
+
+          <div class="cart-upsells__info">
+            <a href="{{ product.url }}" class="cart-upsells__title">{{ product.title }}</a>
+            <div class="cart-upsells__price">
+              {%- if upsell_variant.compare_at_price > upsell_variant.price -%}
+                <span class="cart-upsells__price-sale">{{ upsell_variant.price | money }}</span>
+                <s class="cart-upsells__price-compare">{{ upsell_variant.compare_at_price | money }}</s>
+              {%- else -%}
+                <span>{{ upsell_variant.price | money }}</span>
+              {%- endif -%}
+            </div>
+          </div>
+
+          <product-form class="cart-upsells__form">
+            {%- form 'product', product, id: form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+              <input type="hidden" name="id" value="{{ upsell_variant.id }}">
+              <input type="hidden" name="quantity" value="1">
+              <button
+                type="submit"
+                name="add"
+                class="cart-upsells__add"
+                aria-label="{{ 'products.product.add_to_cart' | t }} — {{ product.title | escape }}"
+              >
+                <span>{{ 'products.product.add_to_cart' | t }}</span>
+                <div class="loading__spinner hidden">
+                  {%- render 'loading-spinner' -%}
+                </div>
+              </button>
+            {%- endform -%}
+          </product-form>
+        </li>
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+
+  {%- if upsell_items != blank -%}
+    <div class="cart-upsells">
+      <div class="cart-upsells__header">
+        <h2 class="cart-upsells__heading">{{ 'sections.cart.grab_some_extras' | t }}</h2>
+      </div>
+      <ul class="cart-upsells__list list-unstyled" role="list">
+        {{ upsell_items }}
+      </ul>
+    </div>
+  {%- endif -%}
+{%- endif -%}
