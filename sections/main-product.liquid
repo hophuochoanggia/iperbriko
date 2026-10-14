@@ -173,18 +173,11 @@
                   </div>
                 {% endcomment %}
 
-                <!--
-                  Zip WIDGET
-                     {% render 'zip-widget' %}
-                     <span
-                       style="cursor:pointer"
-                       id="shopify-zip-prod-widget"
-                       data-zm-asset="productwidget"
-                       data-zm-widget="popup"
-                       data-zm-popup-asset="termsdialog"
-                     ></span>
-                  end Zip WIDGET
-                -->
+                {% comment %}
+                  Zip widget disabled — 442KB zip-widget.min.js was still loading
+                  because Liquid runs inside HTML comments. Re-enable via:
+                  {% render 'zip-widget' %} with lazy snippet if needed.
+                {% endcomment %}
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %} !tw-inline-flex tw-pr-4 tw-uppercase !tw-font-semibold !tw-mt-0"

@@ -11,6 +11,7 @@
 
   {{- 'Disallow: /cms/*' }}
   {%- if group.user_agent.value == '*' %}
+  {{- 'Disallow: /collections/all' }}
   {{- 'Disallow: /product/*?pr_prod_*' }}
   {{- 'Disallow: /login' }}
   {{- 'Disallow: /services/login_with_shop/authorize' }}

@@ -183,7 +183,8 @@
                 width: settings.logo_width,
                 alt: logo_alt,
                 sizes: sizes,
-                preload: true
+                preload: false,
+                fetchpriority: 'low'
               }}
             </div>
           {%- else -%}

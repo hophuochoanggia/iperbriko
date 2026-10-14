@@ -1,2 +1,57 @@
-<script src="{{ 'zip-widget.min.js' | asset_url }}" defer></script>
-<div data-zm-merchant="51bd40dc-5864-4bae-b980-7ac59aec86e5" data-env="production"></div>
+{% comment %}
+  Lazy Zip/QuadPay widget — loads 442KB script only when marker enters viewport
+  or after first user interaction (whichever first).
+{% endcomment %}
+
+<div
+  class="zip-widget-root"
+  data-zm-merchant="51bd40dc-5864-4bae-b980-7ac59aec86e5"
+  data-env="production"
+  data-zip-lazy
+>
+  <span
+    style="cursor:pointer"
+    id="shopify-zip-prod-widget"
+    data-zm-asset="productwidget"
+    data-zm-widget="popup"
+    data-zm-popup-asset="termsdialog"
+  ></span>
+</div>
+
+<script>
+  (function () {
+    var src = {{ 'zip-widget.min.js' | asset_url | json }};
+    var loaded = false;
+
+    function loadZip() {
+      if (loaded) return;
+      loaded = true;
+      var s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      document.head.appendChild(s);
+    }
+
+    var root = document.querySelector('[data-zip-lazy]');
+    if (!root) return;
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(
+        function (entries) {
+          if (entries.some(function (e) { return e.isIntersecting; })) {
+            io.disconnect();
+            loadZip();
+          }
+        },
+        { rootMargin: '200px' }
+      );
+      io.observe(root);
+    } else {
+      loadZip();
+    }
+
+    ['pointerdown', 'keydown', 'touchstart'].forEach(function (evt) {
+      window.addEventListener(evt, loadZip, { once: true, passive: true });
+    });
+  })();
+</script>
