@@ -133,6 +133,37 @@
         "padding_bottom": 20
       }
     },
+    "featured_collection_dFVzWC": {
+      "type": "featured-collection",
+      "custom_css": [
+        "h2 {color: #274f94;}"
+      ],
+      "settings": {
+        "title": "<strong>Vasetti</strong>",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "vasetti",
+        "products_to_show": 8,
+        "columns_desktop": 5,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "multicolumn_wRGXQy": {
       "type": "multicolumn",
       "blocks": {
@@ -732,6 +763,7 @@
     "slideshow_pxARFp",
     "featured_collection_Dft6pN",
     "featured_collection_X7wEbJ",
+    "featured_collection_dFVzWC",
     "multicolumn_wRGXQy",
     "ccce89f9-33bd-45e1-8ff1-65d85beb0e4d",
     "deal_promotions",
