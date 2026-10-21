@@ -15,7 +15,7 @@
   "sections": {
     "product_bar_Qjjjd": {
       "type": "product-bar",
-      "disabled": true,
+      "disabled": false,
       "settings": {
         "auto_rotate": true,
         "color_scheme": ""
@@ -40,7 +40,7 @@
         "announcement-bar-0": {
           "disabled": true,
           "settings": {
-            "text": "Possibili ritardi sulla spedizione, causa manifestazione dei trasportatori."
+            "text": "Black Friday di Iperbrko.it"
           }
         }
       }
@@ -65,8 +65,8 @@
     }
   },
   "order": [
-    "product_bar_Qjjjd",
     "announcement-bar",
+    "product_bar_Qjjjd",
     "header"
   ]
 }
