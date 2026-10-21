@@ -38,7 +38,7 @@
       "settings": {},
       "blocks": {
         "announcement-bar-0": {
-          "disabled": true,
+          "disabled": false,
           "settings": {
             "text": "Black Friday di Iperbrko.it"
           }
