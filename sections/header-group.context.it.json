@@ -25,8 +25,8 @@
           "type": "product",
           "disabled": false,
           "settings": {
-            "text": "Black Friday di Iperbrko.it",
-            "icon": "E' arrivato il"
+            "text": "Possibili ritardi sulla spedizione, causa manifestazione dei trasportatori.",
+            "icon": ""
           }
         }
       },
@@ -40,7 +40,7 @@
         "announcement-bar-0": {
           "disabled": true,
           "settings": {
-            "text": "Black Friday di Iperbrko.it"
+            "text": "Possibili ritardi sulla spedizione, causa manifestazione dei trasportatori."
           }
         }
       }
