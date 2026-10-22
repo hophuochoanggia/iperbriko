@@ -23,6 +23,22 @@
             "link": "shopify://collections/natale"
           }
         },
+        "slide_aT3K3T": {
+          "type": "slide",
+          "disabled": false,
+          "settings": {
+            "image": "shopify://shop_images/Banner_volantino_ottobre_26.png",
+            "link": "shopify://collections/prodotti-promo-volantino",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "header-94d0a4e27aec5deb9217682711ddafab": null,
+            "text_alignment_mobile": "center"
+          }
+        },
         "slide_KDeLb6": {
           "type": "slide",
           "disabled": false,
@@ -35,7 +51,7 @@
             "text_alignment": "center",
             "image_overlay_opacity": 0,
             "color_scheme": "scheme-1",
-            "header-df5b342787f9928680fbcbf8085bf56d": null,
+            "header-471eea76595157ea50e2e85e0d8dcefd": null,
             "text_alignment_mobile": "center"
           }
         },
@@ -53,6 +69,7 @@
       },
       "block_order": [
         "slide_pFmW6a",
+        "slide_aT3K3T",
         "slide_KDeLb6",
         "slide_hdkXE3",
         "slide_AmDdiL"
