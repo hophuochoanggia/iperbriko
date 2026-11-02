@@ -15,7 +15,7 @@
   "sections": {
     "product_bar_Qjjjd": {
       "type": "product-bar",
-      "disabled": false,
+      "disabled": true,
       "settings": {
         "auto_rotate": true,
         "color_scheme": ""
