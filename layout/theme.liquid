@@ -32,6 +32,12 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
+    {% if request.locale.iso_code != 'it' %}
+      <title>{{ page_title | escape }}</title>
+      {% if page_description != blank %}
+        <meta name="description" content="{{ page_description | escape }}">
+      {% endif %}
+    {% else %}
     <title>
   {% if template contains 'product' %}
     {% assign mega_title = product.metafields.custom.mega_title %}
@@ -86,6 +92,8 @@
       {% endif %}
     {% else %}
       <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
     {% endif %}
 
     {% render 'meta-tags' %}
