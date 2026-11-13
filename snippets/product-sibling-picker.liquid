@@ -12,9 +12,10 @@
 {% assign sibling_handles = product.metafields.custom.siblings | split: ',' %}
 <div>
   {% for product_handle in sibling_handles %}
-    {% assign sibling = all_products[product_handle] %}
+    {% assign clean_handle = product_handle | strip %}
+    {% assign sibling = all_products[clean_handle] %}
 
-    {% if sibling %}
+    {% if sibling != blank and sibling.id != blank and sibling.url != blank %}
       {% assign first_image = sibling.images | first %}
       {% assign color = sibling.options_by_name.Color.values[0] %}
       <div class="sibling-swatch" style="display: inline-block; margin: 5px;">
@@ -23,7 +24,7 @@
           title="{{ sibling.title }}"
           class="tw-flex tw-flex-col tw-justify-center tw-items-center tw-gap-2"
         >
-          {% if first_image %}
+          {% if first_image != blank and first_image.src != blank %}
             <img
               src="{{ first_image.src | img_url: '100x100' }}"
               alt="{{ sibling.title }}"
@@ -33,7 +34,7 @@
             >
             <p>{{ color }}</p>
           {% else %}
-            <span>No image available</span>
+            <span>{{ sibling.title | escape }}</span>
           {% endif %}
         </a>
       </div>
