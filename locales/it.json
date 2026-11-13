@@ -189,14 +189,14 @@
       },
       "product_variants": "Varianti di prodotto",
       "brief_description": {
-        "title_1": "Italian Stock",
-        "description_1": "Italian wide on all orders.",
-        "title_2": "Authorized Dealer",
-        "description_2": "Genuine products guarantee.",
-        "title_3": "Secure payment",
-        "description_3": "Multiple payment options for your needs & security.",
-        "title_4": "100% Satisfaction",
-        "description_4": "We offer safe shopping experience."
+        "title_1": "Spedizioni",
+        "description_1": "Consulta le opzioni di spedizione per la tua destinazione.",
+        "title_2": "Rivenditore autorizzato",
+        "description_2": "Garanzia di prodotti originali.",
+        "title_3": "Pagamento sicuro",
+        "description_3": "Diverse opzioni di pagamento per le tue esigenze.",
+        "title_4": "Soddisfazione al 100%",
+        "description_4": "Offriamo un’esperienza di acquisto sicura."
       }
     },
     "modal": {
