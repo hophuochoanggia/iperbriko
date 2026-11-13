@@ -57,8 +57,8 @@
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "{% if request.locale.iso_code == 'fr' %}Accueil{% else %}Home{% endif %}",
-          "item": "{{ shop.url }}"
+          "name": "{{ 'iperbriko_ui.home' | t }}",
+          "item": "{{ request.origin }}{{ routes.root_url }}"
         },
         {
           "@type": "ListItem",
@@ -84,8 +84,8 @@
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "{% if request.locale.iso_code == 'fr' %}Accueil{% else %}Home{% endif %}",
-          "item": "{{ shop.url }}"
+          "name": "{{ 'iperbriko_ui.home' | t }}",
+          "item": "{{ request.origin }}{{ routes.root_url }}"
         },
         {
           "@type": "ListItem",
@@ -105,8 +105,8 @@
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "{% if request.locale.iso_code == 'fr' %}Accueil{% else %}Home{% endif %}",
-          "item": "{{ shop.url }}"
+          "name": "{{ 'iperbriko_ui.home' | t }}",
+          "item": "{{ request.origin }}{{ routes.root_url }}"
         },
         {
           "@type": "ListItem",
@@ -126,8 +126,8 @@
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "{% if request.locale.iso_code == 'fr' %}Accueil{% else %}Home{% endif %}",
-          "item": "{{ shop.url }}"
+          "name": "{{ 'iperbriko_ui.home' | t }}",
+          "item": "{{ request.origin }}{{ routes.root_url }}"
         }
       ]
     }
@@ -145,7 +145,7 @@
     >
       <ol class="breadcrumbs__list">
         <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link" href="/">{% if request.locale.iso_code == 'fr' %}Accueil{% else %}Home{% endif %}</a>
+          <a class="breadcrumbs__link" href="{{ routes.root_url }}">{{ 'iperbriko_ui.home' | t }}</a>
         </li>
         {%- if template == 'collection.collection-brand' -%}
           <li class="breadcrumbs__item">
@@ -179,7 +179,7 @@
                 class="breadcrumbs__link"
                 href="{{ routes.all_products_collection_url }}"
                 aria-current="page"
-                >{% if request.locale.iso_code == 'fr' %}Produits{% else %}Products{% endif %}</a
+                >{{ 'iperbriko_ui.products' | t }}</a
               >
             </li>
             {%- if collection.url -%}

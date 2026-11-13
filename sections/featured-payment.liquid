@@ -68,7 +68,7 @@
               class="tw-flex tw-gap-2 tw-text-gray-900 tw-font-medium tw-text-sm tw-items-center"
               aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}"
             >
-             {% if request.locale.iso_code == 'fr' %}Voir toutes les marques{% else %}See all{% endif %}
+             {{ 'iperbriko_ui.view_all_brands' | t }}
               {% render 'icon-right-arrow' %}
             </a>
           </div>
@@ -216,7 +216,7 @@
           class=" tw-font-medium tw-text-sm tw-items-center tw-flex tw-gap-2 tw-text-[#2B5899] tw-justify-center "
           aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}"
         >
-          See more
+          {{ 'iperbriko_ui.view_more' | t }}
           
           {% render 'icon-right-arrow-blue' %}
         </a>
