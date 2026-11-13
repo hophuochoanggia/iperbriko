@@ -47,7 +47,7 @@
     "search": {
       "search": "Suchen",
       "reset": "Suchbegriff zurücksetzen",
-      "header": "Nahe..."
+      "header": "Suchen..."
     },
     "cart": {
       "view": "Warenkorb ansehen ({{ count }})",
@@ -194,8 +194,8 @@
         "description_3": "Mehrere Zahlungsmöglichkeiten für Ihre Bedürfnisse und Sicherheit.",
         "title_4": "100% Zufriedenheit",
         "description_4": "Wir bieten ein sicheres Einkaufserlebnis.",
-        "title_1": "Italienische Aktie",
-        "description_1": "Italienisch groß auf alle Bestellungen."
+        "title_1": "Versand",
+        "description_1": "Prüfen Sie die Versandoptionen für Ihr Lieferziel."
       },
       "about_this_item": "Über dieses Produkt"
     },

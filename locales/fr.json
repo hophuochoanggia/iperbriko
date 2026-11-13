@@ -188,8 +188,8 @@
         "price_range": "{{ minimum }} - {{ maximum }}"
       },
       "brief_description": {
-        "title_1": "Stock en Italie",
-        "description_1": "Consultez nos conditions de livraison.",
+        "title_1": "Livraison",
+        "description_1": "Consultez les options de livraison pour votre destination.",
         "title_2": "Revendeur agréé",
         "description_2": "Garantie de produits authentiques.",
         "title_3": "Paiement sécurisé",

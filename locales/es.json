@@ -47,7 +47,7 @@
     "search": {
       "search": "Búsqueda",
       "reset": "Borrar término de búsqueda",
-      "header": "Cerca..."
+      "header": "Buscar..."
     },
     "cart": {
       "view": "Ver carrito ({{ count }})",
@@ -188,8 +188,8 @@
       },
       "product_variants": "Variantes de producto",
       "brief_description": {
-        "title_1": "Stock italiano.",
-        "description_1": "Envío a toda Italia en todos los pedidos.",
+        "title_1": "Envíos",
+        "description_1": "Consulta las opciones de envío para tu destino.",
         "title_2": "Distribuidor autorizado",
         "description_2": "Garantía de productos originales.",
         "title_3": "Pago seguro",

@@ -189,8 +189,8 @@
       "include_taxes": "Tax included.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
       "brief_description": {
-        "title_1": "Italian Stock",
-        "description_1": "Italian wide on all orders.",
+        "title_1": "Shipping",
+        "description_1": "Check the shipping options for your destination.",
         "title_2": "Authorized Dealer",
         "description_2": "Genuine products guarantee.",
         "title_3": "Secure payment",
