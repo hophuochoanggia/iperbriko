@@ -8,6 +8,14 @@
  * ------------------------------------------------------------
  */
 {
+  "iperbriko_ui": {
+    "online_only": "Online only",
+    "view_all_brands": "View all brands",
+    "view_more": "View more",
+    "home": "Home",
+    "products": "Products",
+    "call_web": "Call the online department: +39 0824 1490803"
+  },
   "general": {
     "table_of_content": "Table of Contents",
     "password_page": {

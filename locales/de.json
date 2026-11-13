@@ -8,6 +8,14 @@
  * ------------------------------------------------------------
  */
 {
+  "iperbriko_ui": {
+    "online_only": "Nur online",
+    "view_all_brands": "Alle Marken ansehen",
+    "view_more": "Mehr anzeigen",
+    "home": "Startseite",
+    "products": "Produkte",
+    "call_web": "Online-Abteilung anrufen: +39 0824 1490803"
+  },
   "general": {
     "password_page": {
       "login_form_heading": "Shop mit Passwort betreten:",

@@ -8,6 +8,14 @@
  * ------------------------------------------------------------
  */
 {
+  "iperbriko_ui": {
+    "online_only": "Solo online",
+    "view_all_brands": "Vedi tutte le marche",
+    "view_more": "Vedi altro",
+    "home": "Home",
+    "products": "Prodotti",
+    "call_web": "Chiama il reparto web: +39 0824 1490803"
+  },
   "general": {
     "table_of_content": "Sommario",
     "password_page": {

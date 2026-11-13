@@ -8,6 +8,14 @@
  * ------------------------------------------------------------
  */
 {
+  "iperbriko_ui": {
+    "online_only": "Exclusivement en ligne",
+    "view_all_brands": "Voir toutes les marques",
+    "view_more": "Voir plus",
+    "home": "Accueil",
+    "products": "Produits",
+    "call_web": "Appeler le service clients en ligne : +39 0824 1490803"
+  },
   "general": {
     "password_page": {
       "login_form_heading": "Accéder à la boutique à l'aide d'un mot de passe :",
