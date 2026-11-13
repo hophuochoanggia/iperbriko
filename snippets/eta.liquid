@@ -1,5 +1,5 @@
 <div id="delivery-container" style="display: none;">
-  <p class="estimated-delivery">{% if request.locale.iso_code == 'fr' %}Expédition prévue le :{% else %}Spedizione prevista il:{% endif %} <strong id="delivery-date"></strong>.</p>
+  <p class="estimated-delivery">{% case request.locale.iso_code %}{% when 'fr' %}Expédition prévue le :{% when 'es' %}Envío previsto el:{% when 'en' %}Estimated dispatch date:{% when 'de' %}Voraussichtlicher Versand am:{% else %}Spedizione prevista il:{% endcase %} <strong id="delivery-date"></strong>.</p>
 
   <script>
         const eta = {{ product.metafields.custom.eta | default: undefined }};
