@@ -306,7 +306,7 @@
     <div class="footer__content-bottom-wrapper tw-flex tw-justify-between tw-border-t-blue-2 tw-border-t tw-pt-8 tw-items-center{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
       <div class="footer__copyright caption">
         <small class="tw-font-normal tw-text-neutral-2 tw-text-sm"
-          >&copy; Copyright {{ 'now' | date: '%Y' }} - I-Home s.r.l. Unipersonale | {% if request.locale.iso_code == 'fr' %}N° de TVA : 14296891006 REA RM-1510598 - Capital social : 82.000 € - Tous droits réservés{% else %}P.iva: 14296891006 REA RM-1510598 - Capitale sociale 82.000 € - Tutti i diritti sono riservati{% endif %}
+          >&copy; Copyright {{ 'now' | date: '%Y' }} - I-Home s.r.l. Unipersonale | {% if request.locale.iso_code == 'fr' %}N° de TVA : 14296891006 REA RM-1510598 - Capital social : 82.000 € - Tous droits réservés{% elsif request.locale.iso_code == 'es' %}N.º de IVA: 14296891006 REA RM-1510598 - Capital social: 82.000 € - Todos los derechos reservados{% elsif request.locale.iso_code == 'en' %}VAT No.: 14296891006 REA RM-1510598 - Share capital: €82,000 - All rights reserved{% elsif request.locale.iso_code == 'de' %}USt-IdNr.: 14296891006 REA RM-1510598 - Stammkapital: 82.000 € - Alle Rechte vorbehalten{% else %}P.iva: 14296891006 REA RM-1510598 - Capitale sociale 82.000 € - Tutti i diritti sono riservati{% endif %}
         </small>
       </div>
       <div
