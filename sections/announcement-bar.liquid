@@ -23,18 +23,30 @@
   {{ block.shopify_attributes }}
 >
   <div class="page-width tw-flex tw-flex-row tw-items-center tw-justify-between">
-    <a
-      class="tw-flex tw-flex-row tw-gap-2 tw-items-center"
-      href="tel:{% if request.locale.iso_code == 'fr' %}+3908241490803{% else %}{{ settings.brand_phonenumber | strip_html }}{% endif %}"
-        {% if request.locale.iso_code == 'fr' %}aria-label="Appeler le service clients en ligne : +39 0824 1490803"{% endif %}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <div class="{{ icon_class }}">
-        {% render 'icon-phone' %}
-      </div>
-      <div class="reset-p tw-font-semibold tw-text-base ">{{ settings.brand_phonenumber | strip_html }}</div>
-    </a>
+    {%- liquid
+      case request.locale.iso_code
+        when 'fr'
+          assign store_phone_label = 'Magasin'
+          assign web_phone_label = 'Service en ligne'
+        when 'es'
+          assign store_phone_label = 'Tienda'
+          assign web_phone_label = 'Departamento web'
+        when 'de'
+          assign store_phone_label = 'Geschäft'
+          assign web_phone_label = 'Online-Abteilung'
+        when 'en'
+          assign store_phone_label = 'Store'
+          assign web_phone_label = 'Online department'
+        else
+          assign store_phone_label = 'Negozio'
+          assign web_phone_label = 'Reparto web'
+      endcase
+    -%}
+    <div class="tw-flex tw-items-center tw-text-sm tw-font-semibold" style="flex-wrap: wrap; column-gap: 0.75rem; row-gap: 0.25rem;">
+      <span class="{{ icon_class }}" aria-hidden="true">{% render 'icon-phone' %}</span>
+      <a href="tel:+390824974011">{{ store_phone_label }}: +39 0824 974011</a>
+      <a href="tel:+3908241490803">{{ web_phone_label }}: +39 0824 1490803</a>
+    </div>
 
     <div class="tw-flex tw-flex-row tw-gap-4">
       <a
