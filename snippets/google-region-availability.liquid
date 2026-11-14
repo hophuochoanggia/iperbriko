@@ -1,0 +1,75 @@
+{% comment %}Google regional availability: no changes to product inventory or prices.{% endcomment %}
+{% if request.page_type == 'product' %}
+<script>
+(() => {
+  if (new URLSearchParams(window.location.search).get('region_id') !== 'es_territori_esclusi') return;
+  document.documentElement.classList.add('iper-google-region-unavailable');
+  const messages = {
+    it: ['Non disponibile per questa destinazione', 'Questa offerta non è disponibile tramite Google per Canarie, Baleari, Ceuta e Melilla.', 'Spedisci a un’altra destinazione?'],
+    es: ['No disponible para este destino', 'Esta oferta no está disponible a través de Google para Canarias, Baleares, Ceuta y Melilla.', '¿Quieres enviar a otro destino?'],
+    fr: ['Indisponible pour cette destination', 'Cette offre n’est pas disponible via Google pour les Canaries, les Baléares, Ceuta et Melilla.', 'Livraison vers une autre destination ?'],
+    de: ['Für dieses Liefergebiet nicht verfügbar', 'Dieses Angebot ist über Google auf den Kanaren, den Balearen sowie in Ceuta und Melilla nicht verfügbar.', 'Lieferung an einen anderen Ort?'],
+    en: ['Not available for this destination', 'This offer is not available through Google for the Canary Islands, Balearic Islands, Ceuta or Melilla.', 'Shipping to a different destination?']
+  };
+  const language = (document.documentElement.lang || 'es').split('-')[0];
+  const message = messages[language] || messages.es;
+  const productScope = () => document.querySelector('product-info') || document.querySelector('main');
+  function markOffers(value) {
+    let changed = false;
+    if (!value || typeof value !== 'object') return false;
+    const types = [].concat(value['@type'] || []);
+    if (types.some(type => type === 'Offer' || type === 'AggregateOffer')) {
+      if (value.availability !== 'https://schema.org/OutOfStock') {
+        value.availability = 'https://schema.org/OutOfStock'; changed = true;
+      }
+    }
+    for (const nested of Object.values(value)) {
+      if (nested && typeof nested === 'object') changed = markOffers(nested) || changed;
+    }
+    return changed;
+  }
+  function applyRegion() {
+    const scope = productScope();
+    if (!scope) return;
+    for (const button of scope.querySelectorAll('form[action*="/cart/add"] [type="submit"]')) {
+      if (!button.disabled) button.disabled = true;
+      button.setAttribute('aria-disabled', 'true');
+    }
+    if (!document.getElementById('iper-google-region-notice')) {
+      const anchor = scope.querySelector('product-form') || scope.querySelector('h1');
+      if (anchor) {
+        const notice = document.createElement('div');
+        notice.id = 'iper-google-region-notice'; notice.setAttribute('role', 'status');
+        const heading = document.createElement('strong'); heading.textContent = message[0];
+        const detail = document.createElement('p'); detail.textContent = message[1];
+        const link = document.createElement('a'); link.textContent = message[2];
+        const destination = new URL(window.location.href); destination.searchParams.delete('region_id');
+        link.href = destination.href;
+        notice.append(heading, detail, link); anchor.before(notice);
+      }
+    }
+    for (const element of document.querySelectorAll('script[type="application/ld+json"]')) {
+      try { const data = JSON.parse(element.textContent); if (markOffers(data)) element.textContent = JSON.stringify(data); } catch (_) {}
+    }
+  }
+  document.addEventListener('submit', event => {
+    if (event.target.matches('form[action*="/cart/add"]') && productScope()?.contains(event.target)) {
+      event.preventDefault(); event.stopImmediatePropagation();
+    }
+  }, true);
+  document.addEventListener('DOMContentLoaded', () => {
+    applyRegion();
+    const scope = productScope();
+    if (scope) new MutationObserver(applyRegion).observe(scope, {childList: true, subtree: true});
+  }, {once: true});
+})();
+</script>
+<style>
+.iper-google-region-unavailable product-info .product-form__buttons,
+.iper-google-region-unavailable product-info .product__inventory,
+.iper-google-region-unavailable product-info pickup-availability { display: none !important; }
+#iper-google-region-notice { border: 1px solid #d1d5db; background: #f8fafc; border-radius: 6px; padding: 16px; margin: 16px 0; }
+#iper-google-region-notice p { margin: 8px 0; }
+#iper-google-region-notice a { text-decoration: underline; }
+</style>
+{% endif %}
