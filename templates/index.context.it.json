@@ -16,18 +16,11 @@
     "slideshow_pxARFp": {
       "settings": {},
       "blocks": {
-        "slide_pFmW6a": {
-          "disabled": false,
-          "settings": {
-            "image": "shopify://shop_images/Banner_Natale_generico_ita.png",
-            "link": "shopify://collections/natale"
-          }
-        },
         "slide_aT3K3T": {
           "type": "slide",
           "disabled": false,
           "settings": {
-            "image": "shopify://shop_images/Iperbriko_offerte_it_20261113.png",
+            "image": "shopify://shop_images/Banner_Iperbriko_2025_b0210a99-7900-4131-b9c8-b8f2a15d65b6.png",
             "link": "shopify://collections/prodotti-promo-volantino",
             "button_style_secondary": false,
             "box_align": "middle-center",
@@ -35,8 +28,15 @@
             "text_alignment": "center",
             "image_overlay_opacity": 0,
             "color_scheme": "scheme-1",
-            "header-94d0a4e27aec5deb9217682711ddafab": null,
+            "header-16847f5f39ab2f6d2e0218a32a9e68c6": null,
             "text_alignment_mobile": "center"
+          }
+        },
+        "slide_pFmW6a": {
+          "disabled": false,
+          "settings": {
+            "image": "shopify://shop_images/Banner_Natale_generico_ita.png",
+            "link": "shopify://collections/natale"
           }
         },
         "slide_KDeLb6": {
@@ -51,7 +51,7 @@
             "text_alignment": "center",
             "image_overlay_opacity": 0,
             "color_scheme": "scheme-1",
-            "header-471eea76595157ea50e2e85e0d8dcefd": null,
+            "header-c11f428ca279f7f9e96ea8dbe44f1d56": null,
             "text_alignment_mobile": "center"
           }
         },
