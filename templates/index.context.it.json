@@ -20,7 +20,7 @@
           "type": "slide",
           "disabled": false,
           "settings": {
-            "image": "shopify://shop_images/Banner_Iperbriko_2025_b0210a99-7900-4131-b9c8-b8f2a15d65b6.png",
+            "image": "shopify://shop_images/Banner_Iperbriko_2025.svg",
             "link": "shopify://collections/prodotti-promo-volantino",
             "button_style_secondary": false,
             "box_align": "middle-center",
@@ -28,7 +28,7 @@
             "text_alignment": "center",
             "image_overlay_opacity": 0,
             "color_scheme": "scheme-1",
-            "header-16847f5f39ab2f6d2e0218a32a9e68c6": null,
+            "header-aceef2da426197aa5aa51194340c79e2": null,
             "text_alignment_mobile": "center"
           }
         },
@@ -51,7 +51,7 @@
             "text_alignment": "center",
             "image_overlay_opacity": 0,
             "color_scheme": "scheme-1",
-            "header-c11f428ca279f7f9e96ea8dbe44f1d56": null,
+            "header-f30aa15f730cf38c0db94746d75b940b": null,
             "text_alignment_mobile": "center"
           }
         },
